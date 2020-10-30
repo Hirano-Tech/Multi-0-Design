@@ -1,1 +1,43 @@
 @import 'reset';
+@import url('https://fonts.googleapis.com/css2?family=Sawarabi+Mincho&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Parisienne&display=swap');
+
+* {
+  font-family: 'Sawarabi Mincho', sans-serif;
+  font-size: 16px;
+}
+
+.Eye-Catch {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+
+  &__Movie {
+    opacity: 0.5;
+  }
+
+  &__Title {
+    width: 100%;
+    font-family: 'Parisienne', cursive;
+    font-size: 5.0rem;
+    font-weight: bold;
+    line-height: 64px;
+    text-align: center;
+    margin: 0 auto ;
+    position: absolute;
+      top: 35%;
+      left: 0;
+
+    &--Front_Text {
+      font-family: 'Sawarabi Mincho', sans-serif;
+      font-size: 0.9rem;
+      margin-left: -336px;
+    }
+
+    &--After_Text {
+      font-family: 'Sawarabi Mincho', sans-serif;
+      font-size: 1.0rem;
+    }
+    }
+}
