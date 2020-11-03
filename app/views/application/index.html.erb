@@ -6,3 +6,54 @@
     <span class="Eye-Catch__Title--After_Text">インフルエンサーの着こなし投稿キュレーションサイト</span>
   </div>
 </div>
+
+<div class="Influencers">
+  <% ayaofpetitprice = { Name: "プチプラのあや",Gender: "Women", Image: "/assets/ayaofpetitprice.png", Twitter: "https://twitter.com/ayaofpetitprice", Instagram: "https://www.instagram.com/ayalilyflowers", YouTube: "https://www.youtube.com/channel/UCC_ElJAc9JrtkMm3zTTJ1_A" } %>
+  <% maru = { Name: "まる",Gender: "Women", Image: "/assets/maru.png", Twitter: "https://twitter.com/marumaru1530", Instagram: "https://www.instagram.com/marumaru1530", YouTube: "https://www.youtube.com/channel/UCA8AbMRz2xvJuTqPKrVscRw" } %>
+  <% genji = { Name: "げんじ",Gender: "Men", Image: "/assets/Genji.png", Twitter: "https://twitter.com/tyaaahaaan", Instagram: "https://www.instagram.com/genji_official_", YouTube: "https://www.youtube.com/channel/UCXrp0H7BPBHx2YTYMiiKEAA" } %>
+  <% influencers = [ ayaofpetitprice, maru, genji ] %>
+
+  <% influencers.each do |influencer| %>
+    <% if influencer[:Gender] == "Women" %>
+      <div class="Influencer Women">
+        <%= image_tag influencer[:Image], class: 'Influencer__Image' %>
+        <p><%= influencer[:Name] %></p>
+        <div class="Flexbox">
+          <p class="Influencer__Twitter">
+            <a href="<%= influencer[:Twitter] %>" target="_blank"><i class="fab fa-twitter Icon_Color"></i></a>
+          </p>
+          <p class="Influencer__Instagram">
+            <a href="<%= influencer[:Instagram] %>" target="_blank"><i class="fab fa-instagram Icon_Color"></i></a>
+          </p>
+          <p class="Influencer__YouTube">
+            <a href="<%= influencer[:YouTube] %>" target="_blank"><i class="fab fa-youtube Icon_Color"></i></a>
+          </p>
+        </div>
+
+        <div class="Influencer__Button">
+          <a href="#">詳細ページへ…</a>
+        </div>
+      </div>
+      <% elsif %>
+      <div class="Influencer Men">
+        <%= image_tag influencer[:Image], class: 'Influencer__Image' %>
+        <p><%= influencer[:Name] %></p>
+        <div class="Flexbox">
+          <p class="Influencer__Twitter">
+            <a href="<%= influencer[:Twitter] %>" target="_blank"><i class="fab fa-twitter Icon_Color"></i></a>
+          </p>
+          <p class="Influencer__Instagram">
+            <a href="<%= influencer[:Instagram] %>" target="_blank"><i class="fab fa-instagram Icon_Color"></i></a>
+          </p>
+          <p class="Influencer__YouTube">
+            <a href="<%= influencer[:YouTube] %>" target="_blank"><i class="fab fa-youtube Icon_Color"></i></a>
+          </p>
+        </div>
+
+        <div class="Influencer__Button Men__Button">
+          <a href="#">詳細ページへ…</a>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+</div>

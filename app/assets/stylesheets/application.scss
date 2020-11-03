@@ -3,13 +3,18 @@
 @import url('https://fonts.googleapis.com/css2?family=Parisienne&display=swap');
 
 * {
+  max-width: 1200px;
   font-family: 'Sawarabi Mincho', sans-serif;
+  color: #333;
   font-size: 16px;
+
+  a {
+    text-decoration: none;
+  }
 }
 
 .Eye-Catch {
   width: 100%;
-  max-width: 1200px;
   margin: 0 auto;
   position: relative;
 
@@ -25,9 +30,11 @@
     line-height: 64px;
     text-align: center;
     margin: 0 auto ;
+    z-index: 10;
     position: absolute;
-      top: 35%;
+      top: 30%;
       left: 0;
+
 
     &--Front_Text {
       font-family: 'Sawarabi Mincho', sans-serif;
@@ -39,5 +46,92 @@
       font-family: 'Sawarabi Mincho', sans-serif;
       font-size: 1.0rem;
     }
+  }
+}
+
+  .Influencers {
+    width: 765px;
+    margin: 40px 0 40px auto;
+    display: flex;
+      flex-wrap: wrap;
+
+    .Influencer {
+    background-color: rgba(255, 204, 255, 0.2);
+    width: 350px;
+    text-align: center;
+    border-radius: 30px;
+    box-shadow: 3px 3px 3px rgba(255,204,255, 0.4);
+    padding: 32px 0 24px 0;
+    margin: 0 32px 32px 0;
+
+    &__Image {
+      width: 120px;
+      height: 120px;
+      text-align: center;
     }
+
+    p {
+      font-size: 1.5rem;
+      font-weight: bold;
+      margin-top: 8px;
+    }
+
+    .Flexbox {
+      width: 200px;
+      margin: 0 auto;
+      display: flex;
+        flex-direction: row;
+    }
+
+    &__Twitter {
+      .Icon_Color {
+        color: #1da1f2;
+        font-size: 2.5rem;
+      }
+    }
+
+    &__Instagram {
+      margin: 0 40px;
+      .Icon_Color {
+        color: #f56040;
+        font-size: 2.5rem;
+      }
+    }
+
+    &__YouTube {
+      .Icon_Color {
+        color: #f1224d;
+        font-size: 2.5rem;
+      }
+    }
+
+    &__Button {
+      background-color: rgba(255,204,255, 0.6);
+      width: 7.0em;
+      border-radius: 10px;
+      box-shadow: 0 3px rgba(255,204,255, 1.0);
+      padding: 4px 8px;
+      margin: 8px 16px 0 auto;
+      a {
+        font-size: 0.8rem;
+        display: block;
+      }
+
+      &:active {
+        box-shadow: none;
+        position: relative;
+          top: 3px;
+      }
+    }
+  }
+
+  .Men {
+    background-color: rgba(153, 204, 255, 0.2);
+    box-shadow: 3px 3px 3px rgba(153, 204, 255, 0.4);
+  }
+
+  .Men__Button {
+    background-color: rgba(153, 204, 255, 0.6);
+    box-shadow: 0 3px rgba(153, 204, 255, 1.0);
+  }
 }
