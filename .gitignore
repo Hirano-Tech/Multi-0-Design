@@ -28,3 +28,6 @@
 
 # '.DS_Store' を Git に上げないようにする。
 .DS_Store
+
+# 画像ファイルを Git に上げないようにする。
+app/assets/images/*
