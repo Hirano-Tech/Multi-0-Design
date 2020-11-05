@@ -1,0 +1,29 @@
+.Eye-Catch {
+  width: 100%;
+  position: relative;
+  &__Movie { opacity: 0.5; }
+
+  &__Title {
+    width: 100%;
+    font-family: 'Parisienne', cursive;
+    font-size: 5.0rem;
+    font-weight: bold;
+    line-height: 64px;
+    text-align: center;
+    position: absolute;
+      top: 30%;
+      left: 0;
+
+
+    &--Front_Text {
+      font-family: 'Sawarabi Mincho', sans-serif;
+      font-size: 0.9rem;
+      margin-left: -336px;
+    }
+
+    &--After_Text {
+      font-family: 'Sawarabi Mincho', sans-serif;
+      font-size: 1.0rem;
+    }
+  }
+}

@@ -1,137 +1,147 @@
-@import 'reset';
+@import "reset";
+@import "mixin/index";
 @import url('https://fonts.googleapis.com/css2?family=Sawarabi+Mincho&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Parisienne&display=swap');
 
-* {
+#Wrapper {
   max-width: 1200px;
-  font-family: 'Sawarabi Mincho', sans-serif;
   color: #333;
+  font-family: 'Sawarabi Mincho', sans-serif;
   font-size: 16px;
+  margin: 0 auto;
 
   a {
+    color: #333;
     text-decoration: none;
   }
 }
 
-.Eye-Catch {
-  width: 100%;
-  margin: 0 auto;
+/* ↓ "aya/show.html.erb" ↓ */
+#Header_Show {
+  font-family: 'Parisienne', cursive;
+  height: 400px;
+  font-size: 2.5rem;
+  font-weight: bold;
   position: relative;
 
-  &__Movie {
-    opacity: 0.5;
-  }
-
-  &__Title {
-    width: 100%;
-    font-family: 'Parisienne', cursive;
-    font-size: 5.0rem;
-    font-weight: bold;
-    line-height: 64px;
-    text-align: center;
-    margin: 0 auto ;
-    z-index: 10;
+  &__Image {
+    z-index: -10;
     position: absolute;
-      top: 30%;
+      top: 0;
       left: 0;
 
-
-    &--Front_Text {
-      font-family: 'Sawarabi Mincho', sans-serif;
-      font-size: 0.9rem;
-      margin-left: -336px;
-    }
-
-    &--After_Text {
-      font-family: 'Sawarabi Mincho', sans-serif;
-      font-size: 1.0rem;
+    img {
+      width: 1200px;
+      height: 400px;
+      opacity: 0.5;
     }
   }
 }
 
-  .Influencers {
-    width: 765px;
-    margin: 40px 0 40px auto;
-    display: flex;
-      flex-wrap: wrap;
+#Contents_Show {
+  width: 965px;
+  margin: 0 auto;
+  position: relative;
 
-    .Influencer {
-    background-color: rgba(255, 204, 255, 0.2);
-    width: 350px;
-    text-align: center;
-    border-radius: 30px;
-    box-shadow: 3px 3px 3px rgba(255,204,255, 0.4);
-    padding: 32px 0 24px 0;
-    margin: 0 32px 32px 0;
+  .Influencer_Icon {
+    width: 730px;
+    position: absolute;
+      top: -120px;
+      left: 110px;
 
-    &__Image {
-      width: 120px;
-      height: 120px;
-      text-align: center;
+    img {
+      width: 240px;
+      height: 240px;
     }
 
-    p {
-      font-size: 1.5rem;
+    h2 {
+      font-size: 4.0rem;
       font-weight: bold;
-      margin-top: 8px;
+      position: absolute;
+        top: 28px;
+        left: 280px;
+    }
+  }
+
+  &__Flexbox {
+    display: flex;
+    flex-direction: row;
+
+    .Twitter {
+      width: calc(400px - 48px);
+      margin: 136px 40px 0 0;
     }
 
-    .Flexbox {
-      width: 200px;
-      margin: 0 auto;
-      display: flex;
-        flex-direction: row;
-    }
+    .YouTube {
+      &__iFrame { margin: 8px 0; }
 
-    &__Twitter {
-      .Icon_Color {
-        color: #1da1f2;
-        font-size: 2.5rem;
-      }
-    }
-
-    &__Instagram {
-      margin: 0 40px;
-      .Icon_Color {
-        color: #f56040;
-        font-size: 2.5rem;
-      }
-    }
-
-    &__YouTube {
-      .Icon_Color {
-        color: #f1224d;
-        font-size: 2.5rem;
-      }
-    }
-
-    &__Button {
-      background-color: rgba(255,204,255, 0.6);
-      width: 7.0em;
-      border-radius: 10px;
-      box-shadow: 0 3px rgba(255,204,255, 1.0);
-      padding: 4px 8px;
-      margin: 8px 16px 0 auto;
-      a {
-        font-size: 0.8rem;
-        display: block;
-      }
-
-      &:active {
-        box-shadow: none;
+      h3 {
+        width: 552px;
+        font-weight: bold;
+        padding-left: 8px;
+        border-top: solid 1px #333333;
+        border-left: solid 1px #333333;
+        border-right: solid 1px #ffffff;
+        border-bottom: solid 1px #ffffff;
+        margin: 16px 0;
         position: relative;
-          top: 3px;
+        .fa-youtube { font-size: 1.5rem; }
+        .Font_Big { font-size: 1.5rem; }
+
+        .Layer {
+          width: 560px;
+          height: 35px;
+          background-color: #c90436;
+          opacity: 0.3;
+          z-index: -10;
+          position: absolute;
+            top: 4px;
+            left: 4px;
+        }
       }
+
+      &__Pick-UP {
+        font-size: 1.3rem;
+        cursor: pointer;
+
+        .fa-hand-point-down { font-size: 1.5rem; }
+        .fa-star { font-size: 1.0rem; }
+        .Marker_Yellow { background: linear-gradient( transparent 50%, #ffff99 60% ); }
+        &--Text { font-size: 1.0rem; }
+      }
+
+      &__Products {
+        width: 150px;
+        height: 300px;
+        font-size: 0.8rem;
+        border-radius: 4px;
+        padding: 2px;
+        margin: 8px 0 0 24px;
+        display: flex;
+          flex-direction: row;
+
+        a {
+          width: 5.5em;
+          font-size: 0.6rem;
+          border-radius: 4px;
+          padding: 0 4px;
+          margin: 4px 0 0 auto;
+          background: rgba(201, 4, 54, 0.2);
+          box-shadow: 0 2px rgba(201, 4, 54, 0.3);
+          display: block;
+
+          &:active {
+            box-shadow: none;
+            position: relative;
+              top: 2px;
+          }
+        }
+
+        &__Product {
+          margin-right: 16px;
+        }
+      }
+      /* .Close { display:none; } */
     }
-  }
-
-  .Men {
-    background-color: rgba(153, 204, 255, 0.2);
-    box-shadow: 3px 3px 3px rgba(153, 204, 255, 0.4);
-  }
-
-  .Men__Button {
-    background-color: rgba(153, 204, 255, 0.6);
-    box-shadow: 0 3px rgba(153, 204, 255, 1.0);
   }
 }

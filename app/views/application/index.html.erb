@@ -8,52 +8,119 @@
 </div>
 
 <div class="Influencers">
-  <% ayaofpetitprice = { Name: "プチプラのあや",Gender: "Women", Image: "/assets/ayaofpetitprice.png", Twitter: "https://twitter.com/ayaofpetitprice", Instagram: "https://www.instagram.com/ayalilyflowers", YouTube: "https://www.youtube.com/channel/UCC_ElJAc9JrtkMm3zTTJ1_A" } %>
-  <% maru = { Name: "まる",Gender: "Women", Image: "/assets/maru.png", Twitter: "https://twitter.com/marumaru1530", Instagram: "https://www.instagram.com/marumaru1530", YouTube: "https://www.youtube.com/channel/UCA8AbMRz2xvJuTqPKrVscRw" } %>
-  <% genji = { Name: "げんじ",Gender: "Men", Image: "/assets/Genji.png", Twitter: "https://twitter.com/tyaaahaaan", Instagram: "https://www.instagram.com/genji_official_", YouTube: "https://www.youtube.com/channel/UCXrp0H7BPBHx2YTYMiiKEAA" } %>
-  <% influencers = [ ayaofpetitprice, maru, genji ] %>
+  <% @influencers.each do |influencer| %>
+    <div class="Influencer">
+      <% if influencer[:name] == "プチプラのあや" %>
+        <%= image_tag "/assets/ayaofpetitprice.png", class: 'Influencer__Image' %>
+      <% elsif influencer[:name] == "まる" %>
+        <%= image_tag "/assets/maru.png", class: 'Influencer__Image' %>
+      <% elsif influencer[:name] == "佐々木 あさひ" %>
+        <%= image_tag "/assets/asahi.png", class: 'Influencer__Image' %>
+      <% elsif influencer[:name] == "ななみ" %>
+        <%= image_tag "/assets/nanami.png", class: 'Influencer__Image' %>
+      <% elsif influencer[:name] == "佐藤 優里亜" %>
+        <%= image_tag "/assets/yuria.png", class: 'Influencer__Image' %>
+      <% elsif influencer[:name] == "かんだま" %>
+        <%= image_tag "/assets/kandama.png", class: 'Influencer__Image' %>
+      <% else %>
+        <%= image_tag "http://placehold.jp/120x120.png", class: 'Influencer__Image' %>
+      <% end %>
 
-  <% influencers.each do |influencer| %>
-    <% if influencer[:Gender] == "Women" %>
-      <div class="Influencer Women">
-        <%= image_tag influencer[:Image], class: 'Influencer__Image' %>
-        <p><%= influencer[:Name] %></p>
-        <div class="Flexbox">
-          <p class="Influencer__Twitter">
-            <a href="<%= influencer[:Twitter] %>" target="_blank"><i class="fab fa-twitter Icon_Color"></i></a>
-          </p>
-          <p class="Influencer__Instagram">
-            <a href="<%= influencer[:Instagram] %>" target="_blank"><i class="fab fa-instagram Icon_Color"></i></a>
-          </p>
-          <p class="Influencer__YouTube">
-            <a href="<%= influencer[:YouTube] %>" target="_blank"><i class="fab fa-youtube Icon_Color"></i></a>
-          </p>
-        </div>
+      <p><%= influencer[:name] %></p>
 
-        <div class="Influencer__Button">
-          <a href="#">詳細ページへ…</a>
-        </div>
+      <div class="Flexbox">
+        <p class="Influencer__Twitter">
+          <% if influencer[:name] == "プチプラのあや" %>
+            <a href="https://twitter.com/ayaofpetitprice" target="_blank">
+              <i class="fab fa-twitter Icon_Color"></i>
+            </a>
+          <% elsif influencer[:name] == "まる" %>
+            <a href="https://twitter.com/marumaru1530" target="_blank">
+              <i class="fab fa-twitter Icon_Color"></i>
+            </a>
+          <% elsif influencer[:name] == "佐々木 あさひ" %>
+            <a href="https://twitter.com/sasakiasahi" target="_blank">
+              <i class="fab fa-twitter Icon_Color"></i>
+            </a>
+          <% elsif influencer[:name] == "ななみ" %>
+            <a href="https://twitter.com/nanachan733" target="_blank">
+              <i class="fab fa-twitter Icon_Color"></i>
+            </a>
+          <% elsif influencer[:name] == "佐藤 優里亜" %>
+            <a href="https://twitter.com/yuriasato" target="_blank">
+              <i class="fab fa-twitter Icon_Color"></i>
+            </a>
+          <% elsif influencer[:name] == "かんだま" %>
+            <a href="https://twitter.com/KOIKE_WEEKEND" target="_blank">
+              <i class="fab fa-twitter Icon_Color"></i>
+            </a>
+          <% end %>
+        </p>
+
+        <p class="Influencer__Instagram">
+          <% if influencer[:name] == "プチプラのあや" %>
+            <a href="https://www.instagram.com/ayalilyflowers" target="_blank">
+              <i class="fab fa-instagram Icon_Color"></i>
+            </a>
+          <% elsif influencer[:name] == "まる" %>
+            <a href="https://www.instagram.com/marumaru1530" target="_blank">
+              <i class="fab fa-instagram Icon_Color"></i>
+            </a>
+          <% elsif influencer[:name] == "佐々木 あさひ" %>
+            <a href="https://www.instagram.com/asahisasaki" target="_blank">
+              <i class="fab fa-instagram Icon_Color"></i>
+            </a>
+          <% elsif influencer[:name] == "ななみ" %>
+            <a href="https://www.instagram.com/nanamin733" target="_blank">
+              <i class="fab fa-instagram Icon_Color"></i>
+            </a>
+          <% elsif influencer[:name] == "佐藤 優里亜" %>
+            <a href="https://www.instagram.com/yuriang_" target="_blank">
+              <i class="fab fa-instagram Icon_Color"></i>
+            </a>
+          <% elsif influencer[:name] == "かんだま" %>
+            <a href="https://www.instagram.com/koike_weekend" target="_blank">
+              <i class="fab fa-instagram Icon_Color"></i>
+            </a>
+          <% end %>
+        </p>
+
+        <p class="Influencer__YouTube">
+          <% if influencer[:name] == "プチプラのあや" %>
+            <a href="https://www.youtube.com/channel/UCC_ElJAc9JrtkMm3zTTJ1_A" target="_blank">
+              <i class="fab fa-youtube Icon_Color"></i>
+            </a>
+          <% elsif influencer[:name] == "まる" %>
+            <a href="https://www.youtube.com/channel/UCA8AbMRz2xvJuTqPKrVscRw" target="_blank">
+              <i class="fab fa-youtube Icon_Color"></i>
+            </a>
+          <% elsif influencer[:name] == "佐々木 あさひ" %>
+            <a href="https://www.youtube.com/channel/UCfCY70zRsvnnKzQ39mBq0rw" target="_blank">
+              <i class="fab fa-youtube Icon_Color"></i>
+            </a>
+          <% elsif influencer[:name] == "ななみ" %>
+            <a href="https://www.youtube.com/channel/UCLO1yCo0gDgpXhyM0fXfXXA" target="_blank">
+              <i class="fab fa-youtube Icon_Color"></i>
+            </a>
+          <% elsif influencer[:name] == "佐藤 優里亜" %>
+            <a href="https://www.youtube.com/user/yuriasatoch" target="_blank">
+              <i class="fab fa-youtube Icon_Color"></i>
+            </a>
+          <% elsif influencer[:name] == "かんだま" %>
+            <a href="https://www.youtube.com/channel/UC9bet8Rcj620A9n_qBj4nUg" target="_blank">
+              <i class="fab fa-youtube Icon_Color"></i>
+            </a>
+          <% end %>
+        </p>
       </div>
-      <% elsif %>
-      <div class="Influencer Men">
-        <%= image_tag influencer[:Image], class: 'Influencer__Image' %>
-        <p><%= influencer[:Name] %></p>
-        <div class="Flexbox">
-          <p class="Influencer__Twitter">
-            <a href="<%= influencer[:Twitter] %>" target="_blank"><i class="fab fa-twitter Icon_Color"></i></a>
-          </p>
-          <p class="Influencer__Instagram">
-            <a href="<%= influencer[:Instagram] %>" target="_blank"><i class="fab fa-instagram Icon_Color"></i></a>
-          </p>
-          <p class="Influencer__YouTube">
-            <a href="<%= influencer[:YouTube] %>" target="_blank"><i class="fab fa-youtube Icon_Color"></i></a>
-          </p>
-        </div>
 
-        <div class="Influencer__Button Men__Button">
-          <a href="#">詳細ページへ…</a>
-        </div>
+      <div class="Influencer__Button">
+        <% if influencer[:name] == "プチプラのあや" %>
+          <%= link_to "詳細ページへ…", application_path(influencer.id), method: :get %>
+        <% else %>
+          <%= link_to "詳細ページへ…", "#", method: :get %>
+        <% end %>
       </div>
-    <% end %>
+    </div>
   <% end %>
 </div>

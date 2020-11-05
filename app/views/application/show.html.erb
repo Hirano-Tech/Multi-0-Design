@@ -1,0 +1,72 @@
+<header id="Header_Show">
+  Multi-0-Design
+  <div id="Header_Show__Image">
+    <%= image_tag "/assets/aya_header.png" %>
+  </div>
+</header>
+
+<div id="Contents_Show">
+  <div class="Influencer_Icon">
+    <%= image_tag "/assets/ayaofpetitprice.png" %>
+    <h2><%= @influencer[:name] %></h2>
+  </div>
+
+  <div id="Contents_Show__Flexbox">
+    <div class="Twitter">
+      <a href="https://twitter.com/ayaofpetitprice" data-tweet-limit="2" data-theme="light" data-link-color="#1a0dab" data-chrome="noheader nofooter noborders noscrollbar" class="twitter-timeline">Tweets by ayaofpetitprice</a>
+      <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+    </div>
+
+    <div class="YouTube">
+      <h3>
+        <i class="fab fa-youtube"></i> <span class="Font_Big">しまむら</span> 今冬 主役級のニット満載！（前編）
+        <div class="Layer"></div>
+      </h3>
+      <div class="YouTube__iFrame">
+        <iframe width="560px" height="315px" src="https://www.youtube-nocookie.com/embed/CMgSBIW3X0c?controls=0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+      <dl id="YouTube_Items">
+        <dt class="YouTube__Pick-UP">
+          <i class="far fa-hand-point-down"></i>
+          <span class="Marker_Yellow"><i class="far fa-star"></i> Pick - UP！<i class="far fa-star"></i></span>
+          <span class="YouTube__Pick-UP--Text">紹介している商品はこちら！</span>
+        </dt>
+        <dd class="Close">
+          <div class="YouTube__Products">
+            <% products = Product.find([21151300, 21450139, 31350168, 21550168, 21550507]) %>
+            <% products = products.sample(3) %>
+            <% products.each do |product| %>
+              <div class="YouTube__Products__Product">
+                <% if product[:id] == 21151300 %>
+                  <%= image_tag "https://multi-0-design.s3-ap-northeast-1.amazonaws.com/images/Products/Shimamura/21151300.png" %>
+                <% elsif product[:id] == 21450139 %>
+                  <%= image_tag "https://multi-0-design.s3-ap-northeast-1.amazonaws.com/images/Products/Shimamura/21450139.png" %>
+                <% elsif product[:id] == 31350168 %>
+                  <%= image_tag "https://multi-0-design.s3-ap-northeast-1.amazonaws.com/images/Products/Shimamura/31350168.png" %>
+                <% elsif product[:id] == 21550168 %>
+                  <%= image_tag "https://multi-0-design.s3-ap-northeast-1.amazonaws.com/images/Products/Shimamura/21550168.png" %>
+                <% elsif product[:id] == 21550507 %>
+                  <%= image_tag "https://multi-0-design.s3-ap-northeast-1.amazonaws.com/images/Products/Shimamura/21550507.png" %>
+                <% end %>
+                <h4><%= product.name %></h4>
+                <p>
+                  <% if product[:id] == 21151300 %>
+                    <%= link_to "商品ページ", "https://www.shop-shimamura.com/item/0151300002076/?cl=211", target: "_blank" %>
+                  <% elsif product[:id] == 21450139 %>
+                    <%= link_to "商品ページ", "https://www.shop-shimamura.com/item/0150100004395/?cl=214", target: "_blank" %>
+                  <% elsif product[:id] == 31350168 %>
+                    <%= link_to "商品ページ", "https://www.shop-shimamura.com/item/0150100004424/?cl=313", target: "_blank" %>
+                  <% elsif product[:id] == 21550168 %>
+                    <%= link_to "商品ページ", "https://www.shop-shimamura.com/item/0150100004425/?cl=215", target: "_blank" %>
+                  <% elsif product[:id] == 21550507 %>
+                    <%= link_to "商品ページ", "https://www.shop-shimamura.com/item/0150500001898/?cl=215", target: "_blank" %>
+                  <% end %>
+                </p>
+              </div>
+            <% end %>
+          </div>
+        </dd>
+      </dl>
+    </div>
+  </div>
+</div>
