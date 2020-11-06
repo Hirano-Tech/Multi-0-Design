@@ -1,0 +1,17 @@
+<div class="Influencer_Icon">
+  <% if @influencer[:name] == "プチプラのあや" %>
+    <%= image_tag "https://multi-0-design.s3-ap-northeast-1.amazonaws.com/images/Influencers/ayaofpetitprice.png" %>
+  <% elsif @influencer[:name] == "まる" %>
+    <%= image_tag "https://multi-0-design.s3-ap-northeast-1.amazonaws.com/images/Influencers/maru.png" %>
+  <% elsif @influencer[:name] == "佐々木 あさひ" %>
+    <%= image_tag "https://multi-0-design.s3-ap-northeast-1.amazonaws.com/images/Influencers/asahi.png" %>
+  <% elsif @influencer[:name] == "ななみ" %>
+    <%= image_tag "https://multi-0-design.s3-ap-northeast-1.amazonaws.com/images/Influencers/nanami.png" %>
+  <% elsif @influencer[:name] == "佐藤 優里亜" %>
+    <%= image_tag "https://multi-0-design.s3-ap-northeast-1.amazonaws.com/images/Influencers/yuria.png" %>
+  <% elsif @influencer[:name] == "かんだま" %>
+    <%= image_tag "https://multi-0-design.s3-ap-northeast-1.amazonaws.com/images/Influencers/kandama.png" %>
+  <% end %>
+
+  <h2><%= @influencer[:name] %></h2>
+</div>

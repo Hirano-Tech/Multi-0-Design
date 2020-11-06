@@ -1,5 +1,6 @@
 <div class="Eye-Catch">
   <%= video_tag 'Background_Eye-Catch.mov', class: "Eye-Catch__Movie", width: "100%", autoplay: true, loop: true, muted: true, controls: false %>
+  <!-- <%= video_tag 'https://multi-0-design.s3-ap-northeast-1.amazonaws.com/videos/Background_Eye-Catch.mov', class: "Eye-Catch__Movie", width: "100%", autoplay: true, loop: true, muted: true, controls: false %> -->
   <div class="Eye-Catch__Title">
     <span class="Eye-Catch__Title--Front_Text">ふつうのひとの発信に価値を…</span><br>
     Multi-0-Design<br>
@@ -115,11 +116,7 @@
       </div>
 
       <div class="Influencer__Button">
-        <% if influencer[:name] == "プチプラのあや" %>
-          <%= link_to "詳細ページへ…", application_path(influencer.id), method: :get %>
-        <% else %>
-          <%= link_to "詳細ページへ…", "#", method: :get %>
-        <% end %>
+        <%= link_to "詳細ページへ…", influencer_path(influencer.id), method: :get %>
       </div>
     </div>
   <% end %>

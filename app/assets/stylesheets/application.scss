@@ -2,6 +2,8 @@
 @import "mixin/index";
 @import url('https://fonts.googleapis.com/css2?family=Sawarabi+Mincho&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Parisienne&display=swap');
+$UNIQLO_Color: #ed1d24;
+$Shimamura_Color: #c90436;
 
 #Wrapper {
   max-width: 1200px;
@@ -98,6 +100,8 @@
             top: 4px;
             left: 4px;
         }
+        .BG-Shimamura { background-color: $Shimamura_Color; }
+        .BG-UNIQLO { background-color: $UNIQLO_Color; }
       }
 
       &__Pick-UP {
