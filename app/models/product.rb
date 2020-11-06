@@ -28,6 +28,42 @@ class Product < ActiveHash::Base
       id: 21550507,
       name: "ワンピース",
       brand: "dear.ful"
-    }
+    },
+
+    {
+      id: 425974,
+      name: "エアリズムコットンオーバーサイズＴ（5分袖）",
+      brand: "UNIQLO"
+    },
+
+    {
+      id: 431421,
+      name: "ハイライズボーイフレンドジーンズ",
+      brand: "UNIQLO"
+    },
+
+    {
+      id: 426080,
+      name: "ワッシャーサテンスカートパンツ",
+      brand: "UNIQLO"
+    },
+
+    {
+      id: 433712,
+      name: "シアーバンドカラーシャツ（長袖）",
+      brand: "UNIQLO"
+    },
+
+    {
+      id: 429106,
+      name: "スリムストレートハイライズジーンズ",
+      brand: "UNIQLO"
+    },
+
+    {
+      id: 425371,
+      name: "シフォンプリーツロングスカート",
+      brand: "UNIQLO"
+    },
   ]
 end
