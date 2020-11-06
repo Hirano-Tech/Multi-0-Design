@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root to: 'application#index'
+  root to: 'influencers#index'
 
-  resources :application, only: :show
+  resources :influencers, only: :show
 end
