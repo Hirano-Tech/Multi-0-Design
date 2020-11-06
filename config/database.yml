@@ -49,6 +49,9 @@ test:
 #
 production:
   <<: *default
+  adapter: postgresql
   database: Multi-0-Design_production
   username: Multi-0-Design
   password: <%= ENV['MULTI-0-DESIGN_DATABASE_PASSWORD'] %>
+  encoding: unicode
+  pool: 5
