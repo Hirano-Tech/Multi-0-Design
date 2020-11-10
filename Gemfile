@@ -68,4 +68,5 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'pry-rails'
 gem 'jquery-rails'
+gem 'friendly_id', '~> 5.4.0'
 gem 'active_hash'
