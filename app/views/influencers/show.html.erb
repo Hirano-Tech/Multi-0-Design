@@ -1,26 +1,36 @@
-<%= render partial: "influencers/show/header" %>
+<header id="Header_Show">
+  <%= link_to "Multi-0-Design", root_path %>
+
+  <div id="Header_Show__Image">
+    <% if @influencer.header %>
+      <%= image_tag @url_shorter[:aws_images] + @influencer.header %>
+    <% else %>
+      <%= image_tag @url_shorter[:aws_images] + "Influencers/No-Cover.png" %>
+    <% end %>
+  </div>
+</header>
 
 <div id="Contents_Show">
-  <%= render partial: "influencers/show/influencer-icon" %>
+  <div class="Influencer_Icon">
+  <%= image_tag @url_shorter[:aws_images] + @influencer.icon %>
+  <h2><%= @influencer.name %></h2>
+  </div>
 
   <div id="Contents_Show__Flexbox">
-    <div class="Twitter">
-      <% if @influencer[:name] == "プチプラのあや" %>
-        <a href="https://twitter.com/ayaofpetitprice" data-tweet-limit="2" data-theme="light" data-link-color="#1a0dab" data-chrome="noheader nofooter noborders noscrollbar" class="twitter-timeline">Tweets by ayaofpetitprice</a>
-      <% elsif @influencer[:name] == "まる" %>
-        <a href="https://twitter.com/marumaru1530" data-tweet-limit="3" data-theme="light" data-link-color="#1a0dab" data-chrome="noheader nofooter noborders noscrollbar" class="twitter-timeline">Tweets by ayaofpetitprice</a>
-      <% elsif @influencer[:name] == "佐々木 あさひ" %>
-        <a href="https://twitter.com/sasakiasahi" data-tweet-limit="2" data-theme="light" data-link-color="#1a0dab" data-chrome="noheader nofooter noborders noscrollbar" class="twitter-timeline">Tweets by ayaofpetitprice</a>
-      <% elsif @influencer[:name] == "ななみ" %>
-        <a href="https://twitter.com/nanachan733" data-tweet-limit="2" data-theme="light" data-link-color="#1a0dab" data-chrome="noheader nofooter noborders noscrollbar" class="twitter-timeline">Tweets by ayaofpetitprice</a>
-      <% elsif @influencer[:name] == "佐藤 優里亜" %>
-        <a href="https://twitter.com/yuriasato" data-tweet-limit="2" data-theme="light" data-link-color="#1a0dab" data-chrome="noheader nofooter noborders noscrollbar" class="twitter-timeline">Tweets by ayaofpetitprice</a>
-      <% elsif @influencer[:name] == "かんだま" %>
-        <a href="https://twitter.com/KOIKE_WEEKEND" data-tweet-limit="2" data-theme="light" data-link-color="#1a0dab" data-chrome="noheader nofooter noborders noscrollbar" class="twitter-timeline">Tweets by ayaofpetitprice</a>
-      <% end %>
-      <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-    </div>
+    <%= render partial: "influencers/show/twitter" %>
 
-    <%= render partial: "influencers/show/youtube" %>
+    <% if @influencer[:name] == "プチプラのあや" %>
+      <%= render partial: "influencers/show/influencer/aya" %>
+    <% elsif @influencer[:name] == "まる" %>
+      <%= render partial: "influencers/show/influencer/maru" %>
+    <% elsif @influencer[:name] == "佐々木 あさひ" %>
+      <%= render partial: "influencers/show/influencer/asahi" %>
+    <% elsif @influencer[:name] == "ななみ" %>
+      <%= render partial: "influencers/show/influencer/nanami" %>
+    <% elsif @influencer[:name] == "佐藤 優里亜" %>
+      <%= render partial: "influencers/show/influencer/yuria" %>
+    <% elsif @influencer[:name] == "かんだま" %>
+      <%= render partial: "influencers/show/influencer/kandama" %>
+    <% end %>
   </div>
 </div>

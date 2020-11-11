@@ -1,0 +1,31 @@
+<div class="YouTube">
+  <h3>
+    <i class="fab fa-youtube"></i> <span class="Variable">fifth</span> 秋・冬使える！ニットコーデ
+    <div class="Layer BG-UNIQLO"></div>
+  </h3>
+  <div class="YouTube__iFrame">
+    <iframe width="560px" height="315px" src="https://www.youtube-nocookie.com/embed/iQEPL2rluWs?controls=0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+  </div>
+  <dl id="YouTube_Items">
+    <dt class="YouTube__Pick-UP">
+      <i class="far fa-hand-point-down"></i>
+      <span class="Marker_Yellow"><i class="far fa-star"></i> Pick - UP！<i class="far fa-star"></i></span>
+      <span class="YouTube__Pick-UP--Text">紹介している商品はこちら！</span>
+    </dt>
+    <dd class="Close">
+      <div class="YouTube__Products">
+        <% youtube_selects = Product.find_by_sql("SELECT * FROM products WHERE id = 3322 OR id = 13696 OR id = 16246 OR id = 16443 OR id = 17232 OR id = 18250 OR id = 18432 OR id = 18438 OR id = 18486 OR id = 325847 ORDER BY RAND() LIMIT 3;") %>
+
+        <% youtube_selects.each do |select| %>
+          <div class="YouTube__Products__Product">
+            <%= image_tag @url_shorter[:aws_images] + select.image %>
+            <h4><%= select.name %></h4>
+            <p>
+              <%= link_to "商品ページ", @url_shorter[:fifth] + select.distributor, class: "Ladies-Btn", target: "_blank" %>
+            </p>
+          </div>
+        <% end %>
+      </div>
+    </dd>
+  </dl>
+</div>
