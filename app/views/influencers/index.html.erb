@@ -10,25 +10,25 @@
 <div class="Influencers">
   <% @influencers.each do |influencer| %>
     <div class="Influencer">
-      <%= image_tag @influencer_icon + influencer.icon, class: 'Influencer__Image' %>
+      <%= image_tag @url_shorter[:aws_images] + influencer.icon, class: 'Influencer__Image' %>
 
       <p><%= influencer.name %></p>
 
       <div class="Flexbox">
         <p class="Influencer__Twitter">
-          <%= link_to @twitter + influencer.twitter, target: :_blank do %>
+          <%= link_to @url_shorter[:twitter] + influencer.twitter, target: :_blank do %>
             <i class="fab fa-twitter Icon_Color"></i>
           <% end %>
         </p>
 
         <p class="Influencer__Instagram">
-          <%= link_to @instagram + influencer.instagram, target: :_blank do %>
+          <%= link_to @url_shorter[:instagram] + influencer.instagram, target: :_blank do %>
             <i class="fab fa-instagram Icon_Color"></i>
           <% end %>
         </p>
 
         <p class="Influencer__YouTube">
-          <%= link_to @youtube + influencer.youtube, target: :_blank do %>
+          <%= link_to @url_shorter[:youtube] + influencer.youtube, target: :_blank do %>
             <i class="fab fa-youtube Icon_Color"></i>
           <% end %>
         </p>
