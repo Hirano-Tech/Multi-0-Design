@@ -1,13 +1,13 @@
-<div class="Eye-Catch">
-  <%= video_tag 'https://multi-0-design.s3-ap-northeast-1.amazonaws.com/videos/Background_Eye-Catch.mov', class: "Eye-Catch__Movie", width: "100%", autoplay: true, loop: true, muted: true, controls: false %>
-  <div class="Eye-Catch__Title">
-    <span class="Eye-Catch__Title--Front_Text">ふつうのひとの発信に価値を…</span><br>
+<header>
+  <%= video_tag 'https://multi-0-design.s3-ap-northeast-1.amazonaws.com/videos/Background_Eye-Catch.mov', class: "Eye-Catch", width: "100%", autoplay: true, loop: true, muted: true, controls: false %>
+  <section>
+    <span class="Text--Front">ふつうのひとの発信に価値を…</span><br>
     Multi-0-Design<br>
-    <span class="Eye-Catch__Title--After_Text">インフルエンサーの着こなし投稿キュレーションサイト</span>
-  </div>
-</div>
+    <span class="Text--After">インフルエンサーの着こなし投稿キュレーションサイト</span>
+  </section>
+</header>
 
-<div class="Influencers">
+<!-- <div class="Influencers">
   <% @influencers.each do |influencer| %>
     <div class="Influencer">
       <%= image_tag @url_shorter[:aws_images] + influencer.icon, class: 'Influencer__Image' %>
@@ -39,4 +39,4 @@
       </div>
     </div>
   <% end %>
-</div>
+</div> -->

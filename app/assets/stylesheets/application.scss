@@ -25,9 +25,10 @@ $Default_Font-Color: #333333;
   font-size: $Font_Size;
 }
 
-#Wrapper {
+body {
   @include Default_Font;
-  max-width: 1200px;
+  width: 100vw;
+  max-width: 1024px;
   margin: 0 auto;
   a { @include Default_Link-Text; }
 }
@@ -41,25 +42,40 @@ $Default_Font-Color: #333333;
   color: #000000;
 }
 
-.Eye-Catch {
-  width: 100%;
+header {
+  width: 100vw;
+  min-width: 320px;
+  max-width: 1024px;
   position: relative;
-  &__Movie { opacity: 0.5; }
+  .Eye-Catch { opacity: 0.5; }
 
-  &__Title {
+  section {
     @include Title_Font(5.0rem);
-    width: 100%;
-    line-height: 64px;
+    width: 100vw;
+    min-width: 320px;
+    max-width: 1024px;
     text-align: center;
+    line-height: 64px;
+    margin-top: 15%;
     position: absolute;
-      top: 30%;
+      top: 0;
       left: 0;
 
-    &--Front_Text {
-      @include Default_Font(0.9rem);
-      margin-left: -336px;
+    .Text {
+      &--Front { @include Default_Font(0.9rem); }
+      &--After { @include Default_Font; }
     }
-    &--After_Text { @include Default_Font; }
+
+    @media screen and (max-width: 767px) {
+      @include Title_Font(3.0rem);
+      line-height: 40px;
+      margin-top: 15%;
+
+      .Text {
+        &--Front { @include Default_Font(0.7rem); }
+        &--After { @include Default_Font(0.8rem); }
+      }
+    }
   }
 }
 /* ▲ トップページ（アイ・キャッチ部分）▲ */
@@ -133,6 +149,7 @@ $YouTube_Brand-Color: rgba(241, 34, 77, 1.0);
 /* ▲ トップページ（インフルエンサー部分）▲ */
 
 $UNIQLO_Brand-Color: rgba(237, 29, 36, 1.0);
+$GU_Brand-Color: rgba(33, 48, 149, 1.0);
 $Shimamura_Brand-Color: rgba(201, 4, 54, 1.0);
 /* ▼ インフルエンサー別 詳細ページ▼ */
 #Header_Show {
@@ -159,7 +176,10 @@ $Shimamura_Brand-Color: rgba(201, 4, 54, 1.0);
 
   .Influencer_Icon {
     width: 8 * 91px;
-    position: absolute; top: -120px; left: 8 * 13px;
+    position: absolute;
+      top: -120px;
+      left: 8 * 5px;
+
     img { @include Influencer_Icon(240px, 240px) }
 
     h2 {
@@ -187,6 +207,7 @@ $Shimamura_Brand-Color: rgba(201, 4, 54, 1.0);
       position: relative;
 
       .BG-UNIQLO { background-color: $UNIQLO_Brand-Color; }
+      .BG-GU { background-color: $GU_Brand-Color; }
       .BG-Shimamura { background-color: $Shimamura_Brand-Color; }
       .Layer {
         width: 8 * 70px;
