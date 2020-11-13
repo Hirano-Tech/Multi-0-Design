@@ -7,36 +7,32 @@
   </section>
 </header>
 
-<!-- <div class="Influencers">
-  <% @influencers.each do |influencer| %>
-    <div class="Influencer">
-      <%= image_tag @url_shorter[:aws_images] + influencer.icon, class: 'Influencer__Image' %>
+<section class="Sub-Title">
+  <h2><i class="fas fa-users"></i> Influencer</h2>
+  <p>インフルエンサー</p>
+</section>
 
-      <p><%= influencer.name %></p>
-
-      <div class="Flexbox">
-        <p class="Influencer__Twitter">
-          <%= link_to @url_shorter[:twitter] + influencer.twitter, target: :_blank do %>
-            <i class="fab fa-twitter Icon_Color"></i>
-          <% end %>
-        </p>
-
-        <p class="Influencer__Instagram">
-          <%= link_to @url_shorter[:instagram] + influencer.instagram, target: :_blank do %>
-            <i class="fab fa-instagram Icon_Color"></i>
-          <% end %>
-        </p>
-
-        <p class="Influencer__YouTube">
-          <%= link_to @url_shorter[:youtube] + influencer.youtube, target: :_blank do %>
-            <i class="fab fa-youtube Icon_Color"></i>
-          <% end %>
-        </p>
-      </div>
-
-      <div class="Influencer__Button">
-        <%= link_to "詳細ページへ…", influencer_path(influencer.name), method: :get %>
-      </div>
-    </div>
+<section id="Influencers">
+  <% influencers = Influencer.find_by_sql("SELECT * FROM influencers WHERE name = 'プチプラのあや' OR name = 'まる' OR name = '佐々木 あさひ' OR name = 'ななみ'") %>
+  <% influencers.each do |influencer| %>
+    <%= link_to influencer_path(influencer.name) do %>
+      <article>
+        <%= image_tag @url_shorter[:aws_images] + influencer.icon %>
+        <div class="Influencer_Content">
+          <h3><%= influencer.name %></h3>
+          <div class="Influencer_Content__Social-Network">
+            <%= link_to @url_shorter[:twitter] + influencer.twitter,class: "Influencer_Content__Social-Network--Twitter", target: :_blank do %>
+              <i class="fab fa-twitter Icon_Color"></i>
+            <% end %>
+            <%= link_to @url_shorter[:instagram] + influencer.instagram,class: "Influencer_Content__Social-Network--Instagram", target: :_blank do %>
+              <i class="fab fa-instagram Icon_Color"></i>
+            <% end %>
+            <%= link_to @url_shorter[:youtube] + influencer.youtube,class: "Influencer_Content__Social-Network--YouTube", target: :_blank do %>
+              <i class="fab fa-youtube Icon_Color"></i>
+            <% end %>
+          </div>
+        </div>
+      </article>
+    <% end %>
   <% end %>
-</div> -->
+</section>

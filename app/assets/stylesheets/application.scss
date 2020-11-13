@@ -1,9 +1,10 @@
 @import "reset";
 @import url('https://fonts.googleapis.com/css2?family=Sawarabi+Mincho&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Sawarabi+Gothic&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Parisienne&display=swap');
 
 /* ▼ 全ページ共通事項 ▼ */
-$Default_Font-Color: #333333;
+$Default_Font-Color: rgba(51, 51, 51, 1.0);
 @mixin Default_Font($Font_Size: 16px) {
   font-family: 'Sawarabi Mincho', sans-serif;
   font-size: $Font_Size;
@@ -62,7 +63,13 @@ header {
       left: 0;
 
     .Text {
-      &--Front { @include Default_Font(0.9rem); }
+      &--Front {
+        @include Default_Font(0.9rem);
+        width: 8 * 67px;
+        text-align: left;
+        margin: 0 auto -8 * 7px;
+        display: block;
+      }
       &--After { @include Default_Font; }
     }
 
@@ -72,7 +79,12 @@ header {
       margin-top: 15%;
 
       .Text {
-        &--Front { @include Default_Font(0.7rem); }
+        &--Front {
+          @include Default_Font(0.7rem);
+          width: 8 * 40px;
+          margin: 0 auto -8 * 4.5px;
+          display: block;
+        }
         &--After { @include Default_Font(0.8rem); }
       }
     }
@@ -80,68 +92,79 @@ header {
 }
 /* ▲ トップページ（アイ・キャッチ部分）▲ */
 
+.Sub-Title {
+  width: 782px;
+  margin: 8px 0 0 auto;
+  position: relative;
+
+  h2 {
+    font-family: 'Sawarabi Gothic', sans-serif;
+    color: rgba(51, 51, 51, 0.2);
+    font-size: 4.0rem;
+    font-weight: bold;
+  }
+
+  p {
+    font-size: 1.5rem;
+    position: absolute;
+      left: 8 * 12.5px;
+      bottom: 10px;
+  }
+}
+
 $Twitter_Brand-Color: rgba(29, 161, 242, 1.0);
 $Instagram_Brand-Color: rgba(245, 96, 64, 1.0);
 $YouTube_Brand-Color: rgba(241, 34, 77, 1.0);
 /* ▼ トップページ（インフルエンサー部分）▼ */
+@mixin Ladies_Show-Button {
+  background-color: rgba(255, 204, 255, 0.3);
+  box-shadow: 0 2px rgba(255,204,255, 0.6);
+  border-radius: 8 * 2px;
+  width: (8 * 2px) + 350px;
+  margin: 0 8 * 2px 8 * 2px auto;
+  &:active { @include Link_Button-Active; }
+}
+
 @mixin Influencer_Icon($Width, $Height) {
   width: $Width;
   height: $Height;
 }
 
-.Influencers {
-  width: 996px;
-  margin: 32px 0 0 auto;
+#Influencers {
+  width: 2.09 * ((8 * 2px) + 350px + 8px);
+  margin-left: auto;
   display: flex;
     flex-wrap: wrap;
 
-  @mixin Ladies_Background {
-    background-color: rgba(255, 204, 255, 0.3);
-    box-shadow: 4px 4px 4px rgba(255,204,255, 0.6);
-    border-radius: 8 * 2px;
-    width: 8 * 37px;
-    text-align: center;
-    padding: (8 * 4px) 0 (8 * 2px);
-    margin: 0 (8 * 4px) (8 * 2px) 0;
-  }
+  article {
+    @include Ladies_Show-Button;
+    img { @include Influencer_Icon(120px, 120px); }
+    padding: 16px 0 12px 8px;
+    display: flex;
+      flex-direction: row;
 
-  @mixin Ladies_Show-Button {
-    background-color: rgba(255,204,255, 0.7);
-    box-shadow: 0 2px rgba(255,204,255, 1.0);
-    border-radius: 8 * 2px;
-    width: 7.0em;
-    padding: 2px;
-    margin: 0 (8 * 2px) 0 auto;
-    &:active { @include Link_Button-Active; }
-  }
+    .Influencer_Content {
+      width: 8 * 29px;
+      margin-left: 8px;
+      align-self: center;
 
-  .Influencer {
-    @include Ladies_Background;
-    &__Image { @include Influencer_Icon(120px, 120px); }
+      h3 {
+        font-size: 1.5rem;
+        font-weight: bold;
+      }
 
-    p {
-      font-size: 1.5rem;
-      font-weight: bold;
-    }
-
-    .Flexbox {
-      width: 8 * 25px;
-      margin: 8px auto;
-      display: flex;
-        flex-direction: row;
-    }
-    &__Twitter { .Icon_Color { @include Font_Awesome($Twitter_Brand-Color, 2.5rem); } }
-    &__YouTube { .Icon_Color { @include Font_Awesome($YouTube_Brand-Color, 2.5rem); } }
-    &__Instagram {
-      .Icon_Color { @include Font_Awesome($Instagram_Brand-Color, 2.5rem); }
-      margin: 0 40px;
-    }
-
-    &__Button {
-      @include Ladies_Show-Button;
-      a {
-        font-size: 0.8rem;
-        display: block;
+      &__Social-Network {
+        width: 8 * 12.5px;
+        margin-left: auto;
+        &--Twitter {
+          margin-right: 8px;
+          .Icon_Color { @include Font_Awesome($Twitter_Brand-Color, 1.5rem); }
+        }
+        &--Instagram {
+          margin-right: 8px;
+          .Icon_Color { @include Font_Awesome($Instagram_Brand-Color, 1.5rem); }
+        }
+        &--YouTube { .Icon_Color { @include Font_Awesome($YouTube_Brand-Color, 1.5rem); } }
       }
     }
   }
