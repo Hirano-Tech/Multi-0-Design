@@ -14,14 +14,13 @@
     </dt>
     <dd class="Close">
       <div class="YouTube__Products">
-        <% youtube_selects = Product.find_by_sql("SELECT * FROM products WHERE id = 21151300 OR id = 21450139 OR id = 21550168 OR id = 21550507 OR id = 31350168 ORDER BY RAND() LIMIT 3;") %>
-
+        <% youtube_selects = Product.find_by_sql("SELECT * FROM products WHERE id = 21151300 OR id = 21450139 OR id = 21550168 OR id = 21550507 OR id = 31350168 ORDER BY random() LIMIT 3;") %>
         <% youtube_selects.each do |select| %>
           <div class="YouTube__Products__Product">
             <%= image_tag @url_shorter[:aws_images] + select.image %>
             <h4><%= select.name %></h4>
             <p>
-              <%= link_to "商品ページ", @url_shorter[:shimamura] + select.distributor, class: "Ladies-Btn", target: "_blank" %>
+              <%= link_to "商品ページ", select.distributor, class: "Ladies-Btn", target: "_blank" %>
             </p>
           </div>
         <% end %>
