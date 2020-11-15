@@ -5,10 +5,20 @@
 
 /* ▼ 全ページ共通事項 ▼ */
 $Default_Font-Color: rgba(51, 51, 51, 1.0);
+@mixin UNIQLO_Brand-Color($Opacity: 1.0) { background-color:rgba(#ff0000, $Opacity); }
+@mixin GU_Brand-Color($Opacity: 1.0) { background-color:rgba(#213095, $Opacity); }
+@mixin Shimamura_Brand-Color($Opacity: 1.0) { background-color:rgba(#c90336, $Opacity); }
 @mixin Default_Font($Font_Size: 16px) {
   font-family: 'Sawarabi Mincho', sans-serif;
   font-size: $Font_Size;
   color: $Default_Font-Color;
+}
+
+@mixin Title_Font($Font_Size) {
+  font-family: 'Parisienne', cursive;
+  font-size: $Font_Size;
+  font-weight: bold;
+  color: #000000;
 }
 
 @mixin Default_Link-Text {
@@ -26,6 +36,11 @@ $Default_Font-Color: rgba(51, 51, 51, 1.0);
   font-size: $Font_Size;
 }
 
+@mixin Influencer_Icon($Width, $Height) {
+  width: $Width;
+  height: $Height;
+}
+
 body {
   @include Default_Font;
   width: 100vw;
@@ -36,13 +51,6 @@ body {
 /* ▲ 全ページ共通事項 ▲ */
 
 /* ▼ トップページ（アイ・キャッチ部分）▼ */
-@mixin Title_Font($Font_Size) {
-  font-family: 'Parisienne', cursive;
-  font-size: $Font_Size;
-  font-weight: bold;
-  color: #000000;
-}
-
 header {
   width: 100vw;
   min-width: 320px;
@@ -141,11 +149,6 @@ $YouTube_Brand-Color: rgba(241, 34, 77, 1.0);
   &:active { @include Link_Button-Active; }
 }
 
-@mixin Influencer_Icon($Width, $Height) {
-  width: $Width;
-  height: $Height;
-}
-
 #Influencers {
   width: (358px * 2) + (16px * 2);
   margin-left: auto;
@@ -214,125 +217,4 @@ $YouTube_Brand-Color: rgba(241, 34, 77, 1.0);
 }
 /* ▲ トップページ（インフルエンサー部分）▲ */
 
-
-
-
-
-
-
-
-$UNIQLO_Brand-Color: rgba(237, 29, 36, 1.0);
-$GU_Brand-Color: rgba(33, 48, 149, 1.0);
-$Shimamura_Brand-Color: rgba(201, 4, 54, 1.0);
-/* ▼ インフルエンサー別 詳細ページ▼ */
-#Header_Show {
-  @include Title_Font(2.0rem);
-  height: 400px;
-  position: relative;
-
-  &__Image {
-    z-index: -10;
-    position: absolute; top: 0; left: 0;
-
-    img {
-      width: 1200px;
-      height: 400px;
-      opacity: 0.5;
-    }
-  }
-}
-
-#Contents_Show {
-  width: 8 * 120px;
-  margin: 0 auto;
-  position: relative;
-
-  .Influencer_Icon {
-    width: 8 * 91px;
-    position: absolute;
-      top: -120px;
-      left: 8 * 5px;
-
-    img { @include Influencer_Icon(240px, 240px) }
-
-    h2 {
-      font-size: 4.0rem;
-      font-weight: bold;
-      position: absolute; top: 8 * 4px; left: 8 * 35px;
-    }
-  }
-
-  &__Flexbox { display: flex; flex-direction: row;
-    .Twitter {
-      width: 8 * 44px;
-      margin: (8 * 20px) (8 * 5px) 0 0;
-    }
-
-    @mixin YouTube_Title {
-      font-weight: bold;
-      width: 8 * 69px;
-      padding-left: 8px;
-      margin: (8 * 2px) 0;
-      border-top: solid 1px #333333;
-      border-right: solid 1px #ffffff;
-      border-bottom: solid 1px #ffffff;
-      border-left: solid 1px #333333;
-      position: relative;
-
-      .BG-UNIQLO { background-color: $UNIQLO_Brand-Color; }
-      .BG-GU { background-color: $GU_Brand-Color; }
-      .BG-Shimamura { background-color: $Shimamura_Brand-Color; }
-      .Layer {
-        width: 8 * 70px;
-        height: 8 * 4.5px;
-        opacity: 0.3;
-        z-index: -10;
-        position: absolute; top: 4px; left: 4px;
-      }
-    }
-
-    .YouTube {
-      &__iFrame { margin: 8px 0; }
-
-      h3 {
-        @include YouTube_Title;
-        .fa-youtube { @include Font_Awesome($Default_Font-Color, 1.5rem); }
-        .Variable { font-size: 1.5rem; }
-      }
-
-      &__Pick-UP {
-        font-size: 1.3rem;
-        .fa-hand-point-down { font-size: 1.5rem; }
-        .fa-star { font-size: 1.0rem; }
-        &--Text { font-size: 1.0rem; }
-        .Marker_Yellow { background: linear-gradient( transparent 50%, #ffff99 60% ); }
-        cursor: pointer;
-      }
-
-      &__Products {
-        font-size: 0.8rem;
-        margin: 8px 0 0 (8 * 3px);
-        display: flex; flex-direction: row;
-        &__Product { margin-right: 16px; }
-
-        @mixin Product_Ladies-Btn {
-          background: rgba(255,204,255, 0.7);
-          box-shadow: 0 2px rgba(255,204,255, 1.0);
-        }
-
-        a {
-          width: 5.0em;
-          font-size: 0.7rem;
-          border-radius: 8px;
-          padding: 1px 6px;
-          margin: 8px 0 0 auto;
-          display: block;
-          &.Ladies-Btn { @include Product_Ladies-Btn; }
-          &:active { @include Link_Button-Active; }
-        }
-      }
-      /* .Close { display:none; } */
-    }
-  }
-}
-/* ▲ インフルエンサー別 詳細ページ ▲ */
+#Influencer_Show { @import "mixin/show"; }
