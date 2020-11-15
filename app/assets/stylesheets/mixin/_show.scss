@@ -1,0 +1,167 @@
+#Show_Header {
+  height: 400px;
+  position: relative;
+
+  nav {
+    @include Title_Font(1.5rem);
+    padding: 8px 0 8px 8px;
+    display: flex;
+      justify-content: space-between;
+
+    div {
+      margin-right: 8px;
+      display: flex;
+        flex-direction: row;
+
+      p {
+        @include Default_Font(0.8rem);
+        margin-right: 8px;
+      }
+    }
+  }
+
+  &__Image {
+    z-index: -10;
+    position: absolute; top: 0; left: 0;
+
+    img {
+      width: 100%;
+      height: 400px;
+      object-fit: cover;
+      opacity: 0.5;
+    }
+  }
+}
+
+#Influencer_Title {
+  width: 960px;
+  margin: 0 auto;
+  position: relative;
+
+  img {
+    @include Influencer_Icon(240px, 240px);
+    margin-left: 8 * 10px;
+    position: absolute;
+      top: -120px;
+  }
+
+  .Flexbox_Row {
+    display: flex;
+      flex-direction: row;
+
+    h2 {
+      font-size: 4.0rem;
+      font-weight: bold;
+      margin-left: 8 * 10px + 240px + 16px;
+        /* 画像の余白（右）＋ 画像サイズ ＋ 余白 */
+      margin-right: 16px;
+      position: relative;
+        top: -16 * 5px;
+    }
+
+    p {
+      position: relative;
+        top: -16 * 2px;
+
+      .Twitter_Icon-Color {
+        @include Font_Awesome($Twitter_Brand-Color, 2.0rem);
+        margin-right: 8px;
+      }
+      .Instagram_Icon-Color {
+        @include Font_Awesome($Instagram_Brand-Color, 2.0rem);
+        margin-right: 8px;
+      }
+      .YouTube_Icon-Color { @include Font_Awesome($YouTube_Brand-Color, 2.0rem); }
+    }
+  }
+}
+
+#YouTube {
+    width: 560px;
+    font-weight: bold;
+    margin-top: 8 * 3px;
+    margin-left: 8 * 14 + 240px + 16px;
+      // 画像の余白（右）＋ 画像サイズ ＋ 余白
+
+    @mixin YouTube_Title {
+      padding-left: 8px;
+      border-top: solid 1px #333333;
+      border-right: solid 1px #ffffff;
+      border-bottom: solid 1px #ffffff;
+      border-left: solid 1px #333333;
+      position: relative;
+
+      .Layer {
+        width: 8 * 70px;
+        height: 8 * 4.5px;
+        z-index: -10;
+        position: absolute; top: 4px; left: 4px;
+      }
+      .BG-UNIQLO { @include UNIQLO_Brand-Color; }
+      .BG-GU { @include GU_Brand-Color; }
+      .BG-Shimamura { @include Shimamura_Brand-Color(.3); }
+    }
+
+  h3 {
+    @include YouTube_Title;
+    margin-bottom: 8 * 2px;
+    .fa-youtube { @include Font_Awesome($Default_Font-Color, 1.5rem); }
+    .Variable { font-size: 1.5rem; }
+  }
+}
+
+// #Contents_Show {
+//   width: 8 * 120px;
+//   margin: 0 auto;
+//   position: relative;
+
+//   &__Flexbox { display: flex; flex-direction: row;
+//     .Twitter {
+//       width: 8 * 44px;
+//       margin: (8 * 20px) (8 * 5px) 0 0;
+//     }
+
+//     .YouTube {
+//       &__iFrame { margin: 8px 0; }
+
+//       h3 {
+//         @include YouTube_Title;
+//         .fa-youtube { @include Font_Awesome($Default_Font-Color, 1.5rem); }
+//         .Variable { font-size: 1.5rem; }
+//       }
+
+//       &__Pick-UP {
+//         font-size: 1.3rem;
+//         .fa-hand-point-down { font-size: 1.5rem; }
+//         .fa-star { font-size: 1.0rem; }
+//         &--Text { font-size: 1.0rem; }
+//         .Marker_Yellow { background: linear-gradient( transparent 50%, #ffff99 60% ); }
+//         cursor: pointer;
+//       }
+
+//       &__Products {
+//         font-size: 0.8rem;
+//         margin: 8px 0 0 (8 * 3px);
+//         display: flex; flex-direction: row;
+//         &__Product { margin-right: 16px; }
+
+//         @mixin Product_Ladies-Btn {
+//           background: rgba(255,204,255, 0.7);
+//           box-shadow: 0 2px rgba(255,204,255, 1.0);
+//         }
+
+//         a {
+//           width: 5.0em;
+//           font-size: 0.7rem;
+//           border-radius: 8px;
+//           padding: 1px 6px;
+//           margin: 8px 0 0 auto;
+//           display: block;
+//           &.Ladies-Btn { @include Product_Ladies-Btn; }
+//           &:active { @include Link_Button-Active; }
+//         }
+//       }
+//       /* .Close { display:none; } */
+//     }
+//   }
+// }

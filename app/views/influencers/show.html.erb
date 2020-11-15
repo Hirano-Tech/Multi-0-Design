@@ -1,36 +1,72 @@
-<header id="Header_Show">
-  <%= link_to "Multi-0-Design", root_path %>
+<section id="Influencer_Show">
+  <div id="Show_Header">
+    <nav>
+      <%= link_to "Multi-0-Design", root_path %>
 
-  <div id="Header_Show__Image">
-    <% if @influencer.header %>
-      <%= image_tag @url_shorter[:aws_images] + @influencer.header %>
-    <% else %>
-      <%= image_tag @url_shorter[:aws_images] + "Influencers/No-Cover.png" %>
-    <% end %>
+      <% influencers = Influencer.find_by_sql("SELECT * FROM influencers WHERE name = 'プチプラのあや' OR name = 'まる' OR name = '佐々木 あさひ' OR name = 'ななみ'") %>
+      <div>
+        <p><%= link_to "トップページ", root_path %></p>
+        <% influencers.each do |influencer| %>
+          <p>
+            <%= link_to influencer.name, influencer_path(influencer.name) %>
+          </p>
+        <% end %>
+      </div>
+    </nav>
+
+    <div id="Show_Header__Image">
+      <% if @influencer.header %>
+        <%= image_tag @url_shorter[:aws_images] + @influencer.header %>
+      <% else %>
+        <%= image_tag @url_shorter[:aws_images] + "Influencers/No-Cover.png" %>
+      <% end %>
+    </div>
   </div>
-</header>
 
-<div id="Contents_Show">
-  <div class="Influencer_Icon">
+  <div id="Influencer_Title">
     <%= image_tag @url_shorter[:aws_images] + @influencer.icon %>
-    <h2><%= @influencer.name %></h2>
+    <div class="Flexbox_Row">
+      <h2><%= @influencer.name %></h2>
+      <p>
+        <%= link_to @url_shorter[:twitter] + @influencer.twitter, target: :_blank do %>
+          <i class="fab fa-twitter Twitter_Icon-Color"></i>
+        <% end %>
+        <%= link_to @url_shorter[:instagram] + @influencer.instagram, target: :_blank do %>
+          <i class="fab fa-instagram Instagram_Icon-Color"></i>
+        <% end %>
+        <%= link_to @url_shorter[:youtube] + @influencer.youtube, target: :_blank do %>
+          <i class="fab fa-youtube YouTube_Icon-Color"></i>
+        <% end %>
+      </p>
+    </div>
   </div>
 
+  <% if @influencer[:name] == "プチプラのあや" %>
+    <%= render partial: "influencers/show/influencer/aya" %>
+  <% elsif @influencer[:name] == "まる" %>
+    <%= render partial: "influencers/show/influencer/maru" %>
+  <% elsif @influencer[:name] == "佐々木 あさひ" %>
+    <%= render partial: "influencers/show/influencer/asahi" %>
+  <% elsif @influencer[:name] == "ななみ" %>
+    <%= render partial: "influencers/show/influencer/nanami" %>
+  <% elsif @influencer[:name] == "佐藤 優里亜" %>
+    <%= render partial: "influencers/show/influencer/yuria" %>
+  <% elsif @influencer[:name] == "かんだま" %>
+    <%= render partial: "influencers/show/influencer/kandama" %>
+  <% end %>
+</section>
+
+
+
+
+
+
+
+
+<!-- <div id="Contents_Show">
   <div id="Contents_Show__Flexbox">
     <%= render partial: "influencers/show/twitter" %>
 
-    <% if @influencer[:name] == "プチプラのあや" %>
-      <%= render partial: "influencers/show/influencer/aya" %>
-    <% elsif @influencer[:name] == "まる" %>
-      <%= render partial: "influencers/show/influencer/maru" %>
-    <% elsif @influencer[:name] == "佐々木 あさひ" %>
-      <%= render partial: "influencers/show/influencer/asahi" %>
-    <% elsif @influencer[:name] == "ななみ" %>
-      <%= render partial: "influencers/show/influencer/nanami" %>
-    <% elsif @influencer[:name] == "佐藤 優里亜" %>
-      <%= render partial: "influencers/show/influencer/yuria" %>
-    <% elsif @influencer[:name] == "かんだま" %>
-      <%= render partial: "influencers/show/influencer/kandama" %>
-    <% end %>
+
   </div>
-</div>
+</div> -->
