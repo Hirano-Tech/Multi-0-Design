@@ -1,8 +1,19 @@
-<div class="YouTube">
+<section id="YouTube">
   <h3>
-    <i class="fab fa-youtube"></i> <span class="Variable">しまむら</span> 今冬 主役級のニット満載！（前編）
+    <i class="fab fa-youtube"></i>
+    <span class="Variable">しまむら</span> 今冬 主役級のニット満載！（前編）
     <div class="Layer BG-Shimamura"></div>
   </h3>
+
+  <iframe width="560px" height="315px" src="https://www.youtube-nocookie.com/embed/CMgSBIW3X0c?controls=0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</section>
+
+
+
+
+
+<!-- <div class="YouTube">
+
   <div class="YouTube__iFrame">
     <iframe width="560px" height="315px" src="https://www.youtube-nocookie.com/embed/CMgSBIW3X0c?controls=0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
   </div>
@@ -14,7 +25,12 @@
     </dt>
     <dd class="Close">
       <div class="YouTube__Products">
-        <% youtube_selects = Product.find_by_sql("SELECT * FROM products WHERE id = 21151300 OR id = 21450139 OR id = 21550168 OR id = 21550507 OR id = 31350168 ORDER BY random() LIMIT 3;") %>
+        <% if Rails.env.development? %>
+          <% youtube_selects = Product.find_by_sql("SELECT * FROM products WHERE id = 21151300 OR id = 21450139 OR id = 21550168 OR id = 21550507 OR id = 31350168 ORDER BY RAND() LIMIT 3;") %>
+        <% end %>
+        <% if Rails.env.production? %>
+          <% youtube_selects = Product.find_by_sql("SELECT * FROM products WHERE id = 21151300 OR id = 21450139 OR id = 21550168 OR id = 21550507 OR id = 31350168 ORDER BY RANDOM() LIMIT 3;") %>
+        <% end %>
         <% youtube_selects.each do |select| %>
           <div class="YouTube__Products__Product">
             <%= image_tag @url_shorter[:aws_images] + select.image %>
@@ -27,4 +43,4 @@
       </div>
     </dd>
   </dl>
-</div>
+</div> -->
