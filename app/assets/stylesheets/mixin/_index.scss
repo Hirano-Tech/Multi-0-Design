@@ -1,0 +1,197 @@
+header {
+  width: 100vw;
+  min-width: 320px;
+  max-width: 1024px;
+  // margin-bottom: 16 * 8px;
+  position: relative;
+  .Eye-Catch { opacity: 0.5; }
+
+  div {
+    @include Title_Font(5.0rem);
+    width: 100vw;
+    min-width: 320px;
+    max-width: 1024px;
+    text-align: center;
+    line-height: 64px;
+    margin-top: 15%;
+    position: absolute;
+      top: 0;
+      left: 0;
+
+    .Text {
+      &--Front {
+        @include Default_Font(0.9rem);
+        width: 536px;
+        text-align: left;
+        margin: 0 auto -8 * 8px;
+        display: block;
+      }
+
+      &--After {
+        @include Default_Font;
+        margin-top: 16px;
+        display: block;
+      }
+    }
+
+    @media screen and (max-width: 767px) {
+      @include Title_Font(2.5rem);
+      line-height: 16 * 2px;
+      margin-top: 15%;
+
+      .Text {
+        &--Front {
+          @include Default_Font(0.6rem);
+          width: 267px;
+          margin: 0 auto -8 * 4px;
+          display: block;
+        }
+
+        &--After {
+          @include Default_Font(0.7rem);
+          margin-top: 8px;
+        }
+      }
+    }
+  }
+}
+
+.Sub-Title {
+  width: (358px * 2) + (16px * 2);
+  margin: 16px 0 8px auto;
+  position: relative;
+
+  h2 {
+    font-family: 'Sawarabi Gothic', sans-serif;
+    color: rgba(51, 51, 51, 0.2);
+    font-size: 3.0rem;
+    font-weight: bold;
+  }
+
+  p {
+    font-size: 1.3rem;
+    position: absolute;
+      left: 8 * 9.5px;
+      bottom: 0;
+  }
+
+  @media screen and (max-width: 767px) {
+    width: 100vw;
+    padding-left: 8px;
+    margin: 16px 0 8px 0;
+
+    h2 { font-size: 2.0rem; }
+    p {
+      font-size: 1.0rem;
+      position: absolute;
+        left: 8 * 6.5px;
+    }
+  }
+}
+
+#Influencers {
+  width: (358px * 2) + (16px * 2);
+  margin-left: auto;
+  display: flex;
+    flex-wrap: wrap;
+
+  article {
+    @include Ladies_Show-Button;
+    img { @include Image_Size(120px, 120px); }
+    display: flex;
+      flex-direction: row;
+
+    .Influencer_Content {
+      width: 350px;
+      align-self: center;
+
+      h3 {
+        @include Default_Font(1.2rem);
+        font-weight: bold;
+        margin-left: 8px;
+      }
+
+      &__Social-Network {
+        width: 98px;
+        margin: 8px 8px 0 auto;
+
+        &--Twitter {
+          margin-right: 8px;
+          .Icon_Color { @include Font_Awesome($Twitter_Brand-Color, 1.5rem); }
+        }
+        &--Instagram {
+          margin-right: 8px;
+          .Icon_Color { @include Font_Awesome($Instagram_Brand-Color, 1.5rem); }
+        }
+        &--YouTube { .Icon_Color { @include Font_Awesome($YouTube_Brand-Color, 1.5rem); } }
+      }
+    }
+  }
+
+  @media screen and (max-width: 767px) {
+    width: 100vw;
+    display: flex;
+      flex-wrap: wrap;
+
+    article {
+      width: 40vw;
+      text-align: center;
+      margin: 0 auto 8px;
+      display: block;
+      img { @include Image_Size(240px / 3, 240px / 3); }
+
+      .Influencer_Content {
+        width: 40vw;
+        margin: 0;
+        h3 {
+          font-size: 1.2rem;
+          font-weight: bold;
+        }
+
+        &__Social-Network {
+          width: 8 * 12.5px;
+          margin: 8px auto 0;
+        }
+      }
+    }
+  }
+}
+
+#Products {
+  width: (150px * 4) + (16px * 4);
+  margin: 0 16px 0 auto;
+
+  article {
+    position: relative;
+      left: 8px;
+    display: flex;
+      flex-wrap: wrap;
+
+    .Product {
+      @include Image_Size(150px, 150px);
+      height: 224px;
+      margin: 0 16px 16px 0;
+
+      p {
+        @include Default_Font(0.8rem);
+        height: 2.4rem;
+      }
+
+      &__Button {
+        @include Default_Font(0.6rem);
+        background-color: rgba(#ffccff, .7);
+        box-shadow: 0 2px rgba(#ffccff, 1);
+        border-radius: 8px;
+        width: 75%;
+        text-align: center;
+        padding: 2px 0;
+        margin: 4px auto 0;
+        &:active { @include Link_Button-Active; }
+      }
+    }
+
+    aside {
+      margin: -8px 16px 0 auto;
+    }
+  }
+}

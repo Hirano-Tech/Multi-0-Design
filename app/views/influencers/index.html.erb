@@ -1,10 +1,10 @@
 <header>
   <%= video_tag 'https://multi-0-design.s3-ap-northeast-1.amazonaws.com/videos/Background_Eye-Catch.mov', class: "Eye-Catch", width: "100%", autoplay: true, loop: true, muted: true, controls: false %>
-  <section>
+  <div>
     <span class="Text--Front">ふつうのひとの発信に価値を…</span><br>
     Multi-0-Design<br>
     <span class="Text--After">インフルエンサーの着こなし投稿キュレーションサイト</span>
-  </section>
+  </div>
 </header>
 
 <section class="Sub-Title">
@@ -42,5 +42,22 @@
   <p>紹介されたアイテム</p>
 </section>
 
-<section id="">
+<section id="Products">
+  <article>
+    <% @products.each do |product| %>
+      <%= link_to influencer_path(product.influencer_id) do %>
+        <div class="Product">
+          <%= image_tag @url_shorter[:aws_images] + product.image %>
+          <p>
+            <%= product.name %>
+          </p>
+
+          <div class="Product__Button">
+            紹介者ページへ…
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+    <aside><%= paginate @products %></aside>
+  </article>
 </section>
