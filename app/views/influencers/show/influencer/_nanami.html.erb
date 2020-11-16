@@ -1,4 +1,47 @@
-<div class="YouTube">
+<section id="YouTube">
+  <h3>
+    <i class="fab fa-youtube"></i>
+    <span class="Variable">GU，H&M</span> 今冬 購入アイテム !!!
+    <div class="Layer BG_GU"></div>
+  </h3>
+
+  <iframe width="560px" height="315px" src="https://www.youtube-nocookie.com/embed/xy1DzlsLuGI?controls=0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+  <article>
+    <h4>
+      <i class="far fa-hand-point-down"></i>
+      <span class="Marker_Yellow"><i class="far fa-star"></i> Pick - UP！<i class="far fa-star"></i></span>
+      紹介している商品はこちら！
+    </h4>
+
+    <% if Rails.env.development? %>
+      <% youtube_selects = Product.find_by_sql("SELECT * FROM products WHERE id = 325638 OR id = 327884 OR id = 328185 OR id = 330010 OR id = 874372006 OR id = 918591001 OR id = 952613001 ORDER BY RAND() LIMIT 3;") %>
+    <% end %>
+    <% if Rails.env.production? %>
+      <% youtube_selects = Product.find_by_sql("SELECT * FROM products WHERE id = 325638 OR id = 327884 OR id = 328185 OR id = 330010 OR id = 874372006 OR id = 918591001 OR id = 952613001 ORDER BY RANDOM() LIMIT 3;") %>
+    <% end %>
+
+    <div class="Pick-UP_Products">
+      <% youtube_selects.each do |select| %>
+        <%= link_to select.distributor, target: "_blank" do %>
+          <div class="Pick-UP_Products__Product">
+            <%= image_tag @url_shorter[:aws_images] + select.image %>
+            <p>
+              <%= select.name %>
+            </p>
+
+            <div class="Pick-UP_Products__Product__Button">
+              購入
+            </div>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+  </article>
+</section>
+
+
+<!-- <div class="YouTube">
   <h3>
     <i class="fab fa-youtube"></i> <span class="Variable">GU，H&M</span> 今冬 購入アイテム !!!
     <div class="Layer BG-GU"></div>
@@ -14,7 +57,7 @@
     </dt>
     <dd class="Close">
       <div class="YouTube__Products">
-        <% youtube_selects = Product.find_by_sql("SELECT * FROM products WHERE id = 325638 OR id = 327884 OR id = 328185 OR id = 330010 OR id = 874372006 OR id = 918591001 OR id = 952613001 ORDER BY random() LIMIT 3;") %>
+        <% youtube_selects = Product.find_by_sql("SELECT * FROM products WHERE id = 325638 OR id = 327884 OR id = 328185 OR id = 330010 OR id = 874372006 OR id = 918591001 OR id = 952613001 ORDER BY RAND() LIMIT 3;") %>
 
         <% youtube_selects.each do |select| %>
           <div class="YouTube__Products__Product">
@@ -28,4 +71,4 @@
       </div>
     </dd>
   </dl>
-</div>
+</div> -->

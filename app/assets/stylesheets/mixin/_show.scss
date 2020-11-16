@@ -1,5 +1,6 @@
 #Show_Header {
   height: 400px;
+  line-height: 1.5rem;
   position: relative;
 
   nav {
@@ -39,7 +40,7 @@
   position: relative;
 
   img {
-    @include Influencer_Icon(240px, 240px);
+    @include Image_Size(240px, 240px);
     margin-left: 8 * 10px;
     position: absolute;
       top: -120px;
@@ -97,9 +98,10 @@
         z-index: -10;
         position: absolute; top: 4px; left: 4px;
       }
-      .BG-UNIQLO { @include UNIQLO_Brand-Color; }
-      .BG-GU { @include GU_Brand-Color; }
-      .BG-Shimamura { @include Shimamura_Brand-Color(.3); }
+      .BG_UNIQLO { @include UNIQLO_Brand-Color(.3); }
+      .BG_GU { @include GU_Brand-Color(.3); }
+      .BG_Shimamura { @include Shimamura_Brand-Color(.3); }
+      .BG_No-Brand { background-color:rgba(#000000, .1); }
     }
 
   h3 {
@@ -108,60 +110,41 @@
     .fa-youtube { @include Font_Awesome($Default_Font-Color, 1.5rem); }
     .Variable { font-size: 1.5rem; }
   }
+
+  article {
+    h4 {
+      @include Default_Font(1.0rem);
+      .fa-star { @include Font_Awesome($Default_Font-Color, 1.1rem); }
+      .Marker_Yellow {
+        @include Default_Font(1.3rem);
+        background: linear-gradient( transparent 50%, #ffff99 60% );
+      }
+      margin-top: 8 * 2px;
+    }
+
+    .Pick-UP_Products {
+      margin: 8px 0 0 1.0em;
+      display: flex;
+        justify-content: space-between;
+
+      &__Product {
+        background-color: lightpink;
+        @include Image_Size(150px, 150px);
+        width: 150px;
+        p { height: 4.5em; }
+
+        &__Button {
+          @include Default_Font(0.8rem);
+          background-color: rgba(#ffccff, .3);
+          box-shadow: 0 2px rgba(#ffccff, .7);
+          border-radius: 8px;
+          width: 75%;
+          text-align: center;
+          padding: 2px 0;
+          margin: 8px auto 0;
+          &:active { @include Link_Button-Active; }
+        }
+      }
+    }
+  }
 }
-
-// #Contents_Show {
-//   width: 8 * 120px;
-//   margin: 0 auto;
-//   position: relative;
-
-//   &__Flexbox { display: flex; flex-direction: row;
-//     .Twitter {
-//       width: 8 * 44px;
-//       margin: (8 * 20px) (8 * 5px) 0 0;
-//     }
-
-//     .YouTube {
-//       &__iFrame { margin: 8px 0; }
-
-//       h3 {
-//         @include YouTube_Title;
-//         .fa-youtube { @include Font_Awesome($Default_Font-Color, 1.5rem); }
-//         .Variable { font-size: 1.5rem; }
-//       }
-
-//       &__Pick-UP {
-//         font-size: 1.3rem;
-//         .fa-hand-point-down { font-size: 1.5rem; }
-//         .fa-star { font-size: 1.0rem; }
-//         &--Text { font-size: 1.0rem; }
-//         .Marker_Yellow { background: linear-gradient( transparent 50%, #ffff99 60% ); }
-//         cursor: pointer;
-//       }
-
-//       &__Products {
-//         font-size: 0.8rem;
-//         margin: 8px 0 0 (8 * 3px);
-//         display: flex; flex-direction: row;
-//         &__Product { margin-right: 16px; }
-
-//         @mixin Product_Ladies-Btn {
-//           background: rgba(255,204,255, 0.7);
-//           box-shadow: 0 2px rgba(255,204,255, 1.0);
-//         }
-
-//         a {
-//           width: 5.0em;
-//           font-size: 0.7rem;
-//           border-radius: 8px;
-//           padding: 1px 6px;
-//           margin: 8px 0 0 auto;
-//           display: block;
-//           &.Ladies-Btn { @include Product_Ladies-Btn; }
-//           &:active { @include Link_Button-Active; }
-//         }
-//       }
-//       /* .Close { display:none; } */
-//     }
-//   }
-// }
