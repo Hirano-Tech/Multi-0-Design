@@ -1,7 +1,13 @@
 class InfluencersController < ApplicationController
   before_action :url_shorter, only: [:index, :show]
   def index
-    @products = Product.page(params[:page]).per(8).order("RANDOM()")
+    @influencers = Influencer.where(name: ['プチプラのあや', 'まる', '佐々木 あさひ', 'ななみ'])
+
+    if Rails.env.production?
+      @products = Product.page(params[:page]).per(8).order("RANDOM()")
+    else
+      @products = Product.page(params[:page]).per(8).order("RAND()")
+    end
   end
 
   def show
