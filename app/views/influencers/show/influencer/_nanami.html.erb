@@ -30,9 +30,7 @@
               <%= select.name %>
             </p>
 
-            <div class="Pick-UP_Products__Product__Button">
-              購入
-            </div>
+            <%= link_to "購入", select.distributor, class: "Pick-UP_Products__Product__Button", target: "_blank" %>
           </div>
         <% end %>
       <% end %>

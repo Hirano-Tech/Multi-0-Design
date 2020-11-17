@@ -13,8 +13,7 @@
 </section>
 
 <section id="Influencers">
-  <% influencers = Influencer.find_by_sql("SELECT * FROM influencers WHERE name = 'プチプラのあや' OR name = 'まる' OR name = '佐々木 あさひ' OR name = 'ななみ'") %>
-  <% influencers.each do |influencer| %>
+  <% @influencers.each do |influencer| %>
     <%= link_to influencer_path(influencer.name) do %>
       <article>
         <%= image_tag @url_shorter[:aws_images] + influencer.icon %>

@@ -128,21 +128,24 @@
         justify-content: space-between;
 
       &__Product {
-        background-color: lightpink;
+        @include Default_Font(0.8rem);
         @include Image_Size(150px, 150px);
-        width: 150px;
-        p { height: 4.5em; }
+        p { height: 2.4rem; }
 
         &__Button {
-          @include Default_Font(0.8rem);
-          background-color: rgba(#ffccff, .3);
-          box-shadow: 0 2px rgba(#ffccff, .7);
-          border-radius: 8px;
-          width: 75%;
+          @include Default_Font(0.7rem);
+          width: 24px;
           text-align: center;
-          padding: 2px 0;
-          margin: 8px auto 0;
-          &:active { @include Link_Button-Active; }
+          border: solid 1px $Default_Font-Color;
+          border-radius: 5px;
+          padding: 0 4px;
+          margin: 8px 8px 0 auto;
+          display: block;
+
+          &:hover {
+            background-color: $Default_Font-Color;
+            color: #fff;
+          }
         }
       }
     }
