@@ -177,16 +177,26 @@ header {
         height: 2.4rem;
       }
 
+      .Flex_Direction {
+        width: 82px;
+        margin: 8px 0 0 auto;
+        display: flex;
+          flex-direction: row;
+      }
+
       &__Button {
-        @include Default_Font(0.6rem);
-        background-color: rgba(#ffccff, .7);
-        box-shadow: 0 2px rgba(#ffccff, 1);
-        border-radius: 8px;
-        width: 75%;
+        @include Default_Font(0.7rem);
         text-align: center;
-        padding: 2px 0;
-        margin: 4px auto 0;
-        &:active { @include Link_Button-Active; }
+        border: solid 1px $Default_Font-Color;
+        border-radius: 5px;
+        padding: 0 4px;
+        margin-right: 8px;
+        display: block;
+
+        &:hover {
+          background-color: $Default_Font-Color;
+          color: #fff;
+        }
       }
     }
 

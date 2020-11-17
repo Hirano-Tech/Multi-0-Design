@@ -45,18 +45,21 @@
 <section id="Products">
   <article>
     <% @products.each do |product| %>
-      <%= link_to influencer_path(product.influencer_id) do %>
-        <div class="Product">
-          <%= image_tag @url_shorter[:aws_images] + product.image %>
-          <p>
-            <%= product.name %>
-          </p>
+      <div class="Product">
+        <%= image_tag @url_shorter[:aws_images] + product.image %>
+        <p>
+          <%= product.name %>
+        </p>
 
-          <div class="Product__Button">
-            紹介者ページへ…
-          </div>
+        <div class="Flex_Direction">
+          <%= link_to influencer_path(product.influencer_id), class: "Product__Button" do %>
+            詳細
+          <% end %>
+          <%= link_to product.distributor, class: "Product__Button", target: "_blank" do %>
+            購入
+          <% end %>
         </div>
-      <% end %>
+      </div>
     <% end %>
     <aside><%= paginate @products %></aside>
   </article>
