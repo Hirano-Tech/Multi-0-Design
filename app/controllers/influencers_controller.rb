@@ -1,7 +1,7 @@
 class InfluencersController < ApplicationController
   before_action :url_shorter, only: [:index, :show]
   def index
-    @products = Product.page(params[:page]).per(8).order("RAND()")
+    @products = Product.page(params[:page]).per(8).order("RANDOM()")
   end
 
   def show
