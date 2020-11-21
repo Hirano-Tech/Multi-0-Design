@@ -1,39 +1,73 @@
-<section id="YouTube">
+<!--↓ 最新の YouTube 動画 ↓-->
+<section class="YouTube">
+  <p class="YouTube--Click">
+    <i class="far fa-hand-point-down"></i> CLICK！HERE !!! <i class="far fa-hand-point-down"></i>
+  </p>
+
   <h3>
-    <i class="fab fa-youtube"></i>
-    <span class="Variable">しまむら</span> 今冬 主役級のニット満載！（前編）
-    <div class="Layer BG_Shimamura"></div>
+    <i class="fab fa-youtube"></i> <span>UNIQLO</span> 今冬 おすすめ商品 BEST4 !!!
+    <div class="Layer BG_UNIQLO"></div>
   </h3>
 
-  <iframe width="560px" height="315px" src="https://www.youtube-nocookie.com/embed/CMgSBIW3X0c?controls=0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+  <article class="YouTube__Article">
+    <iframe width="560px" height="315px" src="https://www.youtube-nocookie.com/embed/ZZuRcIJCxpk?controls=0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-  <article>
-    <h4>
+    <p class="YouTube__Article__Pick-UP">
       <i class="far fa-hand-point-down"></i>
-      <span class="Marker_Yellow"><i class="far fa-star"></i> Pick - UP！<i class="far fa-star"></i></span>
+      <span class="YouTube__Article__Pick-UP--Marker_Yellow">
+        <i class="far fa-star"></i> Pick - UP！<i class="far fa-star"></i>
+      </span>
       紹介している商品はこちら！
-    </h4>
+    </p>
 
-    <% if Rails.env.development? %>
-      <% youtube_selects = Product.find_by_sql("SELECT * FROM products WHERE id = 21151300 OR id = 21450139 OR id = 21550168 OR id = 21550507 OR id = 31350168 ORDER BY RAND() LIMIT 3;") %>
-    <% end %>
-    <% if Rails.env.production? %>
-      <% youtube_selects = Product.find_by_sql("SELECT * FROM products WHERE id = 21151300 OR id = 21450139 OR id = 21550168 OR id = 21550507 OR id = 31350168 ORDER BY RANDOM() LIMIT 3;") %>
-    <% end %>
-
-    <div class="Pick-UP_Products">
+    <% youtube_selects = Product.find(435964, 429034, 432640, 428979, 54088875, 54088884).shuffle.first(3) %>
+    <div class="YouTube__Article__Products">
       <% youtube_selects.each do |select| %>
-        <%= link_to select.distributor, target: "_blank" do %>
-          <div class="Pick-UP_Products__Product">
-            <%= image_tag @url_shorter[:aws_images] + select.image %>
-            <p>
-              <%= select.name %>
-            </p>
-
-            <%= link_to "購入", select.distributor, class: "Pick-UP_Products__Product__Button", target: "_blank" %>
-          </div>
-        <% end %>
+        <div class="YouTube__Article__Products__Item">
+          <%= image_tag @url_shorter[:aws_images] + select.image %>
+          <p><%= select.name %></p>
+          <%= link_to "購入", select.distributor, class: "YouTube__Article__Products__Item--Button", target: "_blank" %>
+        </div>
       <% end %>
     </div>
   </article>
 </section>
+<!--↑ 最新の YouTube 動画 ↑-->
+
+<!--↓ ２番目以降の YouTube 動画（デフォルトで閉じられた状態） ↓-->
+<section class="YouTube_2nd">
+  <p class="YouTube_2nd--Click">
+    <i class="far fa-hand-point-down"></i> CLICK！HERE !!! <i class="far fa-hand-point-down"></i>
+  </p>
+
+  <h3>
+    <i class="fab fa-youtube"></i> <span>しまむら</span> 今冬 主役級のニット満載！（前編）
+    <div class="Layer BG_Shimamura"></div>
+  </h3>
+
+  <div class="Slide_Toggle">
+    <article class="YouTube_2nd__Article">
+      <iframe width="560px" height="315px" src="https://www.youtube-nocookie.com/embed/CMgSBIW3X0c?controls=0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+      <p class="YouTube_2nd__Article__Pick-UP">
+        <i class="far fa-hand-point-down"></i>
+        <span class="YouTube_2nd__Article__Pick-UP--Marker_Yellow">
+          <i class="far fa-star"></i> Pick - UP！<i class="far fa-star"></i>
+        </span>
+        紹介している商品はこちら！
+      </p>
+
+      <% youtube_selects = Product.find(21151300, 21450139, 21550168, 21550507, 31350168).shuffle.first(3) %>
+      <div class="YouTube_2nd__Article__Products">
+        <% youtube_selects.each do |select| %>
+          <div class="Pick-UP_Products__Item">
+            <%= image_tag @url_shorter[:aws_images] + select.image %>
+            <p><%= select.name %></p>
+            <%= link_to "購入", select.distributor, class: "YouTube_2nd__Article__Products__Item--Button", target: "_blank" %>
+          </div>
+        <% end %>
+      </div>
+    </article>
+  </div>
+</section>
+<!--↑ ２番目以降の YouTube 動画（デフォルトで閉じられた状態） ↑-->
