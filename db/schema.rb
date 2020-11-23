@@ -32,6 +32,7 @@ ActiveRecord::Schema.define(version: 2020_11_16_173824) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "influencer_id"
+    t.string "youtube"
     t.index ["influencer_id"], name: "index_products_on_influencer_id"
   end
 
