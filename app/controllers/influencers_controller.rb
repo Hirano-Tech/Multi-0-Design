@@ -4,9 +4,9 @@ class InfluencersController < ApplicationController
     @influencers = Influencer.where(name: ['プチプラのあや', 'まる', '佐々木 あさひ', 'ななみ'])
 
     if Rails.env.production?
-      @products = Product.page(params[:page]).per(8).order("RANDOM()")
+      @products = Product.page(params[:page]).per(8).order(Arel.sql('RANDOM()'))
     else
-      @products = Product.page(params[:page]).per(8).order("RAND()")
+      @products = Product.page(params[:page]).per(8).order(Arel.sql('RAND()'))
     end
   end
 
