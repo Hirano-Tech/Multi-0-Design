@@ -5,12 +5,12 @@
   </p>
 
   <h3>
-    <i class="fab fa-youtube"></i> <span>UNIQLO</span> 今冬 おすすめ商品 BEST4 !!!
+    <i class="fab fa-youtube"></i> <span>UNIQLO</span> 出遅れても変えた "+J" アイテムは？
     <div class="Layer BG_UNIQLO"></div>
   </h3>
 
   <article class="YouTube__Article">
-    <iframe width="560px" height="315px" src="https://www.youtube-nocookie.com/embed/ZZuRcIJCxpk?controls=0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    <iframe width="560px" height="315px" src="https://www.youtube-nocookie.com/embed/xJhB6c5svjY" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
     <p class="YouTube__Article__Pick-UP">
       <i class="far fa-hand-point-down"></i>
@@ -20,7 +20,7 @@
       紹介している商品はこちら！
     </p>
 
-    <% youtube_selects = Product.find(435964, 429034, 432640, 428979, 54088875, 54088884).shuffle.first(3) %>
+    <% youtube_selects = Product.find(436112, 435929, 436611, 21315006, 21534612).shuffle.first(3) %>
     <div class="YouTube__Article__Products">
       <% youtube_selects.each do |select| %>
         <div class="YouTube__Article__Products__Item">
@@ -35,6 +35,42 @@
 <!--↑ 最新の YouTube 動画 ↑-->
 
 <!--↓ ２番目以降の YouTube 動画（デフォルトで閉じられた状態） ↓-->
+<section class="YouTube_2nd">
+  <p class="YouTube_2nd--Click">
+    <i class="far fa-hand-point-down"></i> CLICK！HERE !!! <i class="far fa-hand-point-down"></i>
+  </p>
+
+  <h3>
+    <i class="fab fa-youtube"></i> <span>UNIQLO</span> 今冬 おすすめ商品 BEST4 !!!
+    <div class="Layer BG_UNIQLO"></div>
+  </h3>
+
+  <div class="Slide_Toggle">
+    <article class="YouTube_2nd__Article">
+      <iframe width="560px" height="315px" src="https://www.youtube-nocookie.com/embed/ZZuRcIJCxpk?controls=0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+      <p class="YouTube_2nd__Article__Pick-UP">
+        <i class="far fa-hand-point-down"></i>
+        <span class="YouTube_2nd__Article__Pick-UP--Marker_Yellow">
+          <i class="far fa-star"></i> Pick - UP！<i class="far fa-star"></i>
+        </span>
+        紹介している商品はこちら！
+      </p>
+
+      <% youtube_selects = Product.find(435964, 429034, 432640, 428979, 54088875, 54088884).shuffle.first(3) %>
+      <div class="YouTube_2nd__Article__Products">
+        <% youtube_selects.each do |select| %>
+          <div class="YouTube_2nd__Article__Products__Item">
+            <%= image_tag @url_shorter[:aws_images] + select.image %>
+            <p><%= select.name %></p>
+            <%= link_to "購入", select.distributor, class: "YouTube_2nd__Article__Products__Item--Button", target: "_blank" %>
+          </div>
+        <% end %>
+      </div>
+    </article>
+  </div>
+</section>
+
 <section class="YouTube_2nd">
   <p class="YouTube_2nd--Click">
     <i class="far fa-hand-point-down"></i> CLICK！HERE !!! <i class="far fa-hand-point-down"></i>
