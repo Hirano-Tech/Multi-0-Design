@@ -21,7 +21,9 @@ ActiveRecord::Schema.define(version: 2020_11_16_173824) do
     t.string "youtube"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.binary "header", limit: 16777215
+    t.integer "twitter_follower", limit: 3
+    t.integer "instagram_follower", limit: 3
+    t.integer "youtube_follower", limit: 3
   end
 
   create_table "products", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
