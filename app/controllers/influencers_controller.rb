@@ -1,7 +1,15 @@
 class InfluencersController < ApplicationController
   before_action :url_shorter, only: [:index, :show]
   def index
-    @influencers = Influencer.where(name: ['プチプラのあや', 'まる', '佐々木 あさひ', 'ななみ'])
+    if params[:sort] == "twitter"
+      @influencers = Influencer.all.order(twitter_follower: :desc)
+    elsif params[:sort] == "instagram"
+      @influencers = Influencer.all.order(instagram_follower: :desc)
+    elsif params[:sort] == "youtube"
+      @influencers = Influencer.all.order(youtube_follower: :desc)
+    else
+      @influencers = Influencer.all
+    end
 
     if Rails.env.production?
       @products = Product.page(params[:page]).per(8).order(Arel.sql('RANDOM()'))
