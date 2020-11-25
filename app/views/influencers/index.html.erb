@@ -12,28 +12,52 @@
   <p>インフルエンサー</p>
 </section>
 
-<section id="Influencers">
-  <% @influencers.each do |influencer| %>
-    <%= link_to influencer_path(influencer.name) do %>
+<section class="Influencers">
+  <ul>
+    並び替え：
+    <li>
+      <%= link_to "デフォルト", root_path %>，
+    </li>
+    <li>
+      人気順（<%= link_to "Twitter", root_path(sort: 'twitter') %>，<%= link_to "Instagram", root_path(sort: 'instagram') %>，<%= link_to "YouTube", root_path(sort: 'youtube') %>）
+    </li>
+  </ul>
+
+  <div class="Flexbox">
+    <% @influencers.each do |influencer| %>
       <article>
-        <%= image_tag @url_shorter[:aws_images] + influencer.icon %>
-        <div class="Influencer_Content">
-          <h3><%= influencer.name %></h3>
-          <div class="Influencer_Content__Social-Network">
-            <%= link_to @url_shorter[:twitter] + influencer.twitter,class: "Influencer_Content__Social-Network--Twitter", target: :_blank do %>
+        <!-- <%= link_to influencer_path(influencer.name) do %> -->
+        <!-- <% end %> -->
+        <%= link_to "#", class: "Influencers--Link" do %>
+          <%= image_tag influencer.icon %>
+        <% end %>
+        <div class="Influencers__Person">
+          <p class="Influencers__Person--Name"><%= influencer.name %></p>
+          <p class="Influencers__Person--Follower">
+            <% if params[:sort] == "twitter" %>
+              フォロワー：<%= influencer.twitter_follower %>
+            <% elsif params[:sort] == "instagram" %>
+              フォロワー：<%= influencer.instagram_follower %>
+            <% elsif params[:sort] == "youtube" %>
+              フォロワー：<%= influencer.youtube_follower %>
+            <% else %>
+            <% end %>
+          </p>
+          <div class="Influencers__Person__Social-Network">
+            <%= link_to influencer.twitter,class: "Influencers__Person__Social-Network--Twitter", target: :_blank do %>
               <i class="fab fa-twitter Icon_Color"></i>
             <% end %>
-            <%= link_to @url_shorter[:instagram] + influencer.instagram,class: "Influencer_Content__Social-Network--Instagram", target: :_blank do %>
+            <%= link_to influencer.instagram,class: "Influencers__Person__Social-Network--Instagram", target: :_blank do %>
               <i class="fab fa-instagram Icon_Color"></i>
             <% end %>
-            <%= link_to @url_shorter[:youtube] + influencer.youtube,class: "Influencer_Content__Social-Network--YouTube", target: :_blank do %>
+            <%= link_to influencer.youtube,class: "Influencers__Person__Social-Network--YouTube", target: :_blank do %>
               <i class="fab fa-youtube Icon_Color"></i>
             <% end %>
           </div>
         </div>
       </article>
     <% end %>
-  <% end %>
+  </div>
 </section>
 
 <section class="Sub-Title">
@@ -41,25 +65,64 @@
   <p>紹介されたアイテム</p>
 </section>
 
-<section id="Products">
-  <article>
+<section class="Products">
+  <ul>
+    <li> 絞り込み：<%= link_to "全商品", root_path %> </li>
+    <li>
+      ブランド別（<%= link_to "UNIQLO", root_path(sort: 'uniqlo') %>，<%= link_to "GU", root_path(sort: 'gu') %>，<%= link_to "しまむら", root_path(sort: 'shimamura') %>，<%= link_to "H＆M", root_path(sort: 'handm') %>，<%= link_to "fifth", root_path(sort: 'fifth') %>，<%= link_to "An3pocket", root_path(sort: 'an3pocket') %>）
+    </li>
+    <li>
+      インフルエンサー別（<%= link_to "プチプラのあや", root_path(sort: 'aya') %>，<%= link_to "まる", root_path(sort: 'maru') %>，<%= link_to "佐々木あさひ", root_path(sort: 'asahi') %>，<%= link_to "ななみ", root_path(sort: 'nanami') %>）
+    </li>
+  </ul>
+
+  <div class="Flexbox">
     <% @products.each do |product| %>
-      <div class="Product">
-        <%= image_tag @url_shorter[:aws_images] + product.image %>
-        <p>
-          <%= product.name %>
-        </p>
+      <article>
+        <%= image_tag product.image %>
+
+        <% if params[:sort] == "aya" || params[:sort] == "maru" || params[:sort] == "asahi" || params[:sort] == "nanami" %>
+        <% else %>
+          <% if product.influencer.name == "プチプラのあや" %>
+            <p class="Category_Brand">プチプラのあや</p>
+          <% elsif product.influencer.name == "まる" %>
+            <p class="Category_Brand">まる</p>
+          <% elsif product.influencer.name == "佐々木あさひ" %>
+            <p class="Category_Brand">佐々木あさひ</p>
+          <% elsif product.influencer.name == "ななみ" %>
+            <p class="Category_Brand">ななみ</p>
+          <% end %>
+        <% end %>
+
+        <% if params[:sort] == "uniqlo" || params[:sort] == "gu" || params[:sort] == "shimamura" || params[:sort] == "handm" || params[:sort] == "fifth" || params[:sort] == "an3pocket" %>
+        <% else %>
+          <% if product.brand == "UNIQLO" %>
+            <p class="Category_Brand">UNIQLO</p>
+          <% elsif product.brand == "GU" %>
+            <p class="Category_Brand">GU</p>
+          <% elsif product.brand == "dear.ful" %>
+            <p class="Category_Brand">しまむら</p>
+          <% elsif product.brand == "H&M" %>
+            <p class="Category_Brand">H＆M</p>
+          <% elsif product.brand == "fifth" %>
+            <p class="Category_Brand">fifth</p>
+          <% elsif product.brand == "An3pocket" %>
+            <p class="Category_Brand">An3pocket</p>
+          <% end %>
+        <% end %>
+
+        <p class="Product_Name"><%= product.name %></p>
 
         <div class="Flex_Direction">
-          <%= link_to influencer_path(product.influencer_id), class: "Product__Button" do %>
+          <%= link_to influencer_path(product.influencer_id), class: "Product_Button" do %>
             詳細
           <% end %>
-          <%= link_to product.distributor, class: "Product__Button", target: "_blank" do %>
+          <%= link_to product.distributor, class: "Product_Button", target: "_blank" do %>
             購入
           <% end %>
         </div>
-      </div>
+      </article>
     <% end %>
     <aside><%= paginate @products %></aside>
-  </article>
+  </div>
 </section>

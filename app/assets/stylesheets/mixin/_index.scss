@@ -89,119 +89,109 @@ header {
   }
 }
 
-#Influencers {
-  width: (358px * 2) + (16px * 2);
-  margin-left: auto;
-  display: flex;
-    flex-wrap: wrap;
+.Influencers {
+  width: (240px * 0.75) * 3 + (32px * 3);
+  margin: 0 32px 0 auto;
 
-  article {
-    @include Ladies_Show-Button;
-    img { @include Image_Size(120px, 120px); }
+  ul {
+    @include Default_Font(0.8rem);
+    a { color: #1a0dab; }
+    margin: 8px 0 32px;
     display: flex;
       flex-direction: row;
-
-    .Influencer_Content {
-      width: 350px;
-      align-self: center;
-
-      h3 {
-        @include Default_Font(1.2rem);
-        font-weight: bold;
-        margin-left: 8px;
-      }
-
-      &__Social-Network {
-        width: 98px;
-        margin: 8px 8px 0 auto;
-
-        &--Twitter {
-          margin-right: 8px;
-          .Icon_Color { @include Font_Awesome($Twitter_Brand-Color, 1.5rem); }
-        }
-        &--Instagram {
-          margin-right: 8px;
-          .Icon_Color { @include Font_Awesome($Instagram_Brand-Color, 1.5rem); }
-        }
-        &--YouTube { .Icon_Color { @include Font_Awesome($YouTube_Brand-Color, 1.5rem); } }
-      }
-    }
   }
 
-  @media screen and (max-width: 767px) {
-    width: 100vw;
-    display: flex;
-      flex-wrap: wrap;
+  .Flexbox { display: flex; flex-wrap: wrap; }
+  &--Link:hover { opacity: 0.9; }
+  article {
+    img {
+      @include Image_Size(240px * 0.75, 240px * 0.75);
+      mix-blend-mode: multiply;
+    }
 
-    article {
-      width: 40vw;
-      text-align: center;
-      margin: 0 auto 8px;
-      display: block;
-      img { @include Image_Size(240px / 3, 240px / 3); }
+    width: 240px * 0.75;
+    text-align: center;
+    margin: 0 32px 32px 0;
+  }
 
-      .Influencer_Content {
-        width: 40vw;
-        margin: 0;
-        h3 {
-          font-size: 1.2rem;
-          font-weight: bold;
-        }
+  &__Person {
+    &--Name {
+      @include Default_Font(1.2rem);
+      font-weight: bold;
+    }
 
-        &__Social-Network {
-          width: 8 * 12.5px;
-          margin: 8px auto 0;
-        }
+    &--Follower {
+      @include Default_Font(0.8rem);
+      text-align: right;
+    }
+
+    &__Social-Network {
+      margin-top: 8px;
+
+      &--Twitter {
+        margin-right: 16px;
+        .Icon_Color { @include Font_Awesome($Twitter_Brand-Color, 1.5rem); }
       }
+      &--Instagram {
+        margin-right: 16px;
+        .Icon_Color { @include Font_Awesome($Instagram_Brand-Color, 1.5rem); }
+      }
+      &--YouTube { .Icon_Color { @include Font_Awesome($YouTube_Brand-Color, 1.5rem); } }
     }
   }
 }
 
-#Products {
+.Products {
   width: (150px * 4) + (16px * 4);
-  margin: 0 16px 0 auto;
+  @include Default_Font(0.8rem);
+  margin-left: auto;
 
+  ul {
+    @include Default_Font(0.8rem);
+    a { color: #1a0dab; }
+    margin: 8px 0 32px;
+  }
+
+  .Flexbox { display: flex; flex-wrap: wrap; }
   article {
-    position: relative;
-      left: 8px;
-    display: flex;
-      flex-wrap: wrap;
+    img { @include Image_Size(150px, 150px); }
+    width: 150px;
+    .Product_Name { height: 3.0em; }
+    margin: 0 16px 32px 0;
 
-    .Product {
-      @include Image_Size(150px, 150px);
-      height: 224px;
-      margin: 0 16px 16px 0;
-
-      p {
-        @include Default_Font(0.8rem);
-        height: 2.4rem;
-      }
-
-      .Flex_Direction {
-        width: 82px;
-        margin: 8px 0 0 auto;
-        display: flex;
-          flex-direction: row;
-      }
-
-      &__Button {
-        @include Default_Font(0.7rem);
-        text-align: center;
-        border: solid 1px $Default_Font-Color;
-        border-radius: 5px;
-        padding: 0 4px;
-        margin-right: 8px;
-        display: block;
-
-        &:hover {
-          background-color: $Default_Font-Color;
-          color: #fff;
-        }
-      }
+    .Category_Brand {
+      @include Default_Font(0.6rem);
+      background-color:rgba(#000000, 0.1);
+      border-radius: 10px;
+      padding: 0 4px;
+      margin: 4px 0;
+      display: inline-block;
     }
 
-    aside {
-      margin: -8px 16px 0 auto;
+    .Flex_Direction {
+      width: 82px;
+      margin: 8px 0 0 auto;
+      display: flex;
+        flex-direction: row;
     }
+
+    .Product_Button {
+      @include Default_Font(0.7rem);
+      text-align: center;
+      border: solid 1px $Default_Font-Color;
+      border-radius: 5px;
+      padding: 0 4px;
+      margin-right: 8px;
+      display: block;
+
+      &:hover {
+        background-color: $Default_Font-Color;
+        color: #fff;
+      }
+    }
+  }
+
+  aside {
+    margin: -8px 16px 0 auto;
   }
 }
