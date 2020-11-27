@@ -104,6 +104,28 @@ header {
   .Flexbox { display: flex; flex-wrap: wrap; }
   &--Link:hover { opacity: 0.9; }
   article {
+    .Supplement {
+      &--Marker_Blue {
+        background: linear-gradient( transparent 50%, #ccffff 60% );
+        font-size: 0.8rem;
+        margin-bottom: 8px;
+      }
+
+      &--Marker_Yellow {
+        background: linear-gradient( transparent 50%, #ffff99 60% );
+        width: 5.0em;
+        font-size: 0.8rem;
+        margin: 0 auto 8px;
+      }
+
+      &--Marker_Red {
+        background: linear-gradient( transparent 50%, #ffccff 60% );
+        width: 5.0em;
+        font-size: 0.8rem;
+        margin: 0 auto 8px;
+      }
+    }
+
     img {
       @include Image_Size(240px * 0.75, 240px * 0.75);
     }

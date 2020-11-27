@@ -26,6 +26,20 @@
   <div class="Flexbox">
     <% @influencers.each do |influencer| %>
       <article>
+        <% if influencer.name == "プチプラのあや" %>
+          <p class="Supplement--Marker_Blue">
+            <i class="far fa-hand-point-down"></i> 詳細ページはこちら <i class="far fa-hand-point-down"></i>
+          </p>
+        <% elsif influencer.name == "まる" || influencer.name == "佐々木あさひ" || influencer.name == "ななみ" %>
+          <p class="Supplement--Marker_Yellow">
+            <i class="fas fa-exclamation-triangle"></i> 実装済
+          </p>
+        <% else %>
+          <p class="Supplement--Marker_Red">
+            <i class="far fa-tired"></i> 未実装
+          </p>
+        <% end %>
+
         <%= link_to influencer_path(influencer.name), class: "Influencers--Link" do %>
           <%= image_tag influencer.icon %>
         <% end %>
