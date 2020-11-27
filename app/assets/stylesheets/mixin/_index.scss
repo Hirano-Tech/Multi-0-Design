@@ -106,12 +106,15 @@ header {
   article {
     img {
       @include Image_Size(240px * 0.75, 240px * 0.75);
-      mix-blend-mode: multiply;
     }
 
     width: 240px * 0.75;
     text-align: center;
     margin: 0 32px 32px 0;
+  }
+
+  .Alert {
+    @include Default_Font(0.8rem);
   }
 
   &__Person {

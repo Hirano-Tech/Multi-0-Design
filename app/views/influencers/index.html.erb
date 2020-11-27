@@ -26,9 +26,7 @@
   <div class="Flexbox">
     <% @influencers.each do |influencer| %>
       <article>
-        <!-- <%= link_to influencer_path(influencer.name) do %> -->
-        <!-- <% end %> -->
-        <%= link_to "#", class: "Influencers--Link" do %>
+        <%= link_to influencer_path(influencer.name), class: "Influencers--Link" do %>
           <%= image_tag influencer.icon %>
         <% end %>
         <div class="Influencers__Person">

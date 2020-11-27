@@ -1,39 +1,50 @@
-<section id="YouTube">
+<!--↓ 最新の YouTube 動画 ↓-->
+<section class="YouTube">
+  <p class="YouTube--Click">
+    <i class="far fa-hand-point-down"></i> CLICK！HERE !!! <i class="far fa-hand-point-down"></i>
+  </p>
+
   <h3>
-    <i class="fab fa-youtube"></i>
-    <span class="Variable">UNIQLO</span> 夏の１週間コーディネート！
+    <i class="fab fa-youtube"></i> <span>UNIQLO</span> 夏の１週間コーディネート！
     <div class="Layer BG_UNIQLO"></div>
   </h3>
 
-  <iframe width="560px" height="315px" src="https://www.youtube-nocookie.com/embed/-5ZixeIr8UA?controls=0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+  <article class="YouTube__Article">
+    <iframe width="560px" height="315px" src="https://www.youtube-nocookie.com/embed/-5ZixeIr8UA?controls=0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-  <article>
-    <h4>
+    <p class="YouTube__Article__Pick-UP">
       <i class="far fa-hand-point-down"></i>
-      <span class="Marker_Yellow"><i class="far fa-star"></i> Pick - UP！<i class="far fa-star"></i></span>
+      <span class="YouTube__Article__Pick-UP--Marker_Yellow">
+        <i class="far fa-star"></i> Pick - UP！<i class="far fa-star"></i>
+      </span>
       紹介している商品はこちら！
-    </h4>
+    </p>
 
-    <% if Rails.env.development? %>
-      <% youtube_selects = Product.find_by_sql("SELECT * FROM products WHERE id = 425371 OR id = 425974 OR id = 426080 OR id = 429106 OR id = 431421 OR id = 433712 ORDER BY RAND() LIMIT 3;") %>
-    <% end %>
-    <% if Rails.env.production? %>
-      <% youtube_selects = Product.find_by_sql("SELECT * FROM products WHERE id = 425371 OR id = 425974 OR id = 426080 OR id = 429106 OR id = 431421 OR id = 433712 ORDER BY RANDOM() LIMIT 3;") %>
-    <% end %>
-
-    <div class="Pick-UP_Products">
+    <% youtube_selects = Product.find(425371, 425974, 426080, 429106, 431421, 433712).shuffle.first(3) %>
+    <div class="YouTube__Article__Products">
       <% youtube_selects.each do |select| %>
-        <%= link_to select.distributor, target: "_blank" do %>
-          <div class="Pick-UP_Products__Product">
-            <%= image_tag @url_shorter[:aws_images] + select.image %>
-            <p>
-              <%= select.name %>
-            </p>
+        <div class="YouTube__Article__Products__Item">
+          <%= image_tag select.image %>
 
-            <%= link_to "購入", select.distributor, class: "Pick-UP_Products__Product__Button", target: "_blank" %>
-          </div>
-        <% end %>
+          <% if select.brand == "UNIQLO" %>
+            <p class="Category_Brand">UNIQLO</p>
+          <% elsif select.brand == "GU" %>
+            <p class="Category_Brand">GU</p>
+          <% elsif select.brand == "dear.ful" %>
+            <p class="Category_Brand">しまむら</p>
+          <% elsif select.brand == "H&M" %>
+            <p class="Category_Brand">H＆M</p>
+          <% elsif select.brand == "fifth" %>
+            <p class="Category_Brand">fifth</p>
+          <% elsif select.brand == "An3pocket" %>
+            <p class="Category_Brand">An3pocket</p>
+          <% end %>
+
+          <p class="Product_Name"><%= select.name %></p>
+          <%= link_to "購入", select.distributor, class: "YouTube__Article__Products__Item--Button", target: "_blank" %>
+        </div>
       <% end %>
     </div>
   </article>
 </section>
+<!--↑ 最新の YouTube 動画 ↑-->

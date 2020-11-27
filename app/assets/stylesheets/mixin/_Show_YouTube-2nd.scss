@@ -52,7 +52,7 @@
 
       &__Item {
         width: 150px;
-        p { height: 2.4rem; }
+        .Product_Name { height: 2.4rem; }
 
         &--Button {
           @include Default_Font(0.7rem);
@@ -69,6 +69,15 @@
             color: #fff;
           }
         }
+      }
+
+      .Category_Brand {
+        @include Default_Font(0.6rem);
+        background-color:rgba(#000000, 0.1);
+        border-radius: 10px;
+        padding: 0 4px;
+        margin: 4px 0;
+        display: inline-block;
       }
     }
   }

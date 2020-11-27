@@ -24,8 +24,23 @@
     <div class="YouTube__Article__Products">
       <% youtube_selects.each do |select| %>
         <div class="YouTube__Article__Products__Item">
-          <%= image_tag @url_shorter[:aws_images] + select.image %>
-          <p><%= select.name %></p>
+          <%= image_tag select.image %>
+
+          <% if select.brand == "UNIQLO" %>
+            <p class="Category_Brand">UNIQLO</p>
+          <% elsif select.brand == "GU" %>
+            <p class="Category_Brand">GU</p>
+          <% elsif select.brand == "dear.ful" %>
+            <p class="Category_Brand">しまむら</p>
+          <% elsif select.brand == "H&M" %>
+            <p class="Category_Brand">H＆M</p>
+          <% elsif select.brand == "fifth" %>
+            <p class="Category_Brand">fifth</p>
+          <% elsif select.brand == "An3pocket" %>
+            <p class="Category_Brand">An3pocket</p>
+          <% end %>
+
+          <p class="Product_Name"><%= select.name %></p>
           <%= link_to "購入", select.distributor, class: "YouTube__Article__Products__Item--Button", target: "_blank" %>
         </div>
       <% end %>
@@ -61,8 +76,23 @@
       <div class="YouTube_2nd__Article__Products">
         <% youtube_selects.each do |select| %>
           <div class="YouTube_2nd__Article__Products__Item">
-            <%= image_tag @url_shorter[:aws_images] + select.image %>
-            <p><%= select.name %></p>
+            <%= image_tag select.image %>
+
+            <% if select.brand == "UNIQLO" %>
+              <p class="Category_Brand">UNIQLO</p>
+            <% elsif select.brand == "GU" %>
+              <p class="Category_Brand">GU</p>
+            <% elsif select.brand == "dear.ful" %>
+              <p class="Category_Brand">しまむら</p>
+            <% elsif select.brand == "H&M" %>
+              <p class="Category_Brand">H＆M</p>
+            <% elsif select.brand == "fifth" %>
+              <p class="Category_Brand">fifth</p>
+            <% elsif select.brand == "An3pocket" %>
+              <p class="Category_Brand">An3pocket</p>
+            <% end %>
+
+            <p class="Product_Name"><%= select.name %></p>
             <%= link_to "購入", select.distributor, class: "YouTube_2nd__Article__Products__Item--Button", target: "_blank" %>
           </div>
         <% end %>
@@ -97,8 +127,23 @@
       <div class="YouTube_2nd__Article__Products">
         <% youtube_selects.each do |select| %>
           <div class="Pick-UP_Products__Item">
-            <%= image_tag @url_shorter[:aws_images] + select.image %>
-            <p><%= select.name %></p>
+            <%= image_tag select.image %>
+
+            <% if select.brand == "UNIQLO" %>
+              <p class="Category_Brand">UNIQLO</p>
+            <% elsif select.brand == "GU" %>
+              <p class="Category_Brand">GU</p>
+            <% elsif select.brand == "dear.ful" %>
+              <p class="Category_Brand">しまむら</p>
+            <% elsif select.brand == "H&M" %>
+              <p class="Category_Brand">H＆M</p>
+            <% elsif select.brand == "fifth" %>
+              <p class="Category_Brand">fifth</p>
+            <% elsif select.brand == "An3pocket" %>
+              <p class="Category_Brand">An3pocket</p>
+            <% end %>
+
+            <p class="Product_Name"><%= select.name %></p>
             <%= link_to "購入", select.distributor, class: "YouTube_2nd__Article__Products__Item--Button", target: "_blank" %>
           </div>
         <% end %>
