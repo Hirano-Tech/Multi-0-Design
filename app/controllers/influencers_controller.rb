@@ -1,5 +1,4 @@
 class InfluencersController < ApplicationController
-  before_action :url_shorter, only: [:index, :show]
   def index
     if params[:sort] == "twitter"
       @influencers = Influencer.all.order(twitter_follower: :desc)
@@ -41,16 +40,10 @@ class InfluencersController < ApplicationController
   end
 
   def show
-    @influencer = Influencer.find(params[:id])
-  end
-
-  private
-  def url_shorter
-    @url_shorter = {
-      aws_images: "https://multi-0-design.s3-ap-northeast-1.amazonaws.com/images/",
-      twitter: "https://twitter.com/",
-      instagram: "https://www.instagram.com/",
-      youtube: "https://www.youtube.com/channel/"
-    }
+    if params[:id] == "佐藤優里亜" || params[:id] == "かんだま" || params[:id] == "水越みさと" || params[:id] == "きりまる" || params[:id] == "なぐもふうか"
+      redirect_to root_path
+    else
+      @influencer = Influencer.find(params[:id])
+    end
   end
 end
