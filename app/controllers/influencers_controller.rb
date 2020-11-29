@@ -1,5 +1,6 @@
 class InfluencersController < ApplicationController
   def index
+    # ↓ 並び替え機能（インフルエンサー 一覧）↓
     if params[:sort] == "twitter"
       @influencers = Influencer.all.order(twitter_follower: :desc)
     elsif params[:sort] == "instagram"
@@ -9,6 +10,7 @@ class InfluencersController < ApplicationController
     else
       @influencers = Influencer.all
     end
+    # ↑ 並び替え機能（インフルエンサー 一覧）↑
 
     if params[:sort] == "uniqlo"
       @products = Product.page(params[:page]).per(8).where(brand: "UNIQLO")
