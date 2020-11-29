@@ -5,6 +5,39 @@
 
 <section id="Right_Column">
   <h2><i class="fas fa-users"></i> Influencers</h2>
+
+  <nav id="Link_Influencer" class="Sort_Influencer">
+    <ul>
+      <li class="Sort_Influencer--Default"> <%= link_to "デフォルト", root_path(anchor: 'Link_Influencer') %> </li>
+      <div class="Sort_Influencer__SNS"> 人気順：
+        <li> <%= link_to "Instagram", root_path(sort: 'instagram', anchor: 'Link_Influencer') %> </li>
+        <li> <%= link_to "YouTube", root_path(sort: 'youtube', anchor: 'Link_Influencer') %> </li>
+        <li> <%= link_to "Twitter", root_path(sort: 'twitter', anchor: 'Link_Influencer') %> </li>
+      </div>
+    </ul>
+  </nav>
+
+  <section class="Influencers">
+    <div class="Flexbox_Wrap">
+      <% @influencers.each do |influencer| %>
+        <article>
+          <%= link_to influencer_path(influencer.name) do %>
+            <%= image_tag influencer.icon %>
+          <% end %>
+          <p class="Influencers--Name"><%= influencer.name %></p>
+
+          <% if params[:sort] == "twitter" %>
+            <p class="Influencers--Follower">フォロワー：<%= influencer.twitter_follower %></p>
+          <% elsif params[:sort] == "instagram" %>
+            <p class="Influencers--Follower">フォロワー：<%= influencer.instagram_follower %></p>
+          <% elsif params[:sort] == "youtube" %>
+            <p class="Influencers--Follower">フォロワー：<%= influencer.youtube_follower %></p>
+          <% else %>
+          <% end %>
+        </article>
+      <% end %>
+    </div>
+  </section>
 </section>
 
 
@@ -14,15 +47,6 @@
 
 
 <!-- <section class="Influencers">
-  <ul>
-    並び替え：
-    <li>
-      <%= link_to "デフォルト", root_path %>，
-    </li>
-    <li>
-      人気順（<%= link_to "Twitter", root_path(sort: 'twitter') %>，<%= link_to "Instagram", root_path(sort: 'instagram') %>，<%= link_to "YouTube", root_path(sort: 'youtube') %>）
-    </li>
-  </ul>
 
   <div class="Flexbox">
     <% @influencers.each do |influencer| %>

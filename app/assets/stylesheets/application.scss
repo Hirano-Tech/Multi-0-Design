@@ -22,6 +22,11 @@ body {
   }
 }
 
+@mixin Image_Size($Width, $Height) {
+  width: $Width;
+  height: $Height;
+}
+
 
 
 
@@ -62,11 +67,6 @@ $YouTube_Brand-Color: rgba(241, 34, 77, 1.0);
 @mixin Font_Awesome($Color, $Font_Size) {
   color: $Color;
   font-size: $Font_Size;
-}
-
-@mixin Image_Size($Width, $Height) {
-  width: $Width;
-  height: $Height;
 }
 
 @mixin Ladies_Show-Button {
