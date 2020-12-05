@@ -31,3 +31,5 @@
 
 # 画像ファイルを Git に上げないようにする。
 app/assets/images/*
+
+.env
