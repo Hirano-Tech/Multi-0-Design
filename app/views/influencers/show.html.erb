@@ -1,24 +1,31 @@
-<section id="Influencer_Show">
-  <div id="Show_Header">
-    <nav>
-      <%= link_to "Multi-0-Design", root_path %>
+<% youtube = Google::Apis::YoutubeV3::YouTubeService.new %>
+<% youtube.key = Rails.application.credentials.YouTube[:YouTube_Data_API] %>
+<% options = {id: 'UCC_ElJAc9JrtkMm3zTTJ1_A'} %>
 
-      <% influencers = Influencer.find_by_sql("SELECT * FROM influencers WHERE name = 'プチプラのあや' OR name = 'まる' OR name = '佐々木 あさひ' OR name = 'ななみ'") %>
-      <div>
-        <p><%= link_to "トップページ", root_path %></p>
-        <% influencers.each do |influencer| %>
-          <p>
-            <%= link_to influencer.name, influencer_path(influencer.name) %>
-          </p>
-        <% end %>
-      </div>
-    </nav>
+<header id="SHOW_Header">
+  <h1>
+    <%= link_to "Multi-0-Design", root_path %>
+  </h1>
 
-    <div id="Show_Header__Image">
-      <%= image_tag "https://multi-0-design.s3-ap-northeast-1.amazonaws.com/images/Influencers/No-Cover.png" %>
-    </div>
-  </div>
+  <p id="SHOW_Header__Image">
+    <% aya_channel_banner = youtube.list_channels(:brandingSettings, options).to_h %>
+    <%= image_tag aya_channel_banner[:items][0][:branding_settings][:image][:banner_external_url] %>
+  </p>
+</header>
 
+<section class="Influencer_Title">
+  <% aya_channel_icon = youtube.list_channels(:snippet, options).to_h %>
+  <%= image_tag aya_channel_icon[:items][0][:snippet][:thumbnails][:medium][:url] %>
+</section>
+
+
+
+
+
+
+
+
+<!-- <section id="Influencer_Show">
   <div id="Influencer_Title">
     <%= image_tag @influencer.icon %>
     <div class="Flexbox_Row">
@@ -50,4 +57,4 @@
   <% elsif @influencer[:name] == "かんだま" %>
     <%= render partial: "influencers/show/influencer/kandama" %>
   <% end %>
-</section>
+</section> -->
