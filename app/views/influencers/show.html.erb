@@ -1,22 +1,29 @@
-<% youtube = Google::Apis::YoutubeV3::YouTubeService.new %>
-<% youtube.key = Rails.application.credentials.YouTube[:YouTube_Data_API] %>
-<% options = {id: 'UCC_ElJAc9JrtkMm3zTTJ1_A'} %>
+<div id="Origin">
+  <header id="Show_Header">
+    <section id="Show_Header__Background">
+      <h1>
+        <%= link_to "Multi-0-Design", root_path %>
+      </h1>
 
-<header id="SHOW_Header">
-  <h1>
-    <%= link_to "Multi-0-Design", root_path %>
-  </h1>
+      <p id="Show_Header__Background__Image">
+        <%= image_tag @influencer.YoutubeChannel.header %>
+      </p>
+    </section>
+  </header>
 
-  <p id="SHOW_Header__Image">
-    <% aya_channel_banner = youtube.list_channels(:brandingSettings, options).to_h %>
-    <%= image_tag aya_channel_banner[:items][0][:branding_settings][:image][:banner_external_url] %>
-  </p>
-</header>
+  <section class="Influencer_Title">
+    <%= image_tag @influencer.YoutubeChannel.icon, class: 'Influencer_Title--Image' %>
+    <h2><%= @influencer.name %></h2>
 
-<section class="Influencer_Title">
-  <% aya_channel_icon = youtube.list_channels(:snippet, options).to_h %>
-  <%= image_tag aya_channel_icon[:items][0][:snippet][:thumbnails][:medium][:url] %>
-</section>
+    <div class="Influencer_Title__SNS">
+      <%= link_to "https://www.youtube.com/channel/#{@influencer.YoutubeChannel.channel_id}", target: :_blank do %>
+        <i class="fab fa-youtube YouTube_Icon-Color"></i>
+      <% end %>
+    </div>
+  </section>
+</div>
+
+
 
 
 
@@ -45,7 +52,7 @@
   </div>
 
   <% if @influencer[:name] == "プチプラのあや" %>
-    <%= render partial: "influencers/show/influencer/aya" %>
+    <% render partial: "influencers/show/influencer/aya" %>
   <% elsif @influencer[:name] == "まる" %>
     <%= render partial: "influencers/show/influencer/maru" %>
   <% elsif @influencer[:name] == "佐々木あさひ" %>

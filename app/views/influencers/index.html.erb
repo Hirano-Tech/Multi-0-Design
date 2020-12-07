@@ -34,6 +34,16 @@
             <p class="Influencers--Follower">フォロワー：<%= influencer.youtube_follower %></p>
           <% else %>
           <% end %>
+
+          <%= link_to influencer.twitter, class: "Influencers--Social-Network", target: :_blank do %>
+            <i class="fab fa-twitter Icon_Twitter"></i>
+          <% end %>
+          <%= link_to influencer.instagram, class: "Influencers--Social-Network", target: :_blank do %>
+            <i class="fab fa-instagram Icon_Instagram"></i>
+          <% end %>
+          <%= link_to influencer.youtube, class: "Influencers--Social-Network", target: :_blank do %>
+            <i class="fab fa-youtube Icon_YouTube"></i>
+          <% end %>
         </article>
       <% end %>
     </div>

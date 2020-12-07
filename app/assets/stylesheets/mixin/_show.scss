@@ -1,25 +1,87 @@
-#SHOW_Header {
-  @include Title_Font(1.5rem);
-  height: 320px;
-  padding: 0 0 0 8px;
+#Origin {
   position: relative;
 
-  &__Image {
+  #Show_Header {
+    height: 300px;
     z-index: -10;
-    position: absolute; top: 0; left: 0;
+    position: relative;
 
-    img {
-      // width: 100%;
-      width: 100vw;
-      max-width: 1024px;
-      height: 300px;
-      opacity: 0.5;
-      object-fit: cover;
+    &__Background {
+      @include Title_Font(1.5rem);
+      padding-left: 8px;
+
+      &__Image {
+        position: absolute; top: 0; left: 0;
+
+        img {
+          width: 100vw;
+          max-width: 1024px;
+          height: 300px;
+          opacity: 0.5;
+          object-fit: cover;
+        }
+      }
+    }
+
+    @media screen and (max-width: 767px) {
+      height: 200px;
+
+      &__Background {
+        @include Title_Font(1.2rem);
+
+        &__Image {
+          img { height: 200px; }
+        }
+      }
     }
   }
 
   .Influencer_Title {
+    width: 1024px * 0.9;
+    margin: -120px auto 0;
+    display: flex;
+      flex-direction: row;
 
+    &--Image {
+      @include Image_Size(240px, 240px);
+      border-radius: 50%;
+    }
+
+    h2 {
+      width: 7.0em;
+      height: 1.5em;
+      font-family: 'Noto Sans JP', sans-serif;
+      font-size: 4.0rem;
+      font-weight: bold;
+      margin: 120px - 96px 0 0 16px;
+    }
+
+    &__SNS {
+      height: 2.0em;
+      margin: 120px - 32px - 16px 0 0 16px;
+
+
+      .YouTube_Icon-Color {
+        color: rgba($YouTube_Brand-Color, 1.0);
+        font-size: 2.0rem;
+      }
+    }
+
+    @media screen and (max-width: 767px) {
+      width: 90%;
+      margin-top: (-240px * 0.5) * 0.5;
+      position: relative;
+
+      &--Image { @include Image_Size(240px * 0.5, 240px * 0.5); }
+      h2 { font-size: 1.5rem; }
+      &__SNS {
+        position: absolute;
+          right: 0;
+          bottom: 28px;
+
+        .YouTube_Icon-Color { font-size: 1.75rem; }
+      }
+    }
   }
 }
 
@@ -30,7 +92,9 @@
 
 
 
-#Show_Header {
+
+
+#Show_Header2 {
   height: 400px;
   line-height: 1.5rem;
   position: relative;
@@ -66,7 +130,7 @@
   }
 }
 
-#Influencer_Title {
+#Influencer_Title2 {
   width: 960px;
   margin: 0 auto;
   position: relative;

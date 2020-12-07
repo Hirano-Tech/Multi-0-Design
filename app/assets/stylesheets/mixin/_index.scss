@@ -117,7 +117,6 @@
     }
 
     article {
-      background-color: lightpink;
       img { @include Image_Size(240px * 0.75, 240px * 0.75); }
       width: 240px * 0.75;
       text-align: center;
@@ -133,6 +132,20 @@
     &--Follower {
       font-size: 0.8rem;
       text-align: right;
+    }
+
+    &--Social-Network {
+      .Icon_Twitter {
+        @include Font_Awesome($Twitter_Brand-Color, 1.5rem);
+        margin-top: 4px;
+      }
+      .Icon_YouTube {
+        @include Font_Awesome($YouTube_Brand-Color, 1.5rem);
+      }
+      .Icon_Instagram {
+        @include Font_Awesome(#ffffff, 1.3rem);
+        @include Instagram_Brand-Color;
+      }
     }
   }
 
