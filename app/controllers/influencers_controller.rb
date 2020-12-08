@@ -5,15 +5,15 @@ class InfluencersController < ApplicationController
 
 
   def index
+    @influencers = Influencer.includes(:YoutubeChannel)
+
     # ↓ 並び替え機能（インフルエンサー 一覧）↓
     if params[:sort] == "twitter"
       @influencers = Influencer.all.order(twitter_follower: :desc)
     elsif params[:sort] == "instagram"
       @influencers = Influencer.all.order(instagram_follower: :desc)
     elsif params[:sort] == "youtube"
-      @influencers = Influencer.all.order(youtube_follower: :desc)
-    else
-      @influencers = Influencer.all
+      @influencers = @influencers.order('youtube_channels.subscriber desc')
     end
     # ↑ 並び替え機能（インフルエンサー 一覧）↑
 
