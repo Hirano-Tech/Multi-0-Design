@@ -117,7 +117,10 @@
     }
 
     article {
-      img { @include Image_Size(240px * 0.75, 240px * 0.75); }
+      img {
+        @include Image_Size(240px * 0.75, 240px * 0.75);
+        border-radius: 25%;
+      }
       width: 240px * 0.75;
       text-align: center;
       margin: 16px -16px 16px 3.0em;
@@ -137,7 +140,7 @@
     &--Social-Network {
       .Icon_Twitter {
         @include Font_Awesome($Twitter_Brand-Color, 1.5rem);
-        margin-top: 4px;
+        margin: 4px 8px 0 0;
       }
       .Icon_YouTube {
         @include Font_Awesome($YouTube_Brand-Color, 1.5rem);
@@ -145,31 +148,73 @@
       .Icon_Instagram {
         @include Font_Awesome(#ffffff, 1.3rem);
         @include Instagram_Brand-Color;
+        margin: 4px 8px 0 0;
       }
     }
   }
 
   @media screen and (max-width: 767px) {
     width: 100%;
-    padding-left: 16px;
-    margin: 32px 0 0 auto;
+    margin-top: 16px;
 
     h2 {
       font-size: 1.5rem;
+
       &::after {
-        font-size: 0.9rem;
+        font-size: 1.0rem;
         position: absolute;
-          left: 2.5em;
+          left: 2.2em;
+          bottom: -0.3em;
       }
     }
 
     .Sort_Influencer {
       font-size: 0.6rem;
+      padding: 0;
 
-      ul { margin-top: 8px; }
+      ul {
+        margin-top: 8px;
+
+        li {
+          margin: 0 4px 2px 0;
+        }
+      }
+
       &--Default {
         position: relative;
           left: 4.2em;
+      }
+    }
+
+    .Influencers {
+      article {
+        width: 50%;
+        margin: 16px 0 16px 0;
+
+        img {
+          width: 75%;
+          height: auto;
+        }
+      }
+
+      &--Name {
+        font-size: 1.0rem;
+        font-weight: bold;
+        margin-top: 0;
+      }
+
+      &--Follower {
+        font-size: 0.7rem;
+        margin-right: 8px;
+      }
+
+      &--Social-Network {
+        .Icon_Twitter {
+          margin-right: 8px;
+        }
+        .Icon_Instagram {
+          margin-right: 8px;
+        }
       }
     }
   }

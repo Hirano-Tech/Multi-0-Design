@@ -22,7 +22,7 @@
       <% @influencers.each do |influencer| %>
         <article>
           <%= link_to influencer_path(influencer.name) do %>
-            <%= image_tag influencer.icon %>
+            <%= image_tag influencer.YoutubeChannel.icon %>
           <% end %>
           <p class="Influencers--Name"><%= influencer.name %></p>
 
@@ -31,7 +31,7 @@
           <% elsif params[:sort] == "instagram" %>
             <p class="Influencers--Follower">フォロワー：<%= influencer.instagram_follower %></p>
           <% elsif params[:sort] == "youtube" %>
-            <p class="Influencers--Follower">フォロワー：<%= influencer.youtube_follower %></p>
+            <p class="Influencers--Follower">フォロワー：<%= influencer.YoutubeChannel.subscriber %></p>
           <% else %>
           <% end %>
 
@@ -56,56 +56,7 @@
 
 
 
-<!-- <section class="Influencers">
-
-  <div class="Flexbox">
-    <% @influencers.each do |influencer| %>
-      <article>
-        <% if influencer.name == "プチプラのあや" %>
-          <p class="Supplement--Marker_Blue">
-            <i class="far fa-hand-point-down"></i> 詳細ページはこちら <i class="far fa-hand-point-down"></i>
-          </p>
-        <% elsif influencer.name == "まる" || influencer.name == "佐々木あさひ" || influencer.name == "ななみ" %>
-          <p class="Supplement--Marker_Yellow">
-            <i class="fas fa-exclamation-triangle"></i> 実装済
-          </p>
-        <% else %>
-          <p class="Supplement--Marker_Red">
-            <i class="far fa-tired"></i> 未実装
-          </p>
-        <% end %>
-
-        <%= link_to influencer_path(influencer.name), class: "Influencers--Link" do %>
-          <%= image_tag influencer.icon %>
-        <% end %>
-        <div class="Influencers__Person">
-          <p class="Influencers__Person--Name"><%= influencer.name %></p>
-          <p class="Influencers__Person--Follower">
-            <% if params[:sort] == "twitter" %>
-              フォロワー：<%= influencer.twitter_follower %>
-            <% elsif params[:sort] == "instagram" %>
-              フォロワー：<%= influencer.instagram_follower %>
-            <% elsif params[:sort] == "youtube" %>
-              フォロワー：<%= influencer.youtube_follower %>
-            <% else %>
-            <% end %>
-          </p>
-          <div class="Influencers__Person__Social-Network">
-            <%= link_to influencer.twitter,class: "Influencers__Person__Social-Network--Twitter", target: :_blank do %>
-              <i class="fab fa-twitter Icon_Color"></i>
-            <% end %>
-            <%= link_to influencer.instagram,class: "Influencers__Person__Social-Network--Instagram", target: :_blank do %>
-              <i class="fab fa-instagram Icon_Color"></i>
-            <% end %>
-            <%= link_to influencer.youtube,class: "Influencers__Person__Social-Network--YouTube", target: :_blank do %>
-              <i class="fab fa-youtube Icon_Color"></i>
-            <% end %>
-          </div>
-        </div>
-      </article>
-    <% end %>
-  </div>
-</section>
+<!--
 
 <section class="Sub-Title">
   <h2><i class="fas fa-tshirt"></i> Products</h2>
