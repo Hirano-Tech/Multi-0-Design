@@ -6,7 +6,11 @@
       </h1>
 
       <p id="Show_Header__Background__Image">
-        <%= image_tag @influencer.YoutubeChannel.header %>
+        <% if @influencer.YoutubeChannel.header %>
+          <%= image_tag @influencer.YoutubeChannel.header %>
+        <% else %>
+          <%= image_tag 'http://placehold.jp/1024x300.png' %>
+        <% end %>
       </p>
     </section>
   </header>
@@ -50,18 +54,4 @@
       </p>
     </div>
   </div>
-
-  <% if @influencer[:name] == "プチプラのあや" %>
-    <% render partial: "influencers/show/influencer/aya" %>
-  <% elsif @influencer[:name] == "まる" %>
-    <%= render partial: "influencers/show/influencer/maru" %>
-  <% elsif @influencer[:name] == "佐々木あさひ" %>
-    <%= render partial: "influencers/show/influencer/asahi" %>
-  <% elsif @influencer[:name] == "ななみ" %>
-    <%= render partial: "influencers/show/influencer/nanami" %>
-  <% elsif @influencer[:name] == "佐藤優里亜" %>
-    <%= render partial: "influencers/show/influencer/yuria" %>
-  <% elsif @influencer[:name] == "かんだま" %>
-    <%= render partial: "influencers/show/influencer/kandama" %>
-  <% end %>
 </section> -->

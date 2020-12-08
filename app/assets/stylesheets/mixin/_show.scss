@@ -3,7 +3,6 @@
 
   #Show_Header {
     height: 300px;
-    z-index: -10;
     position: relative;
 
     &__Background {
@@ -11,6 +10,7 @@
       padding-left: 8px;
 
       &__Image {
+        z-index: -10;
         position: absolute; top: 0; left: 0;
 
         img {
@@ -48,18 +48,18 @@
     }
 
     h2 {
-      width: 7.0em;
       height: 1.5em;
       font-family: 'Noto Sans JP', sans-serif;
       font-size: 4.0rem;
       font-weight: bold;
+      z-index: 10;
       margin: 120px - 96px 0 0 16px;
     }
 
     &__SNS {
       height: 2.0em;
+      z-index: 10;
       margin: 120px - 32px - 16px 0 0 16px;
-
 
       .YouTube_Icon-Color {
         color: rgba($YouTube_Brand-Color, 1.0);
