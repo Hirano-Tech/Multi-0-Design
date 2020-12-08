@@ -47,10 +47,6 @@ class InfluencersController < ApplicationController
   end
 
   def show
-    if params[:id] == "プチプラのあや" || params[:id] == "まる" || params[:id] == "佐々木あさひ" || params[:id] == "ななみ"
-      @influencer = Influencer.find(params[:id])
-    else
-      redirect_to root_path
-    end
+    @influencer = Influencer.find(params[:id])
   end
 end
