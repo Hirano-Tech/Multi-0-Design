@@ -1,0 +1,50 @@
+<!--↓ 最新の YouTube 動画 ↓-->
+<section class="YouTube">
+  <p class="YouTube--Click">
+    <i class="far fa-hand-point-down"></i> CLICK！HERE !!! <i class="far fa-hand-point-down"></i>
+  </p>
+
+  <h3>
+    <i class="fab fa-youtube"></i> <span>UNIQLO</span> 夏の１週間コーディネート！
+    <div class="Layer BG_UNIQLO"></div>
+  </h3>
+
+  <article class="YouTube__Article">
+    <iframe width="560px" height="315px" src="https://www.youtube-nocookie.com/embed/-5ZixeIr8UA?controls=0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+    <p class="YouTube__Article__Pick-UP">
+      <i class="far fa-hand-point-down"></i>
+      <span class="YouTube__Article__Pick-UP--Marker_Yellow">
+        <i class="far fa-star"></i> Pick - UP！<i class="far fa-star"></i>
+      </span>
+      紹介している商品はこちら！
+    </p>
+
+    <% youtube_selects = Product.find(425371, 425974, 426080, 429106, 431421, 433712).shuffle.first(3) %>
+    <div class="YouTube__Article__Products">
+      <% youtube_selects.each do |select| %>
+        <div class="YouTube__Article__Products__Item">
+          <%= image_tag select.image %>
+
+          <% if select.brand == "UNIQLO" %>
+            <p class="Category_Brand">UNIQLO</p>
+          <% elsif select.brand == "GU" %>
+            <p class="Category_Brand">GU</p>
+          <% elsif select.brand == "dear.ful" %>
+            <p class="Category_Brand">しまむら</p>
+          <% elsif select.brand == "H&M" %>
+            <p class="Category_Brand">H＆M</p>
+          <% elsif select.brand == "fifth" %>
+            <p class="Category_Brand">fifth</p>
+          <% elsif select.brand == "An3pocket" %>
+            <p class="Category_Brand">An3pocket</p>
+          <% end %>
+
+          <p class="Product_Name"><%= select.name %></p>
+          <%= link_to "購入", select.distributor, class: "YouTube__Article__Products__Item--Button", target: "_blank" %>
+        </div>
+      <% end %>
+    </div>
+  </article>
+</section>
+<!--↑ 最新の YouTube 動画 ↑-->

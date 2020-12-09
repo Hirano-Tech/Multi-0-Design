@@ -1,0 +1,84 @@
+.YouTube_2nd {
+  width: 560px;
+  margin-top: 8 * 6px;
+  margin-left: 8 * 14 + 240px + 16px;
+    // 画像の余白（右）＋ 画像サイズ ＋ 余白
+
+  &--Click {
+    .fa-hand-point-down {
+      @include Font_Awesome($Default_Font-Color, 0.9rem);
+      margin: 0 4px;
+    }
+
+    display: flex;
+      justify-content: center;
+      align-items: center;
+
+    &::before, &::after {
+      content: "";
+      background-color: $Default_Font-Color;
+      width: 179px;
+      height: 1px;
+    }
+
+    &::before { margin-right: 8px;}
+    &::after { margin-left: 8px;}
+  }
+
+  h3 {
+    @include YouTube_Title;
+    .fa-youtube { @include Font_Awesome($Default_Font-Color, 1.5rem); }
+    span { @include Default_Font(1.5rem); }
+    margin-bottom: 8 * 2px;
+  }
+
+  .Slide_Toggle { display: none; }
+  &__Article {
+    &__Pick-UP {
+      .fa-star { @include Font_Awesome($Default_Font-Color, 1.1rem); }
+      margin-top: 8 * 2px;
+
+      &--Marker_Yellow {
+        @include Default_Font(1.3rem);
+        background: linear-gradient( transparent 50%, #ffff99 60% );
+      }
+    }
+
+    &__Products {
+      @include Default_Font(0.8rem);
+      margin: 8px 0 0 1.0em;
+      display: flex;
+        justify-content: space-between;
+
+      &__Item {
+        width: 150px;
+        .Product_Name { height: 2.4rem; }
+
+        &--Button {
+          @include Default_Font(0.7rem);
+          width: 24px;
+          text-align: center;
+          border: solid 1px $Default_Font-Color;
+          border-radius: 5px;
+          padding: 0 4px;
+          margin: 8px 8px 0 auto;
+          display: block;
+
+          &:hover {
+            background-color: $Default_Font-Color;
+            color: #fff;
+          }
+        }
+      }
+
+      .Category_Brand {
+        @include Default_Font(0.6rem);
+        background-color:rgba(#000000, 0.1);
+        border-radius: 10px;
+        padding: 0 4px;
+        margin: 4px 0;
+        display: inline-block;
+      }
+    }
+  }
+}
