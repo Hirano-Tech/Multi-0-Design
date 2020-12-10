@@ -1,8 +1,4 @@
 class InfluencersController < ApplicationController
-  require 'uri'
-  require 'net/http'
-  require 'json'
-
 
   def index
     @influencers = Influencer.includes(:YoutubeChannel)
