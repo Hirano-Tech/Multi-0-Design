@@ -52,7 +52,7 @@ ActiveRecord::Schema.define(version: 2020_12_10_125916) do
   create_table "youtube_videos", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "video_id"
     t.string "title"
-    t.string "thumbnails"
+    t.string "thumbnail"
     t.string "published_at"
     t.bigint "influencer_id"
     t.datetime "created_at", null: false
