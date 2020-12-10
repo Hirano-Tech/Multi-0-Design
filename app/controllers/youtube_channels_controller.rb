@@ -1,7 +1,4 @@
 class YoutubeChannelsController < ApplicationController
-  def create
-  end
-
   def edit
     require 'google/apis/youtube_v3'
     youtube = Google::Apis::YoutubeV3::YouTubeService.new
