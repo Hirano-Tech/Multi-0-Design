@@ -43,6 +43,7 @@ class InfluencersController < ApplicationController
   end
 
   def show
-    @influencer = Influencer.find(params[:id])
+    @influencer = Influencer.includes(:YoutubeChannel).find(params[:id])
+    @video_lists = YoutubeVideo.where(influencer_id: params[:id]).order(published_at: :DESC).includes(:influencer)
   end
 end
