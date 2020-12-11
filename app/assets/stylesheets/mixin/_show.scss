@@ -1,86 +1,119 @@
-#Origin {
+#Show_Header {
+  height: 300px;
   position: relative;
 
-  #Show_Header {
-    height: 300px;
-    position: relative;
+  &__Background {
+    @include Title_Font(1.5rem);
+    padding-left: 8px;
 
-    &__Background {
-      @include Title_Font(1.5rem);
-      padding-left: 8px;
+    &__Image {
+      z-index: -10;
+      position: absolute; top: 0; left: 0;
 
-      &__Image {
-        z-index: -10;
-        position: absolute; top: 0; left: 0;
-
-        img {
-          width: 100vw;
-          max-width: 1024px;
-          height: 300px;
-          opacity: 0.5;
-          object-fit: cover;
-        }
-      }
-    }
-
-    @media screen and (max-width: 767px) {
-      height: 200px;
-
-      &__Background {
-        @include Title_Font(1.2rem);
-
-        &__Image {
-          img { height: 200px; }
-        }
+      img {
+        width: 100vw;
+        max-width: 1024px;
+        height: 300px;
+        opacity: 0.5;
+        object-fit: cover;
       }
     }
   }
 
-  .Influencer_Title {
-    width: 1024px * 0.9;
-    margin: -120px auto 0;
-    display: flex;
-      flex-direction: row;
+  @media screen and (max-width: 767px) {
+    height: 200px;
 
-    &--Image {
-      @include Image_Size(240px, 240px);
-      border-radius: 50%;
+    &__Background {
+      @include Title_Font(1.2rem);
+
+      &__Image {
+        img { height: 200px; }
+      }
     }
+  }
+}
+
+.Influencer_Title {
+  width: 1024px * 0.9;
+  margin: -120px auto 0;
+  display: flex;
+    flex-direction: row;
+
+  &--Image {
+    @include Image_Size(240px, 240px);
+    border-radius: 50%;
+  }
+
+  h2 {
+    height: 1.5em;
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: 4.0rem;
+    font-weight: bold;
+    z-index: 10;
+    margin: 120px - 96px 0 0 16px;
+  }
+
+  &__SNS {
+    height: 2.0em;
+    z-index: 10;
+    margin: 120px - 32px - 16px 0 0 16px;
+
+    .YouTube_Icon-Color {
+      color: rgba($YouTube_Brand-Color, 1.0);
+      font-size: 2.0rem;
+    }
+  }
+
+  @media screen and (max-width: 767px) {
+    width: 90%;
+    margin-top: (-240px * 0.5) * 0.5;
+    position: relative;
+
+    &--Image { @include Image_Size(240px * 0.5, 240px * 0.5); }
+    h2 { font-size: 1.5rem; }
+    &__SNS {
+      position: absolute;
+        right: 0;
+        bottom: 28px;
+
+      .YouTube_Icon-Color { font-size: 1.75rem; }
+    }
+  }
+}
+
+.YouTube_Videos {
+  width: 640px;
+  margin: 0 auto 0 51px + 240px + 16px;
+
+  @mixin YouTube_Title {
+    padding-left: 8px;
+    border-top: solid 1px #333333;
+    border-right: solid 1px #ffffff;
+    border-bottom: solid 1px #ffffff;
+    border-left: solid 1px #333333;
+    position: relative;
+
+    .Layer {
+      width: 640px;
+      height: 3.0em;
+      z-index: -10;
+      position: absolute; top: 3px; left: 2px;
+    }
+
+    .BG_UNIQLO { @include UNIQLO_Brand-Color(.3); }
+    .BG_GU { @include GU_Brand-Color(.3); }
+    .BG_Shimamura { @include Shimamura_Brand-Color(.3); }
+    .BG_No-Brand { background-color:rgba(#000000, .1); }
+  }
+
+  article {
+    margin-bottom: 48px;
 
     h2 {
-      height: 1.5em;
-      font-family: 'Noto Sans JP', sans-serif;
-      font-size: 4.0rem;
-      font-weight: bold;
-      z-index: 10;
-      margin: 120px - 96px 0 0 16px;
-    }
-
-    &__SNS {
-      height: 2.0em;
-      z-index: 10;
-      margin: 120px - 32px - 16px 0 0 16px;
-
-      .YouTube_Icon-Color {
-        color: rgba($YouTube_Brand-Color, 1.0);
-        font-size: 2.0rem;
-      }
-    }
-
-    @media screen and (max-width: 767px) {
-      width: 90%;
-      margin-top: (-240px * 0.5) * 0.5;
-      position: relative;
-
-      &--Image { @include Image_Size(240px * 0.5, 240px * 0.5); }
-      h2 { font-size: 1.5rem; }
-      &__SNS {
-        position: absolute;
-          right: 0;
-          bottom: 28px;
-
-        .YouTube_Icon-Color { font-size: 1.75rem; }
-      }
+      @include Default_Font(1.25rem);
+      @include YouTube_Title;
+      height: 3.0em;
+      margin-bottom: 16px;
     }
   }
 }
