@@ -12,13 +12,12 @@ class YoutubeVideosController < ApplicationController
     video_thumbnail = video_list[:items][0][:snippet][:thumbnails][:high][:url]
     video_published_at = Date.parse(video_list[:items][0][:snippet][:published_at]).strftime("%Y-%m-%d")
 
-    # YoutubeVideo.create(video_id: video_id, title: video_title, thumbnail: video_thumbnail, published_at: video_published_at, influencer_id:)
-    # YoutubeVideo.create(
-    #   video_id: video_id,
-    #   title: video_title,
-    #   thumbnail: video_thumbnail,
-    #   published_at: video_published_at,
-    #   influencer_id:
-    # )
+    YoutubeVideo.create(
+      video_id: video_id,
+      title: video_title,
+      thumbnail: video_thumbnail,
+      published_at: video_published_at,
+      influencer_id:
+    )
   end
 end

@@ -6,4 +6,6 @@ Rails.application.routes.draw do
       resources :youtube_channels, only: :edit
     end
   end
+
+  resources :youtube_videos, only: :new
 end
