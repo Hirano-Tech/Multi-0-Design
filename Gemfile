@@ -67,6 +67,6 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'pry-rails'
 gem 'jquery-rails'
-gem 'friendly_id', '~> 5.4.0'
 gem 'google-api-client', '~> 0.11'
+gem 'selenium-webdriver'
 gem 'kaminari'
