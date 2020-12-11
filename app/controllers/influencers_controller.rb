@@ -1,11 +1,7 @@
 class InfluencersController < ApplicationController
-  require 'uri'
-  require 'net/http'
-  require 'json'
-
 
   def index
-    @influencers = Influencer.includes(:YoutubeChannel)
+    @influencers = Influencer.includes(:youtube_channel)
 
     # ↓ 並び替え機能（インフルエンサー 一覧）↓
     if params[:sort] == "twitter"
@@ -47,6 +43,7 @@ class InfluencersController < ApplicationController
   end
 
   def show
-    @influencer = Influencer.find(params[:id])
+    @influencer = Influencer.includes(:youtube_channel).find(params[:id])
+    @video_lists = YoutubeVideo.where(influencer_id: params[:id]).order(published_at: :DESC).includes(:influencer)
   end
 end

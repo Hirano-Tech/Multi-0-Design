@@ -21,8 +21,8 @@
     <div class="Flexbox_Wrap">
       <% @influencers.each do |influencer| %>
         <article>
-          <%= link_to influencer_path(influencer.name) do %>
-            <%= image_tag influencer.YoutubeChannel.icon %>
+          <%= link_to influencer_path(influencer.id) do %>
+            <%= image_tag influencer.youtube_channel.icon %>
           <% end %>
           <p class="Influencers--Name"><%= influencer.name %></p>
 
@@ -31,7 +31,7 @@
           <% elsif params[:sort] == "instagram" %>
             <p class="Influencers--Follower">フォロワー：<%= influencer.instagram_follower %></p>
           <% elsif params[:sort] == "youtube" %>
-            <p class="Influencers--Follower">フォロワー：<%= influencer.YoutubeChannel.subscriber %></p>
+            <p class="Influencers--Follower">フォロワー：<%= influencer.youtube_channel.subscriber %></p>
           <% else %>
           <% end %>
 
