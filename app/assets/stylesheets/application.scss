@@ -15,7 +15,7 @@ $YouTube_Brand-Color: rgba(#f1224d, 1.0);
 body {
   width: 100vw;
   max-width: 1024px;
-  font-family: 'Noto Serif JP', serif;
+  font-family: 'Noto Sans JP', sans-serif;
   font-size: 16px;
   color: $Default_Font-Color;
   margin: 0 auto;
@@ -41,6 +41,11 @@ body {
   text-align: center;
   border-radius: 7.5px;
   padding: 3px 3px 2px 3px;
+}
+
+.Flexbox_Row {
+  display: flex;
+    flex-direction: row;
 }
 
 

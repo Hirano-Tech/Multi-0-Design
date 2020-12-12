@@ -1,53 +1,7 @@
-<header id="TOP_Eye-Catch">
-  <%= video_tag 'https://multi-0-design.s3-ap-northeast-1.amazonaws.com/videos/Background_Eye-Catch.mov', width: "100%", autoplay: true, loop: true, muted: true, controls: false %>
-  <h1 class="Title">Multi-0-Design</h1>
-</header>
+<%= render partial: "influencers/partial/header-catch" %>
 
 <section id="Right_Column">
-  <h2><i class="fas fa-users"></i> Influencers</h2>
-
-  <nav id="Link_Influencer" class="Sort_Influencer">
-    <ul>
-      <li class="Sort_Influencer--Default"> <%= link_to "デフォルト", root_path(anchor: 'Link_Influencer') %> </li>
-      <div class="Sort_Influencer__SNS"> 人気順：
-        <li> <%= link_to "Instagram", root_path(sort: 'instagram', anchor: 'Link_Influencer') %> </li>
-        <li> <%= link_to "YouTube", root_path(sort: 'youtube', anchor: 'Link_Influencer') %> </li>
-        <li> <%= link_to "Twitter", root_path(sort: 'twitter', anchor: 'Link_Influencer') %> </li>
-      </div>
-    </ul>
-  </nav>
-
-  <section class="Influencers">
-    <div class="Flexbox_Wrap">
-      <% @influencers.each do |influencer| %>
-        <article>
-          <%= link_to influencer_path(influencer.id) do %>
-            <%= image_tag influencer.youtube_channel.icon %>
-          <% end %>
-          <p class="Influencers--Name"><%= influencer.name %></p>
-
-          <% if params[:sort] == "twitter" %>
-            <p class="Influencers--Follower">フォロワー：<%= influencer.twitter_follower %></p>
-          <% elsif params[:sort] == "instagram" %>
-            <p class="Influencers--Follower">フォロワー：<%= influencer.instagram_follower %></p>
-          <% elsif params[:sort] == "youtube" %>
-            <p class="Influencers--Follower">フォロワー：<%= influencer.youtube_channel.subscriber %></p>
-          <% else %>
-          <% end %>
-
-          <%= link_to influencer.twitter, class: "Influencers--Social-Network", target: :_blank do %>
-            <i class="fab fa-twitter Icon_Twitter"></i>
-          <% end %>
-          <%= link_to influencer.instagram, class: "Influencers--Social-Network", target: :_blank do %>
-            <i class="fab fa-instagram Icon_Instagram"></i>
-          <% end %>
-          <%= link_to influencer.youtube, class: "Influencers--Social-Network", target: :_blank do %>
-            <i class="fab fa-youtube Icon_YouTube"></i>
-          <% end %>
-        </article>
-      <% end %>
-    </div>
-  </section>
+  <%= render partial: "influencers/partial/top-right" %>
 </section>
 
 
