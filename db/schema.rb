@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_10_125916) do
+ActiveRecord::Schema.define(version: 2020_12_12_041006) do
 
   create_table "influencers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
@@ -38,6 +38,15 @@ ActiveRecord::Schema.define(version: 2020_12_10_125916) do
     t.index ["influencer_id"], name: "index_products_on_influencer_id"
   end
 
+  create_table "products_youtube_videos", id: false, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "product_id"
+    t.bigint "youtube_video_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["product_id"], name: "index_products_youtube_videos_on_product_id"
+    t.index ["youtube_video_id"], name: "index_products_youtube_videos_on_youtube_video_id"
+  end
+
   create_table "youtube_channels", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "channel_id"
     t.string "header"
@@ -61,6 +70,8 @@ ActiveRecord::Schema.define(version: 2020_12_10_125916) do
   end
 
   add_foreign_key "products", "influencers"
+  add_foreign_key "products_youtube_videos", "products"
+  add_foreign_key "products_youtube_videos", "youtube_videos"
   add_foreign_key "youtube_channels", "influencers"
   add_foreign_key "youtube_videos", "influencers"
 end
