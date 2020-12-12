@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
   root to: 'influencers#index'
 
   resources :influencers, only: :show do
@@ -8,4 +9,5 @@ Rails.application.routes.draw do
   end
 
   resources :youtube_videos, only: :new
+  resources :register_products, only: :new
 end
