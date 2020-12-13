@@ -1,0 +1,25 @@
+<%= render partial: "influencers/partial/index-header" %>
+
+<div class="Flexbox_Row">
+  <%= render partial: "influencers/partial/left-column" %>
+
+  <section id="Right_Column">
+    <div class="Title_Register">
+      <h2><i class="fas fa-cash-register"></i>登録商品 確認フォーム</h2>
+      <p class="Title_Register--Down_Text">Product Register</p>
+    </div>
+
+    <div class="abc">
+      <p> ● 商品番号：<%= @product["product_id"] %> </p><br>
+      <p> ● 商品名：<%= @product["product_name"] %> </p><br>
+      <p> ● 商品ページ： <%= link_to "商品ページ", @product["product_distributor"], target: :blank %> </p>
+      <!-- <% @product_images.each do |image| %>
+        <%= image_tag image %>
+      <% end %> -->
+
+      <% if defined? product == "local-variable" %>
+        <%= product["product_id"] %>
+      <% end %>
+    </div>
+  </section>
+</div>
