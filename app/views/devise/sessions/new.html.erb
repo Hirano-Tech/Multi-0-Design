@@ -2,9 +2,9 @@
 
 <div class="Flexbox_Row">
   <section id="Left_Column">
-    <div class="Title">
+    <div class="Title_Login">
       <h2><i class="fas fa-sign-in-alt"></i>ログイン</h2>
-      <p class="Title--Down_Text">Login</p>
+      <p class="Title_Login--Down_Text">Login</p>
     </div>
 
     <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
@@ -12,11 +12,13 @@
         <div class="field Login_Form__E-Mail">
           <i class="fas fa-at"></i><%= f.label :email, "メールアドレス" %><br />
           <%= f.email_field :email, autocomplete: "email", class: "Login_Form__E-Mail__Form" %>
+          <p class="Login_Form__E-Mail--Test-Account">※ テストユーザー：admin@example.com </p>
         </div>
 
         <div class="field Login_Form__Password">
           <i class="fas fa-key"></i><%= f.label :password, 'パスワード' %><br />
           <%= f.password_field :password, autocomplete: "current-password", class: "Login_Form__Password__Form" %>
+          <p class="Login_Form__Password--Test-Password">※ テストユーザー：12345678 </p>
         </div>
 
         <!-- <% if devise_mapping.rememberable? %>
@@ -36,6 +38,6 @@
 
   <section id="Right_Column">
     <% @influencers = Influencer.includes(:youtube_channel) %>
-    <%= render partial: "influencers/partial/top-right" %>
+    <%= render partial: "influencers/partial/right-column" %>
   </section>
 </div>
