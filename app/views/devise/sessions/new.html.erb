@@ -1,10 +1,10 @@
-<%= render partial: "influencers/partial/header-catch" %>
+<%= render partial: "influencers/partial/index-header" %>
 
 <div class="Flexbox_Row">
   <section id="Left_Column">
-    <div class="Title_Login">
+    <div class="Title">
       <h2><i class="fas fa-sign-in-alt"></i>ログイン</h2>
-      <p class="Title_Login--Down_Text">Login</p>
+      <p class="Title--Down_Text">Login</p>
     </div>
 
     <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
