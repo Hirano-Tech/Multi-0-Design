@@ -1,8 +1,41 @@
-<%= render partial: "influencers/partial/header-catch" %>
+<%= render partial: "influencers/partial/index-header" %>
 
-<section id="Right_Column">
-  <%= render partial: "influencers/partial/top-right" %>
-</section>
+<div class="Flexbox_Row">
+  <%= render partial: "influencers/partial/left-column" %>
+  <section id="Left_Column">
+    <div class="Title">
+      <h2><i class="fas fa-bars"></i>メニュー</h2>
+      <p class="Title--Down_Text">Menu</p>
+    </div>
+
+    <ul class="Side_Menu">
+      <% if user_signed_in? %>
+        <% if current_user.name == "Admin" %>
+          <li>
+            <i class="fas fa-cloud-upload-alt"></i> <%= link_to "商品登録", new_register_product_path %>
+          </li>
+        <% end %>
+
+        <li>
+          <i class="fas fa-sign-out-alt"></i> <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+        </li>
+      <% else %>
+        <li>
+          <i class="fas fa-sign-in-alt"></i> <%= link_to "ログイン", new_user_session_path %>
+        </li>
+      <% end %>
+    </ul>
+    <p></p>
+  </section>
+
+  <section id="Right_Column">
+    <%= render partial: "influencers/partial/right-column" %>
+  </section>
+</div>
+
+
+
+
 
 
 

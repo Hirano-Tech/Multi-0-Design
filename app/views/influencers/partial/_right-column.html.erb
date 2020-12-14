@@ -1,0 +1,74 @@
+<h2 class="Second_Title_Influencers">
+  <i class="fas fa-users"></i> Influencers
+</h2>
+
+<nav id="Link_Influencer" class="Sort_Influencer">
+  <p>
+    <i class="fas fa-random"></i> 並び替え
+    <span class="Sort_Influencer--Default">（<%= link_to '初期状態に戻す', root_path(anchor: 'Link_Influencer') %>）</span>
+  </p>
+
+  <p class="Sort_Influencer--Follower">
+    <i class="fas fa-sort-amount-down"></i> フォロワー数 順
+  </p>
+
+  <p class="Sort_Influencer--YouTube">
+    <i class="fab fa-youtube"></i>
+    <%= link_to "YouTube", root_path(sort: 'youtube', anchor: 'Link_Influencer') %>
+  </p>
+
+  <p class="Sort_Influencer--Instagram">
+    <i class="fab fa-instagram"></i>
+    <%= link_to "Instagram", root_path(sort: 'instagram', anchor: 'Link_Influencer') %>
+  </p>
+
+  <p class="Sort_Influencer--Twitter">
+    <i class="fab fa-twitter"></i>
+    <%= link_to "Twitter", root_path(sort: 'twitter', anchor: 'Link_Influencer') %>
+  </p>
+</nav>
+
+<section class="Influencers">
+  <% @influencers.each do |influencer| %>
+    <article>
+      <%= link_to influencer_path(influencer.id) do %>
+        <%= image_tag influencer.youtube_channel.icon %>
+      <% end %>
+      <p class="Influencers--Name"><%= influencer.name %></p>
+
+      <% if params[:sort] == "twitter" %>
+        <p class="Influencers--Follower">フォロワー：<%= influencer.twitter_follower %></p>
+      <% elsif params[:sort] == "instagram" %>
+        <p class="Influencers--Follower">フォロワー：<%= influencer.instagram_follower %></p>
+      <% elsif params[:sort] == "youtube" %>
+        <p class="Influencers--Follower">フォロワー：<%= influencer.youtube_channel.subscriber %></p>
+      <% else %>
+      <% end %>
+
+      <%= link_to influencer.youtube, class: "Influencers--YouTube", target: :_blank do %>
+        <i class="fab fa-youtube"></i>
+      <% end %>
+
+      <%= link_to influencer.instagram, class: "Influencers--Instagram", target: :_blank do %>
+        <i class="fab fa-instagram"></i>
+      <% end %>
+
+      <%= link_to influencer.twitter, class: "Influencers--Twitter", target: :_blank do %>
+        <i class="fab fa-twitter"></i>
+      <% end %>
+
+    </article>
+  <% end %>
+</section>
+
+<h2 class="Second_Title_Products">
+  <i class="fas fa-tshirt"></i> Products
+</h2>
+
+<article class="Product">
+  <%= image_tag product[:product_image] %>
+  <p class="Product--Name"><%= product[:product_name] %></p>
+  <p class="Product--Distributor">
+    <%= link_to '購入', product[:product_distributor] %>
+  </p>
+</article>

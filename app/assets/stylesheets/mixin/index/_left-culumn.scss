@@ -1,14 +1,6 @@
 #Left_Column {
   width: 250px;
-  margin-top: 88px;
-
-  @mixin Font_Awesome {
-    .fa-bars { margin-right: 4px; }
-    .fa-sign-in-alt { margin-right: 4px; }
-    .fa-sign-out-alt { margin-right: 4px; }
-    .fa-cash-register { margin-right: 4px; }
-    .fa-cloud-upload-alt { margin-right: 4px; }
-  }
+  margin-top: 64px;
 
   @mixin Side_Menu-Sentence {
     content: '';
@@ -45,34 +37,12 @@
     }
   }
 
-  .Title_Menu { @include Side_Menu-Title; }
   .Title_Register {
     @include Side_Menu-Title;
-    margin-top: 24px;
+    margin: 24px 0 16px;
   }
 
-  .Side_Menu {
-    margin: 16px 0 0 24px;
-
-    li {
-      @include Font_Awesome;
-      width: 138px;
-      font-size: 0.8rem;
-      border: solid 1px $Default_Font-Color;
-      border-radius: 5px;
-      padding-left: 60px;
-      margin-bottom: 4px;
-      cursor: pointer;
-
-      &:hover {
-        background-color: $Default_Font-Color;
-        color: #ffffff;
-        a { color: #ffffff; }
-      }
-    }
-  }
-
-  .Product_ID-Form {
+  .Product_ID-Form-Left {
     font-size: 0.8rem;
     margin: 8px 0 0 24px;
 
@@ -101,6 +71,34 @@
       }
     }
   }
+
+  .Title_Menu {
+    @include Side_Menu-Title;
+    margin-top: 32px
+  }
+
+  .Side_Menu {
+    margin: 16px 0 0 24px;
+
+    li {
+      @include Font_Awesome;
+      width: 138px;
+      font-size: 0.8rem;
+      border: solid 1px $Default_Font-Color;
+      border-radius: 5px;
+      padding-left: 60px;
+      margin-bottom: 4px;
+      cursor: pointer;
+
+      &:hover {
+        background-color: $Default_Font-Color;
+        color: #ffffff;
+        a { color: #ffffff; }
+      }
+    }
+  }
+
+  @import "../regist-product";
 
   .Login_Form {
     font-size: 0.8rem;
