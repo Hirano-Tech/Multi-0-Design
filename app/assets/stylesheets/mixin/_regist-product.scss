@@ -1,0 +1,184 @@
+.Third_Title {
+  margin-top: 8px;
+  position: relative;
+
+  h2 {
+    @include Font_Awesome;
+    font-size: 1.1rem;
+    display: flex;
+      justify-content: center;
+      align-items: center;
+
+    @mixin Third_Title-Sentence {
+      content: '';
+      background-color: $Default_Font-Color;
+      width: 200px;
+      height: 1px;
+    }
+
+    &::before {
+      @include Third_Title-Sentence;
+      margin-right: 8px;
+    }
+
+    &::after {
+      @include Third_Title-Sentence;
+      margin-left: 8px;
+    }
+  }
+
+  &--Down_Text {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 0.7rem;
+    text-align: center;
+    margin: -0.2em 0 0 2.0em;
+  }
+}
+
+.Order_01 {
+  width: 600px;
+  border-bottom: solid 1px $Default_Font-Color;
+  padding: 0 0 4px 56px;
+  margin: 40px 0 0 48px;
+  position: relative;
+
+  span {
+    font-size: 2.0rem;
+    font-weight: bold;
+    position: absolute;
+      left: 0;
+      bottom: 0;
+  }
+}
+
+.Support_Site {
+  font-size: 0.8rem;
+  margin: 16px 0 0 104px;
+
+  &--UNIQLO {
+    font-size: 0.8rem;
+    border: solid 1px $Default_Font-Color;
+    border-radius: 5px;
+    padding: 0px 4px 2px 4px;
+
+    &:hover {
+      background-color: $Default_Font-Color;
+      color: #ffffff;
+      a { color: #ffffff; }
+    }
+  }
+}
+
+.Product_ID-Form {
+  font-size: 0.8rem;
+  padding-top: 16px;
+  margin: 8px 0 0 104px;
+
+  @mixin Input_Border {
+    border: solid 1px rgba($Default_Font-Color, 1.0);
+    border-radius: 5px;
+  }
+
+  &--Input {
+    @include Input_Border;
+    padding-left: 4px;
+  }
+
+  &--Submit {
+    @include Input_Border;
+    background-color: #ffffff;
+    padding: 0 2px;
+    margin-left: 8px;
+    cursor: pointer;
+
+    &:hover {
+      background-color: $Default_Font-Color;
+      color: #ffffff;
+    }
+  }
+}
+
+.Product_Confirm {
+  width: 620px;
+  margin: 16px 0 0 64px;
+
+  @mixin Product_Confirm_BOX {
+    position: relative;
+
+    &--Title {
+      background-color: $Default_Font-Color;
+      color: #ffffff;
+      width: 5.0em;
+      text-align: center;
+      border-radius: 4px;
+      padding: 2px 8px;
+      position: absolute;
+        top: 0;
+        left: 0;
+
+      &:after {
+        content: '';
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 7px 0 7px 12px;
+        border-color: transparent transparent transparent $Default_Font-Color;
+        position: absolute;
+          top: calc(50% - 7px);
+          right: -11px;
+      }
+    }
+
+    &--Text { margin-left: 120px }
+  }
+
+  &__ID { @include Product_Confirm_BOX; }
+  &__Name {
+    @include Product_Confirm_BOX;
+    margin-top: 16px;
+  }
+
+  &__Distributor {
+    @include Product_Confirm_BOX;
+    margin-top: 16px;
+  }
+
+  &__Image {
+    background-color: $Default_Font-Color;
+    color: #ffffff;
+    width: 14.0em;
+    border-radius: 4px;
+    padding: 2px 8px;
+    margin: 16px 0 8px;
+  }
+
+  .Flexbox_Wrap {
+    display: inline-flex;
+      flex-wrap: wrap;
+  }
+
+  &--Image {
+    width: 170px;
+    font-size: 0.8rem;
+    text-align: center;
+    margin-bottom: 16px;
+
+    img {
+      width: 150px;
+    }
+  }
+
+  &__Submit {
+    background-color: #ffffff;
+    color: #007bff;
+    width: 100%;
+    border: solid 1px #007bff;
+    border-radius: 5px;
+    cursor: pointer;
+
+    &:hover {
+      background-color: #007bff;
+      color: #ffffff;
+    }
+  }
+}

@@ -4,22 +4,74 @@
   <%= render partial: "influencers/partial/left-column" %>
 
   <section id="Right_Column">
-    <div class="Title_Register">
-      <h2><i class="fas fa-cash-register"></i>登録商品 確認フォーム</h2>
-      <p class="Title_Register--Down_Text">Product Register</p>
-    </div>
+    <% if defined? product == "local-variable" %>
+      <div class="Third_Title">
+        <h2><i class="fas fa-cash-register"></i>登録商品 確認フォーム</h2>
+        <p class="Third_Title--Down_Text">Product Register</p>
+      </div>
 
-    <div class="abc">
-      <p> ● 商品番号：<%= @product["product_id"] %> </p><br>
-      <p> ● 商品名：<%= @product["product_name"] %> </p><br>
-      <p> ● 商品ページ： <%= link_to "商品ページ", @product["product_distributor"], target: :blank %> </p>
-      <!-- <% @product_images.each do |image| %>
-        <%= image_tag image %>
-      <% end %> -->
+      <div class="Product_Confirm">
+        <p class="Product_Confirm__ID">
+          <span class="Product_Confirm__ID--Title">商品番号</span>
+          <span class="Product_Confirm__ID--Text"> <%= product[:product_id] %> </span>
+        </p>
 
-      <% if defined? product == "local-variable" %>
-        <%= product["product_id"] %>
-      <% end %>
-    </div>
+        <p class="Product_Confirm__Name">
+          <span class="Product_Confirm__Name--Title">商品名</span>
+          <span class="Product_Confirm__Name--Text"> <%= product[:product_name] %> </span>
+        </p>
+
+        <p class="Product_Confirm__Distributor">
+          <span class="Product_Confirm__Distributor--Title">商品ページ</span>
+          <span class="Product_Confirm__Distributor--Text"> <%= product[:product_distributor] %> </span>
+        </p>
+
+        <p class="Product_Confirm__Image"> 商品画像を選択してください。</p>
+
+        <%= form_with url: register_products_path, local: true do |form| %>
+          <%= form.hidden_field :product_id, value: product[:product_id] %>
+          <%= form.hidden_field :product_name, value: product[:product_name] %>
+          <%= form.hidden_field :product_distributor, value: product[:product_distributor] %>
+
+          <% product_images.each do |image| %>
+            <div class="Flexbox_Wrap">
+              <p class="Product_Confirm--Image">
+                <% image = URI.parse(image) %>
+                <% image.fragment = image.query = nil %>
+                <% image = image.to_s %>
+
+                <%= image_tag image %><br>
+                <%= form.radio_button :product_image, image %> この画像を登録する
+              </p>
+            </div>
+          <% end %><br>
+
+          <%= form.submit "商品を登録する", class: "Product_Confirm__Submit" %>
+        <% end %>
+      </div>
+
+    <% else %>
+      <div class="Third_Title">
+        <h2><i class="fas fa-cash-register"></i>商品情報 新規登録フォーム</h2>
+        <p class="Third_Title--Down_Text">Product Register</p>
+      </div>
+
+      <p class="Order_01">
+        <span>01.</span> 商品番号を入力してください。
+      </p>
+
+      <p class="Support_Site">
+        対応サイト：<%= link_to 'UNIQLO', 'https://www.uniqlo.com', target: :_blank, class: 'Support_Site--UNIQLO' %>
+      </p>
+
+      <div class="Product_ID-Form">
+        <%= form_with url: register_products_path, local: true do |form| %>
+          <%= form.label :product_id, "商品番号：" %>
+          <%= form.number_field :product_id, class: "Product_ID-Form--Input" %>
+
+          <%= form.submit "商品検索", class: "Product_ID-Form--Submit" %>
+        <% end %>
+      </div>
+    <% end %>
   </section>
 </div>
