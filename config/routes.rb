@@ -8,6 +8,6 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :register_products, only: [:index, :new, :create]
   resources :youtube_videos, only: :new
-  resources :register_products, only: :new
 end
