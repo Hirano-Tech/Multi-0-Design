@@ -1,0 +1,228 @@
+#Right_Column {
+  width: 750px;
+  margin: 80px 0 0 auto;
+
+  @import "../regist-product";
+
+  @mixin Second_Title {
+    font-family: 'Noto Sans JP', sans-serif;
+    color: rgba($Default_Font-Color, 0.1);
+    font-size: 3.0rem;
+    position: relative;
+
+    &::after {
+      color: $Default_Font-Color;
+      font-size: 1.5rem;
+      display: block;
+      position: absolute;
+        left: 3.0em;
+        bottom: -2px;
+    }
+  }
+
+  .Second_Title_Influencers {
+    @include Second_Title;
+    &::after { content: "インフルエンサー"; }
+  }
+
+  .Sort_Influencer {
+    @include Font_Awesome;
+    font-size: 0.8rem;
+    margin-top: 16px;
+
+    &--Default {
+      font-size: 0.7rem;
+      a { color: #1a0dab; }
+    }
+
+    &--Follower {
+      font-size: 0.6rem;
+      margin: 8px 0 0 20px;
+    }
+
+    @mixin Sort_Tag {
+      width: 8.0em;
+      text-align: center;
+      border: solid 1px $Default_Font-Color;
+      border-radius: 5px;
+      padding-bottom: 2px;
+      display: inline-block;
+
+      &:hover {
+        background-color: $Default_Font-Color;
+        a { color: #ffffff; }
+      }
+    }
+
+    &--YouTube {
+      @include Sort_Tag;
+      margin: 4px 8px 0 20px;
+      .fa-youtube { color: $YouTube_Brand-Color; }
+    }
+
+    &--Instagram {
+      @include Sort_Tag;
+      margin: 4px 8px 0 0;
+
+      .fa-instagram {
+        @include Instagram_Brand-Color;
+        border-radius: 4px;
+        padding: 2px 2.25px 1px 2px;
+      }
+    }
+
+    &--Twitter {
+      @include Sort_Tag;
+      margin: 4px 0 0 0;
+      .fa-twitter { color: $Twitter_Brand-Color; }
+    }
+  }
+
+  .Influencers {
+    margin-top: 32px;
+    display: flex;
+      flex-wrap: wrap;
+
+    article {
+      img {
+        @include Image_Size(240px * 0.75, 240px * 0.75);
+        border-radius: 25%;
+      }
+      width: 240px * 0.75;
+      text-align: center;
+      margin: 0 32px 32px 20px;
+    }
+
+    &--Name {
+      font-size: 1.3rem;
+      font-weight: bold;
+      margin-top: 4px;
+    }
+
+    &--Follower {
+      font-size: 0.8rem;
+      text-align: right;
+    }
+
+    &--YouTube {
+      color: $YouTube_Brand-Color;
+      font-size: 1.1rem;
+      margin-right: 8px;
+    }
+
+    &--Instagram {
+      @include Instagram_Brand-Color;
+      font-size: 0.8rem;
+      border-radius: 4px;
+      padding: 0 0 0 3px;
+      margin-right: 12px;
+    }
+
+    &--Twitter {
+      color: $Twitter_Brand-Color;
+      font-size: 1.1rem;
+    }
+  }
+
+  @media screen and (max-width: 767px) {
+    width: 100%;
+    margin-top: 16px;
+
+    h2 {
+      font-size: 1.5rem;
+
+      &::after {
+        font-size: 1.0rem;
+        position: absolute;
+          left: 2.2em;
+          bottom: -0.3em;
+      }
+    }
+
+    .Sort_Influencer {
+      font-size: 0.6rem;
+      padding: 0;
+
+      ul {
+        margin-top: 8px;
+
+        li {
+          margin: 0 4px 2px 0;
+        }
+      }
+
+      &--Default {
+        position: relative;
+          left: 4.2em;
+      }
+    }
+
+    .Influencers {
+      article {
+        width: 50%;
+        margin: 16px 0 16px 0;
+
+        img {
+          width: 75%;
+          height: auto;
+        }
+      }
+
+      &--Name {
+        font-size: 1.0rem;
+        font-weight: bold;
+        margin-top: 0;
+      }
+
+      &--Follower {
+        font-size: 0.7rem;
+        margin-right: 8px;
+      }
+
+      &--Social-Network {
+        .Icon_Twitter {
+          margin-right: 8px;
+        }
+        .Icon_Instagram {
+          margin-right: 8px;
+        }
+      }
+    }
+  }
+
+  .Second_Title_Products {
+    @include Second_Title;
+    margin-top: 32px;
+    &::after { content: "商品情報"; }
+  }
+
+  .Product {
+    width: 180px;
+    font-size: 0.8rem;
+    margin: 32px 0 0 20px;
+
+    img {
+      width: 180px;
+      border-radius: 25%;
+    }
+
+    &--Name {
+      width: 90%;
+      margin: 4px auto 8px;
+    }
+
+    &--Distributor {
+      width: 2.0em;
+      border: solid 1px $Default_Font-Color;
+      border-radius: 5px;
+      padding: 0 2px;
+      margin: 0 12px 0 auto;
+      cursor: pointer;
+
+      &:hover {
+        background-color: $Default_Font-Color;
+        a { color: #ffffff; }
+      }
+    }
+  }
+}
