@@ -6,6 +6,7 @@ class RegisterProductsController < ApplicationController
   end
 
   def new
+    @influencers = Influencer.includes(:youtube_channel)
   end
 
   def create
