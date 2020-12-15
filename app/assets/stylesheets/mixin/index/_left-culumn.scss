@@ -5,7 +5,7 @@
   @mixin Side_Menu-Sentence {
     content: '';
     background-color: $Default_Font-Color;
-    width: 50px;
+    // width: 50px;
     height: 1px;
   }
 
@@ -34,6 +34,36 @@
       font-size: 0.7rem;
       text-align: center;
       margin: -0.2em 0 0 2.0em;
+    }
+  }
+
+  .Title_Menu {
+    @include Side_Menu-Title;
+    margin-top: 32px;
+
+    h2 {
+      &::before { width: 50px; }
+      &::after { width: 50px; }
+    }
+  }
+
+  .Title_Login {
+    @include Side_Menu-Title;
+    margin-top: 32px;
+
+    h2 {
+      &::before { width: 50px; }
+      &::after { width: 50px; }
+    }
+  }
+
+  .Title_Influencer {
+    @include Side_Menu-Title;
+    margin: 32px 0 16px;
+
+    h2 {
+      &::before { width: 16px; }
+      &::after { width: 16px; }
     }
   }
 
@@ -72,21 +102,16 @@
     }
   }
 
-  .Title_Menu {
-    @include Side_Menu-Title;
-    margin-top: 32px
-  }
-
   .Side_Menu {
     margin: 16px 0 0 24px;
 
     &__List {
       @include Font_Awesome;
-      width: 138px;
+      width: 200px;
       font-size: 0.8rem;
+      text-align: center;
       border: solid 1px $Default_Font-Color;
       border-radius: 5px;
-      padding-left: 60px;
       margin-bottom: 4px;
       display: block;
 
@@ -98,11 +123,6 @@
   }
 
   @import "../regist-product";
-
-  .Title_Login {
-    @include Side_Menu-Title;
-    margin-top: 32px
-  }
 
   .Login_Form {
     @include Font_Awesome;
@@ -156,5 +176,12 @@
         }
       }
     }
+  }
+
+  .Side_Influencer-Menu {
+    font-size: 0.8rem;
+    margin: 0 0 4px 24px;
+    display: block;
+    &:hover { text-decoration: underline; }
   }
 }
