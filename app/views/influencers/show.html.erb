@@ -1,29 +1,15 @@
-<header id="Show_Header">
-  <section id="Show_Header__Background">
-    <h1>
-      <%= link_to "Multi-0-Design", root_path %>
-    </h1>
-
-    <p id="Show_Header__Background__Image">
-      <% if @influencer.youtube_channel.header %>
-        <%= image_tag @influencer.youtube_channel.header %>
-      <% else %>
-        <%= image_tag 'http://placehold.jp/1024x300.png' %>
-      <% end %>
-    </p>
-  </section>
+<header id="Header">
+  <%= render partial: "influencers/partial/index-header" %>
 </header>
 
-<section class="Influencer_Title">
-  <%= image_tag @influencer.youtube_channel.icon, class: 'Influencer_Title--Image' %>
-  <h2><%= @influencer.name %></h2>
 
-  <div class="Influencer_Title__SNS">
-    <%= link_to "https://www.youtube.com/channel/#{@influencer.youtube_channel.channel_id}", target: :_blank do %>
-      <i class="fab fa-youtube YouTube_Icon-Color"></i>
-    <% end %>
-  </div>
-</section>
+
+
+
+
+
+
+
 
 <section class="YouTube_Videos">
   <% @video_lists.each do |video| %>
