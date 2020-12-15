@@ -56,7 +56,6 @@ group :test do
   gem 'capybara', '>= 2.15'
   gem 'selenium-webdriver'
   # Easy installation and use of chromedriver to run system tests with Chrome
-  gem 'chromedriver-helper'
 end
 
 group :production do
@@ -67,6 +66,8 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'pry-rails'
 gem 'jquery-rails'
-gem 'friendly_id', '~> 5.4.0'
 gem 'google-api-client', '~> 0.11'
+gem 'selenium-webdriver'
+gem 'chromedriver-helper'
+gem 'devise'
 gem 'kaminari'

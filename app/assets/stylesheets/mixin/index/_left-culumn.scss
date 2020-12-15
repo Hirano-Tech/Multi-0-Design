@@ -1,0 +1,161 @@
+#Left_Column {
+  width: 250px;
+  margin-top: 64px;
+
+  @mixin Side_Menu-Sentence {
+    content: '';
+    background-color: $Default_Font-Color;
+    width: 50px;
+    height: 1px;
+  }
+
+  @mixin Side_Menu-Title {
+    position: relative;
+
+    h2 {
+      @include Font_Awesome;
+      display: flex;
+        justify-content: center;
+        align-items: center;
+
+      &::before {
+        @include Side_Menu-Sentence;
+        margin-right: 8px;
+      }
+
+      &::after {
+        @include Side_Menu-Sentence;
+        margin-left: 8px;
+      }
+    }
+
+    &--Down_Text {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 0.7rem;
+      text-align: center;
+      margin: -0.2em 0 0 2.0em;
+    }
+  }
+
+  .Title_Register {
+    @include Side_Menu-Title;
+    margin: 24px 0 16px;
+  }
+
+  .Product_ID-Form-Left {
+    font-size: 0.8rem;
+    margin: 8px 0 0 24px;
+
+    @mixin Input_Border {
+      border: solid 1px rgba($Default_Font-Color, 0.3);
+      border-radius: 5px;
+    }
+
+    &--Input {
+      @include Input_Border;
+      width: 128px;
+      padding-left: 4px;
+    }
+
+    &--Submit {
+      @include Input_Border;
+      background-color: #ffffff;
+      padding: 0px 4px 2px;
+      margin: 4px 26px 0 auto;
+      display: block;
+      cursor: pointer;
+
+      &:hover {
+        background-color: $Default_Font-Color;
+        color: #ffffff;
+      }
+    }
+  }
+
+  .Title_Menu {
+    @include Side_Menu-Title;
+    margin-top: 32px
+  }
+
+  .Side_Menu {
+    margin: 16px 0 0 24px;
+
+    li {
+      @include Font_Awesome;
+      width: 138px;
+      font-size: 0.8rem;
+      border: solid 1px $Default_Font-Color;
+      border-radius: 5px;
+      padding-left: 60px;
+      margin-bottom: 4px;
+      cursor: pointer;
+
+      &:hover {
+        background-color: $Default_Font-Color;
+        color: #ffffff;
+        a { color: #ffffff; }
+      }
+    }
+  }
+
+  @import "../regist-product";
+
+  .Title_Login {
+    @include Side_Menu-Title;
+    margin-top: 32px
+  }
+
+  .Login_Form {
+    @include Font_Awesome;
+    font-size: 0.8rem;
+    margin: 8px 0 0 24px;
+    position: relative;
+
+    @mixin Login_Form {
+      width: 170px;
+      height: 2.0em;
+      border: solid 1px rgba($Default_Font-Color, 0.3);
+      border-radius: 5px;
+      padding: 0 8px;
+      margin: 4px 0 0 14px;
+    }
+
+    &__E-Mail {
+      &__Form { @include Login_Form; }
+      &--Test-Account {
+        font-size: 0.5rem;
+        text-align: right;
+        margin-right: 24px;
+      }
+    }
+
+    &__Password {
+      margin-top: 8px;
+
+      &__Form { @include Login_Form; }
+      &--Test-Password {
+        font-size: 0.5rem;
+        text-align: right;
+        margin-right: 24px;
+      }
+    }
+
+    &__Btn {
+      width: 5.0em;
+      margin: 8px 22px 0 auto;
+
+      &--Text {
+        background-color: #ffffff;
+        border: solid 1px rgba($Default_Font-Color, 0.3);
+        border-radius: 5px;
+        padding: 0px 4px 2px;
+        cursor: pointer;
+
+        &:hover {
+          background-color: $Default_Font-Color;
+          color: #ffffff;
+        }
+      }
+    }
+  }
+}

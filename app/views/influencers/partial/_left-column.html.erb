@@ -1,0 +1,42 @@
+<section id="Left_Column">
+  <% if user_signed_in? && current_user.name == "Admin" && current_page?(new_register_product_path) %>
+    <div class="Title_Register">
+      <h2><i class="fas fa-cash-register"></i>商品登録</h2>
+      <p class="Title_Register--Down_Text">Product Register</p>
+    </div>
+
+    <div class="Product_ID-Form-Left">
+      <%= form_with url: register_products_path, local: true do |form| %>
+        <%= form.label :product_id, "商品番号：" %>
+        <%= form.number_field :product_id, class: "Product_ID-Form-Left--Input" %>
+
+        <%= form.submit "商品検索", class: "Product_ID-Form-Left--Submit" %>
+      <% end %>
+    </div>
+  <% end %>
+
+  <div class="Title_Menu">
+    <h2><i class="fas fa-bars"></i>メニュー</h2>
+    <p class="Title_Menu--Down_Text">Menu</p>
+  </div>
+
+  <ul class="Side_Menu">
+    <% if user_signed_in? %>
+      <% if current_user.name == "Admin" %>
+        <% unless current_page?(new_register_product_path) %>
+          <li>
+            <i class="fas fa-cloud-upload-alt"></i> <%= link_to "商品登録", new_register_product_path %>
+          </li>
+        <% end %>
+      <% end %>
+
+      <li>
+        <i class="fas fa-sign-out-alt"></i> <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+      </li>
+    <% else %>
+      <li>
+        <i class="fas fa-sign-in-alt"></i> <%= link_to "ログイン", new_user_session_path %>
+      </li>
+    <% end %>
+  </ul>
+</section>

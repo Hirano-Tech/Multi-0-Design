@@ -6,7 +6,7 @@
 
   &--Click {
     .fa-hand-point-down {
-      @include Font_Awesome($Default_Font-Color, 0.9rem);
+      @include Font_Awesome;
       margin: 0 4px;
     }
 
@@ -27,7 +27,7 @@
 
   h3 {
     @include YouTube_Title;
-    .fa-youtube { @include Font_Awesome($Default_Font-Color, 1.5rem); }
+    .fa-youtube { @include Font_Awesome; }
     span { @include Default_Font(1.5rem); }
     margin-bottom: 8 * 2px;
   }
@@ -35,7 +35,7 @@
   .Slide_Toggle { display: none; }
   &__Article {
     &__Pick-UP {
-      .fa-star { @include Font_Awesome($Default_Font-Color, 1.1rem); }
+      .fa-star { @include Font_Awesome; }
       margin-top: 8 * 2px;
 
       &--Marker_Yellow {
