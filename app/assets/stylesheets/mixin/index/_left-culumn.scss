@@ -1,5 +1,5 @@
 #Left_Column {
-  width: 250px;
+  width: 240px;
   margin-top: 64px;
 
   @mixin Side_Menu-Sentence {
@@ -70,6 +70,11 @@
   .Title_Register {
     @include Side_Menu-Title;
     margin: 24px 0 16px;
+
+    h2 {
+      &::before { width: 50px; }
+      &::after { width: 50px; }
+    }
   }
 
   .Product_ID-Form-Left {
@@ -83,7 +88,7 @@
 
     &--Input {
       @include Input_Border;
-      width: 128px;
+      width: 118px;
       padding-left: 4px;
     }
 
@@ -107,7 +112,7 @@
 
     &__List {
       @include Font_Awesome;
-      width: 200px;
+      width: 190px;
       font-size: 0.8rem;
       text-align: center;
       border: solid 1px $Default_Font-Color;
@@ -131,7 +136,7 @@
     position: relative;
 
     @mixin Login_Form {
-      width: 170px;
+      width: 160px;
       height: 2.0em;
       border: solid 1px rgba($Default_Font-Color, 0.3);
       border-radius: 5px;
