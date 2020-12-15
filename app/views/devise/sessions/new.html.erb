@@ -2,10 +2,7 @@
 
 <div class="Flexbox_Row">
   <section id="Left_Column">
-    <div class="Title_Login">
-      <h2><i class="fas fa-sign-in-alt"></i>ログイン</h2>
-      <p class="Title_Login--Down_Text">Login</p>
-    </div>
+    <%= render partial: "influencers/partial/left-column" %>
 
     <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
       <div class="Login_Form">
