@@ -80,7 +80,7 @@
   .Side_Menu {
     margin: 16px 0 0 24px;
 
-    li {
+    &__List {
       @include Font_Awesome;
       width: 138px;
       font-size: 0.8rem;
@@ -88,12 +88,11 @@
       border-radius: 5px;
       padding-left: 60px;
       margin-bottom: 4px;
-      cursor: pointer;
+      display: block;
 
       &:hover {
         background-color: $Default_Font-Color;
         color: #ffffff;
-        a { color: #ffffff; }
       }
     }
   }
