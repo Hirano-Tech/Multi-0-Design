@@ -23,7 +23,7 @@
       <%= link_to @influencer.instagram, class: 'Influencer_Icon__Position--Instagram', target: :_blank do %>
         <i class="fab fa-instagram"></i>
       <% end %>
-      <%= link_to @influencer.twitter, class: 'Influencer_Icon__Position--YouTube', target: :_blank do %>
+      <%= link_to "https://www.youtube.com/channel/#{@influencer.youtube_channel.channel_id}", class: 'Influencer_Icon__Position--YouTube', target: :_blank do %>
         <i class="fab fa-youtube"></i>
       <% end %>
     </div>
