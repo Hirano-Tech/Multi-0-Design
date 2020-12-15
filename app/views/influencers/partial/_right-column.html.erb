@@ -64,13 +64,3 @@
 <h2 class="Second_Title_Products">
   <i class="fas fa-tshirt"></i> Products
 </h2>
-
-<% if current_page?(register_products_path) %>
-  <article class="Product">
-    <%= image_tag product[:product_image] %>
-    <p class="Product--Name"><%= product[:product_name] %></p>
-    <p class="Product--Distributor">
-      <%= link_to '購入', product[:product_distributor] %>
-    </p>
-  </article>
-<% end %>

@@ -4,6 +4,14 @@
   <%= render partial: "influencers/partial/left-column" %>
 
   <section id="Right_Column">
-    <%= render partial: "influencers/partial/right-column", locals: { product: product } %>
+    <%= render partial: "influencers/partial/right-column" %>
+
+    <article class="Product">
+      <%= image_tag product[:product_image] %>
+      <p class="Product--Name"><%= product[:product_name] %></p>
+      <p class="Product--Distributor">
+        <%= link_to '購入', product[:product_distributor] %>
+      </p>
+    </article>
   </section>
 </div>
