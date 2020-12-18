@@ -2,11 +2,10 @@ class RegisterProductsController < ApplicationController
   require "chromedriver-helper"
 
   def index
-    @influencers = Influencer.includes(:youtube_channel)
+    @influencers = Influencer.all
   end
 
   def new
-    @influencers = Influencer.includes(:youtube_channel)
   end
 
   def create
