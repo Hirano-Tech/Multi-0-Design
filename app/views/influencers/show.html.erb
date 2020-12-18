@@ -1,5 +1,30 @@
 <header id="Header">
-  <%= render partial: "influencers/partial/index-header" %>
+  <section class="Influencer_Header">
+    <% if @influencer.youtube_channel.header %>
+      <%= image_tag @influencer.youtube_channel.header %>
+    <% else %>
+      <%= image_tag 'http://placehold.jp/1024x300.png' %>
+    <% end %>
+  </section>
+
+  <section class="Influencer_Icon">
+    <div class="Influencer_Icon__Flexbox">
+      <%= image_tag @influencer.youtube_channel.icon %>
+      <h1><%= @influencer.name %></h1>
+    </div>
+
+    <div class="Influencer_Icon__Position">
+      <%= link_to @influencer.twitter, class: 'Influencer_Icon__Position--Twitter', target: :_blank do %>
+        <i class="fab fa-twitter"></i>
+      <% end %>
+      <%= link_to @influencer.instagram, class: 'Influencer_Icon__Position--Instagram', target: :_blank do %>
+        <i class="fab fa-instagram"></i>
+      <% end %>
+      <%= link_to "https://www.youtube.com/channel/#{@influencer.youtube_channel.channel_id}", class: 'Influencer_Icon__Position--YouTube', target: :_blank do %>
+        <i class="fab fa-youtube"></i>
+      <% end %>
+    </div>
+  </section>
 </header>
 
 
