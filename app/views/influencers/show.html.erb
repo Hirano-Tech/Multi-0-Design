@@ -1,29 +1,40 @@
-<header id="Show_Header">
-  <section id="Show_Header__Background">
-    <h1>
-      <%= link_to "Multi-0-Design", root_path %>
-    </h1>
+<header id="Header">
+  <section class="Influencer_Header">
+    <% if @influencer.youtube_channel.header %>
+      <%= image_tag @influencer.youtube_channel.header %>
+    <% else %>
+      <%= image_tag 'http://placehold.jp/1024x300.png' %>
+    <% end %>
+  </section>
 
-    <p id="Show_Header__Background__Image">
-      <% if @influencer.youtube_channel.header %>
-        <%= image_tag @influencer.youtube_channel.header %>
-      <% else %>
-        <%= image_tag 'http://placehold.jp/1024x300.png' %>
+  <section class="Influencer_Icon">
+    <div class="Influencer_Icon__Flexbox">
+      <%= image_tag @influencer.youtube_channel.icon %>
+      <h1><%= @influencer.name %></h1>
+    </div>
+
+    <div class="Influencer_Icon__Position">
+      <%= link_to @influencer.twitter, class: 'Influencer_Icon__Position--Twitter', target: :_blank do %>
+        <i class="fab fa-twitter"></i>
       <% end %>
-    </p>
+      <%= link_to @influencer.instagram, class: 'Influencer_Icon__Position--Instagram', target: :_blank do %>
+        <i class="fab fa-instagram"></i>
+      <% end %>
+      <%= link_to "https://www.youtube.com/channel/#{@influencer.youtube_channel.channel_id}", class: 'Influencer_Icon__Position--YouTube', target: :_blank do %>
+        <i class="fab fa-youtube"></i>
+      <% end %>
+    </div>
   </section>
 </header>
 
-<section class="Influencer_Title">
-  <%= image_tag @influencer.youtube_channel.icon, class: 'Influencer_Title--Image' %>
-  <h2><%= @influencer.name %></h2>
 
-  <div class="Influencer_Title__SNS">
-    <%= link_to "https://www.youtube.com/channel/#{@influencer.youtube_channel.channel_id}", target: :_blank do %>
-      <i class="fab fa-youtube YouTube_Icon-Color"></i>
-    <% end %>
-  </div>
-</section>
+
+
+
+
+
+
+
 
 <section class="YouTube_Videos">
   <% @video_lists.each do |video| %>

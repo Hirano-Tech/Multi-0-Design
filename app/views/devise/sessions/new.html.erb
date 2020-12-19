@@ -1,39 +1,11 @@
-<%= render partial: "influencers/partial/index-header" %>
+<header id="Header">
+  <%= render partial: "influencers/partial/index-header" %>
+</header>
 
 <div class="Flexbox_Row">
   <section id="Left_Column">
-    <div class="Title_Login">
-      <h2><i class="fas fa-sign-in-alt"></i>ログイン</h2>
-      <p class="Title_Login--Down_Text">Login</p>
-    </div>
-
-    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-      <div class="Login_Form">
-        <div class="field Login_Form__E-Mail">
-          <i class="fas fa-at"></i><%= f.label :email, "メールアドレス" %><br />
-          <%= f.email_field :email, autocomplete: "email", class: "Login_Form__E-Mail__Form" %>
-          <p class="Login_Form__E-Mail--Test-Account">※ テストユーザー：admin@example.com </p>
-        </div>
-
-        <div class="field Login_Form__Password">
-          <i class="fas fa-key"></i><%= f.label :password, 'パスワード' %><br />
-          <%= f.password_field :password, autocomplete: "current-password", class: "Login_Form__Password__Form" %>
-          <p class="Login_Form__Password--Test-Password">※ テストユーザー：12345678 </p>
-        </div>
-
-        <!-- <% if devise_mapping.rememberable? %>
-          <div class="field">
-            <%= f.check_box :remember_me %>
-            <%= f.label :remember_me %>
-          </div>
-        <% end %> -->
-
-        <div class="actions Login_Form__Btn">
-          <%= f.submit "ログイン", class: "Login_Form__Btn--Text" %>
-        </div>
-      </div>
-    <% end %>
-    <!-- <%= render "devise/shared/links" %> -->
+    <% @influencers = Influencer.all %>
+    <%= render partial: "influencers/partial/left-column" %>
   </section>
 
   <section id="Right_Column">

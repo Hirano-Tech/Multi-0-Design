@@ -31,6 +31,29 @@
 <section class="Influencers">
   <% @influencers.each do |influencer| %>
     <article>
+      <% if user_signed_in? %>
+        <% if InfluencerLike.where(influencer_id: influencer.id, user_id: current_user.id).exists? %>
+          <div class="Influencers__Likes">
+            <%= link_to(influencer_like_path(influencer.id, id: influencer.id, anchor: 'Link_Influencer'), method: :delete, class: 'Influencers__Likes--Heart') do %>
+              <i class="fas fa-heart"></i>
+            <% end %>
+            <p class="Influencers__Likes--Count"><%= influencer.influencer_likes.count %></p>
+          </div>
+        <% else %>
+          <div class="Influencers__Likes">
+            <%= link_to(influencer_likes_path(influencer.id, id: influencer.id, anchor: 'Link_Influencer'), method: :post, class: 'Influencers__Likes--Heart') do %>
+              <i class="far fa-heart"></i>
+            <% end %>
+            <p class="Influencers__Likes--Count"><%= influencer.influencer_likes.count %></p>
+          </div>
+        <% end %>
+      <% else %>
+        <div class="Influencers__Likes">
+          <p class="Influencers__Likes--Heart"><i class="far fa-heart"></i></p>
+          <p class="Influencers__Likes--Count"><%= influencer.influencer_likes.count %></p>
+        </div>
+      <% end %>
+
       <%= link_to influencer_path(influencer.id) do %>
         <%= image_tag influencer.youtube_channel.icon %>
       <% end %>

@@ -1,11 +1,11 @@
 #Left_Column {
-  width: 250px;
+  width: 240px;
   margin-top: 64px;
 
   @mixin Side_Menu-Sentence {
     content: '';
     background-color: $Default_Font-Color;
-    width: 50px;
+    // width: 50px;
     height: 1px;
   }
 
@@ -37,9 +37,44 @@
     }
   }
 
+  .Title_Menu {
+    @include Side_Menu-Title;
+    margin-top: 32px;
+
+    h2 {
+      &::before { width: 50px; }
+      &::after { width: 50px; }
+    }
+  }
+
+  .Title_Login {
+    @include Side_Menu-Title;
+    margin-top: 32px;
+
+    h2 {
+      &::before { width: 50px; }
+      &::after { width: 50px; }
+    }
+  }
+
+  .Title_Influencer {
+    @include Side_Menu-Title;
+    margin: 32px 0 16px;
+
+    h2 {
+      &::before { width: 16px; }
+      &::after { width: 16px; }
+    }
+  }
+
   .Title_Register {
     @include Side_Menu-Title;
     margin: 24px 0 16px;
+
+    h2 {
+      &::before { width: 50px; }
+      &::after { width: 50px; }
+    }
   }
 
   .Product_ID-Form-Left {
@@ -53,7 +88,7 @@
 
     &--Input {
       @include Input_Border;
-      width: 128px;
+      width: 118px;
       padding-left: 4px;
     }
 
@@ -72,38 +107,27 @@
     }
   }
 
-  .Title_Menu {
-    @include Side_Menu-Title;
-    margin-top: 32px
-  }
-
   .Side_Menu {
     margin: 16px 0 0 24px;
 
-    li {
+    &__List {
       @include Font_Awesome;
-      width: 138px;
+      width: 190px;
       font-size: 0.8rem;
+      text-align: center;
       border: solid 1px $Default_Font-Color;
       border-radius: 5px;
-      padding-left: 60px;
       margin-bottom: 4px;
-      cursor: pointer;
+      display: block;
 
       &:hover {
         background-color: $Default_Font-Color;
         color: #ffffff;
-        a { color: #ffffff; }
       }
     }
   }
 
   @import "../regist-product";
-
-  .Title_Login {
-    @include Side_Menu-Title;
-    margin-top: 32px
-  }
 
   .Login_Form {
     @include Font_Awesome;
@@ -112,7 +136,7 @@
     position: relative;
 
     @mixin Login_Form {
-      width: 170px;
+      width: 160px;
       height: 2.0em;
       border: solid 1px rgba($Default_Font-Color, 0.3);
       border-radius: 5px;
@@ -157,5 +181,12 @@
         }
       }
     }
+  }
+
+  .Side_Influencer-Menu {
+    font-size: 0.8rem;
+    margin: 0 0 4px 24px;
+    display: block;
+    &:hover { text-decoration: underline; }
   }
 }

@@ -1,85 +1,83 @@
-#Show_Header {
+.Influencer_Header {
   height: 300px;
+
+  img {
+    width: 100vw;
+    max-width: 1024px;
+    height: 300px;
+    opacity: 0.5;
+    object-fit: cover;
+  }
+}
+
+.Influencer_Icon {
+  width: 855px;
+  margin: -120px auto 0;
   position: relative;
 
-  &__Background {
-    @include Title_Font(1.5rem);
-    padding-left: 8px;
+  &__Flexbox {
+    display: flex;
+      flex-direction: row;
 
-    &__Image {
-      z-index: -10;
-      position: absolute; top: 0; left: 0;
+    img {
+      width: 240px;
+      height: 240px;
+      border-radius: 50%;
+      z-index: 10;
+    }
 
-      img {
-        width: 100vw;
-        max-width: 1024px;
-        height: 300px;
-        opacity: 0.5;
-        object-fit: cover;
-      }
+    h1 {
+      font-family: 'Noto Sans JP', sans-serif;
+      font-size: 4.0rem;
+      font-weight: bold;
+      margin: 32px 0 0 16px;
+      z-index: 10;
     }
   }
 
-  @media screen and (max-width: 767px) {
-    height: 200px;
+  &__Position {
+    position: absolute;
+      top: 68px;
+      right: 0px;
 
-    &__Background {
-      @include Title_Font(1.2rem);
-
-      &__Image {
-        img { height: 200px; }
-      }
-    }
-  }
-}
-
-.Influencer_Title {
-  width: 1024px * 0.9;
-  margin: -120px auto 0;
-  display: flex;
-    flex-direction: row;
-
-  &--Image {
-    @include Image_Size(240px, 240px);
-    border-radius: 50%;
-  }
-
-  h2 {
-    height: 1.5em;
-    font-family: 'Noto Sans JP', sans-serif;
-    font-size: 4.0rem;
-    font-weight: bold;
-    z-index: 10;
-    margin: 120px - 96px 0 0 16px;
-  }
-
-  &__SNS {
-    height: 2.0em;
-    z-index: 10;
-    margin: 120px - 32px - 16px 0 0 16px;
-
-    .YouTube_Icon-Color {
-      color: rgba($YouTube_Brand-Color, 1.0);
+    &--Twitter {
+      color: $Twitter_Brand-Color;
       font-size: 2.0rem;
+      z-index: 10;
     }
-  }
 
-  @media screen and (max-width: 767px) {
-    width: 90%;
-    margin-top: (-240px * 0.5) * 0.5;
-    position: relative;
+    &--Instagram {
+      font-size: 1.9rem;
+      margin: 0 8px;
+      z-index: 10;
 
-    &--Image { @include Image_Size(240px * 0.5, 240px * 0.5); }
-    h2 { font-size: 1.5rem; }
-    &__SNS {
-      position: absolute;
-        right: 0;
-        bottom: 28px;
+      .fa-instagram {
+        @include Instagram_Brand-Color;
+        border-radius: 8px;
+        padding: 2px 4px;
+      }
+    }
 
-      .YouTube_Icon-Color { font-size: 1.75rem; }
+    &--YouTube {
+      color: $YouTube_Brand-Color;
+      font-size: 2.0rem;
+      z-index: 10;
     }
   }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 .YouTube_Videos {
   width: 640px;

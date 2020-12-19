@@ -4,6 +4,7 @@ Rails.application.routes.draw do
 
   resources :influencers, only: :show do
     collection do
+      resources :influencer_likes
       resources :youtube_channels, only: :edit
     end
   end

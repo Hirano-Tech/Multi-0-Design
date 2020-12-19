@@ -1,7 +1,7 @@
 class InfluencersController < ApplicationController
 
   def index
-    @influencers = Influencer.includes(:youtube_channel)
+    @influencers = Influencer.includes(:youtube_channel, :influencer_likes)
 
     # ↓ 並び替え機能（インフルエンサー 一覧）↓
     if params[:sort] == "twitter"
