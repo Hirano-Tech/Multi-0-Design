@@ -1,0 +1,64 @@
+<header id="Header">
+  <%= render partial: "influencers/partial/index-header" %>
+</header>
+
+<% @influencers = Influencer.all %>
+<div class="Flexbox_Row">
+  <section id="Left_Column">
+    <%= render partial: "influencers/partial/left-column" %>
+  </section>
+
+  <section id="Right_Column">
+    <h2 class="Second_Title_Regist">
+      <i class="fas fa-user-plus"></i> User Registration Form
+    </h2>
+
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+      <div class="field Regist_Form">
+        <div class="Regist_Form__Flex-Direction">
+          <p class="Regist_Form__Flex-Direction--Require">必須</p>
+          <%= f.label :email, "メールアドレス", class: 'Regist_Form__Flex-Direction--Label' %>
+        </div>
+
+        <%= f.email_field :email, autocomplete: "email", class: 'Regist_Form--Input' %>
+        <p class="Regist_Form--Supplement">※ ログインする際のメールアドレスを入力してください。</p>
+      </div>
+
+      <div class="field Regist_Form">
+        <div class="Regist_Form__Flex-Direction">
+          <p class="Regist_Form__Flex-Direction--Require">必須</p>
+          <%= f.label :password, "パスワード", class: 'Regist_Form__Flex-Direction--Label' %>
+        </div>
+
+        <%= f.password_field :password, class: 'Regist_Form--Input' %>
+        <p class="Regist_Form--Supplement">※ ログインする際のパスワードを 8文字以上で入力してください。</p>
+      </div>
+
+      <div class="field Regist_Form">
+        <div class="Regist_Form__Flex-Direction">
+          <p class="Regist_Form__Flex-Direction--Require">必須</p>
+          <%= f.label :password_confirmation, "パスワード（確認用）", class: 'Regist_Form__Flex-Direction--Label' %>
+        </div>
+
+        <%= f.password_field :password_confirmation, class: 'Regist_Form--Input' %>
+        <p class="Regist_Form--Supplement">※ もう一度、パスワードを入力してください。</p>
+      </div>
+
+      <div class="field Regist_Form">
+        <div class="Regist_Form__Flex-Direction">
+          <p class="Regist_Form__Flex-Direction--Option">任意</p>
+          <%= f.label :name, "名前", class: 'Regist_Form__Flex-Direction--Label' %>
+        </div>
+
+        <%= f.text_field :name, autocomplete: "name", class: 'Regist_Form--Input' %>
+        <p class="Regist_Form--Supplement">※ 投稿時に表示される名前を入力してください。</p>
+      </div>
+
+      <div class="actions">
+        <%= f.submit "新規登録", class: 'Regist_Form_Submit' %>
+      </div>
+    <% end %>
+
+    <%#= render "devise/shared/links" %>
+  </section>
+</div>
