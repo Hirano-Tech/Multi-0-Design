@@ -47,6 +47,11 @@
             <p class="Influencers__Likes--Count"><%= influencer.influencer_likes.count %></p>
           </div>
         <% end %>
+      <% else %>
+        <div class="Influencers__Likes">
+          <p class="Influencers__Likes--Heart"><i class="far fa-heart"></i></p>
+          <p class="Influencers__Likes--Count"><%= influencer.influencer_likes.count %></p>
+        </div>
       <% end %>
 
       <%= link_to influencer_path(influencer.id) do %>
