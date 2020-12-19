@@ -20,6 +20,8 @@
     }
   }
 
+  @import '../devise';
+
   .Second_Title_Influencers {
     @include Second_Title;
     &::after { content: "インフルエンサー"; }

@@ -25,6 +25,11 @@
         <i class="fas fa-sign-in-alt"></i> ログイン
       <% end %>
     <% end %>
+    <% unless current_page?(new_user_registration_path) %>
+      <%= link_to new_user_registration_path, class: 'Side_Menu__List' do %>
+        <i class="fas fa-user-plus"></i> 新規登録
+      <% end %>
+    <% end %>
   <% end %>
 </div>
 
