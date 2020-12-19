@@ -10,7 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_12_113034) do
+ActiveRecord::Schema.define(version: 2020_12_18_151604) do
+
+  create_table "influencer_likes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "influencer_id"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["influencer_id"], name: "index_influencer_likes_on_influencer_id"
+    t.index ["user_id"], name: "index_influencer_likes_on_user_id"
+  end
 
   create_table "influencers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
@@ -82,6 +91,8 @@ ActiveRecord::Schema.define(version: 2020_12_12_113034) do
     t.index ["influencer_id"], name: "index_youtube_videos_on_influencer_id"
   end
 
+  add_foreign_key "influencer_likes", "influencers"
+  add_foreign_key "influencer_likes", "users"
   add_foreign_key "products", "influencers"
   add_foreign_key "products_youtube_videos", "products"
   add_foreign_key "products_youtube_videos", "youtube_videos"
