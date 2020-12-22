@@ -73,8 +73,9 @@
         <%= form_with url: register_products_path, local: true do |form| %>
           <%= form.label :product_id, "商品番号：" %>
           <%= form.number_field :product_id, class: "Product_ID-Form--Input" %>
+          <p class="Product_ID-Form--Alert">※ 不具合のため機能停止中… ※</p>
 
-          <%= form.submit "商品検索", class: "Product_ID-Form--Submit" %>
+          <%#=#form.submit "商品検索", class: "Product_ID-Form--Submit" %>
         <% end %>
       </div>
     <% end %>

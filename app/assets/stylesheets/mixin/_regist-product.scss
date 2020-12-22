@@ -84,6 +84,13 @@
     padding-left: 4px;
   }
 
+  &--Alert {
+    color: #ff0000;
+    font-size: 0.8rem;
+    font-weight: bold;
+    margin-left: 70px;
+  }
+
   &--Submit {
     @include Input_Border;
     background-color: #ffffff;
